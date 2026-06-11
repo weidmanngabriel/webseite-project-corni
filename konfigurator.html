@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SCS Carport Konfigurator | Studienprojekt</title>
+    <meta name="description" content="Interaktiver statischer Prototyp für einen überarbeiteten SCS Carport-Konfigurator.">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+    <div class="benefit-bar" aria-label="Shop-Vorteile">
+      <ul class="container benefit-list">
+        <li><span class="dot" aria-hidden="true"></span>Zertifizierter Shop</li>
+        <li><span class="dot" aria-hidden="true"></span>Schnelle Lieferung</li>
+        <li><span class="dot" aria-hidden="true"></span>Kostenlose Fachberatung</li>
+        <li><span class="dot" aria-hidden="true"></span>180 Jahre Erfahrung</li>
+        <li><span class="dot" aria-hidden="true"></span>Hohe Verfügbarkeit</li>
+      </ul>
+    </div>
+
+    <header class="site-header">
+      <div class="container header-grid">
+        <nav class="main-nav" aria-label="Hauptnavigation">
+          <a href="index.html#holzbau">Holzbau</a>
+          <a href="index.html#fassade">Fassade</a>
+          <a href="index.html#terrasse">Terrasse</a>
+          <a href="konfigurator.html" aria-current="page">Carport</a>
+          <a href="index.html#sale">Sale %</a>
+        </nav>
+        <a class="logo" href="index.html" aria-label="SCS Holzwerke Startseite">
+          <span class="logo-main">SCS</span>
+          <span class="logo-sub">Holzwerke</span>
+        </a>
+        <div class="header-actions" aria-label="Schnellzugriff">
+          <input class="search" type="search" aria-label="Artikelsuche" placeholder="Artikelsuche">
+          <span class="icon-dot" title="Kundenkonto"></span>
+          <span class="icon-dot" title="Merkliste"></span>
+          <span class="icon-dot" title="Warenkorb"></span>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <p class="breadcrumb"><a href="index.html">Home</a> &gt; <strong>Carport</strong></p>
+      <h1 class="page-title">SCS Carport Konfigurator</h1>
+
+      <section class="config-shell" aria-labelledby="config-heading">
+        <div class="config-titlebar">
+          <span id="config-heading">SCS Carportbausatz</span>
+          <span class="slider-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        </div>
+
+        <div class="config-stage">
+          <form class="config-panel" id="configurator-form">
+            <div class="panel-head">
+              <h2>Konstruktion</h2>
+              <button class="collapse-pill" type="button" aria-label="Panel einklappen">«</button>
+            </div>
+
+            <button class="quick-link" type="button" data-scroll-target="#presets">Beliebteste Konfigurationen anschauen</button>
+
+            <fieldset class="option-group">
+              <legend>Art</legend>
+              <div class="option-grid">
+                <button class="option-card is-active" type="button" data-option="type" data-value="single">
+                  <img src="https://www.scs-holzshop.de/media/converted/catalog/product/cache/67ee89799642c567a71fc92f3699d937/e/i/einzelcarport_2.webp" alt="">
+                  Einzelcarport
+                </button>
+                <button class="option-card" type="button" data-option="type" data-value="double">
+                  <img src="https://www.scs-holzshop.de/media/converted/catalog/product/cache/67ee89799642c567a71fc92f3699d937/d/o/doppelcarport_2.webp" alt="">
+                  Doppelcarport
+                </button>
+              </div>
+            </fieldset>
+
+            <fieldset class="option-group">
+              <legend>Dachart</legend>
+              <div class="option-grid">
+                <button class="option-card is-active" type="button" data-option="roof" data-value="flat">
+                  <img src="https://www.scs-holzshop.de/media/resized/6936739f7e9d556aa5920e2211a34f1e/347x180/wysiwyg/homepage/carport-mobile1x.webp" alt="">
+                  Flachdach
+                </button>
+                <button class="option-card" type="button" data-option="roof" data-value="gable">
+                  <img src="https://www.scs-holzshop.de/media/converted/catalog/product/cache/67ee89799642c567a71fc92f3699d937/e/i/einzelcarport_2.webp" alt="">
+                  Satteldach
+                </button>
+              </div>
+            </fieldset>
+
+            <div class="option-group">
+              <p class="option-label">Größe</p>
+              <label class="dimension-row">Breite <input id="width-input" name="width" type="number" min="3" max="8" step="0.5" value="5"> m</label>
+              <label class="dimension-row">Tiefe <input id="depth-input" name="depth" type="number" min="3" max="10" step="0.5" value="5"> m</label>
+            </div>
+
+            <fieldset class="option-group">
+              <legend>Dacheindeckung</legend>
+              <div class="segmented">
+                <button class="option-card is-active" type="button" data-option="cover" data-value="none">Ohne Dacheindeckung</button>
+                <button class="option-card" type="button" data-option="cover" data-value="wave">Wellplatten</button>
+                <button class="option-card" type="button" data-option="cover" data-value="trapezoid">Trapezblech</button>
+                <button class="option-card" type="button" data-option="cover" data-value="sandwich">Sandwichpaneele</button>
+              </div>
+            </fieldset>
+
+            <div class="option-group">
+              <p class="option-label">Seitenverkleidung</p>
+              <div class="switch-list">
+                <label>Links <input type="checkbox" data-side="left"></label>
+                <label>Rechts <input type="checkbox" data-side="right"></label>
+                <label>Hinten <input type="checkbox" data-side="back"></label>
+              </div>
+            </div>
+          </form>
+
+          <aside class="price-box" aria-label="Preisübersicht">
+            <label class="quantity-row">Menge <input id="quantity-input" type="number" min="1" max="9" value="1"></label>
+            <div class="price-row">
+              <span id="quantity-label">1 Stück</span>
+              <strong class="price"><span id="price-output">5.327,06 €</span><span class="tax-note">inkl. MwSt. zzgl. Versand</span></strong>
+            </div>
+            <button class="button button-yellow" id="summary-button" type="button">Konfiguration anfragen</button>
+          </aside>
+        </div>
+
+        <div class="selection-bar"><strong>Aktuelle Auswahl:</strong> <span id="selection-output">Einzelcarport &gt; Flachdach &gt; Ohne Dacheindeckung</span></div>
+      </section>
+
+      <section class="tabs" aria-label="Produktinformationen">
+        <button class="tab-button is-active" type="button" data-tab="description">Produktbeschreibung</button>
+        <button class="tab-button" type="button" data-tab="technical">Technische Daten</button>
+        <button class="tab-button" type="button" data-tab="benefits">Vorteile</button>
+        <button class="tab-button" type="button" data-tab="video">Video</button>
+      </section>
+      <section class="tab-panel is-active" id="description">
+        <h2>Produktinfo</h2>
+        <h3>Individuelle Planung</h3>
+        <p>Ein Einzelcarport ganz nach Ihren Vorstellungen – im SCS Carport Konfigurator frei planbar. Sie kombinieren Dachform, Maße, Dacheindeckung und Seitenverkleidung flexibel nach Bedarf.</p>
+        <h3>Material & Qualität</h3>
+        <p>Der Carport wird als hochwertiger Brettschichtholz-Bausatz gedacht. Die Darstellung ist ein Studienprototyp und bildet den Beratungs- und Auswahlprozess vereinfacht ab.</p>
+        <h3>Fertigung, Aufbau & Lieferumfang</h3>
+        <p>Der Lieferumfang wird als Zusammenfassung sichtbar gemacht. Zuschnitte, Verbindungsmittel und Montageunterlagen werden im Prototyp beispielhaft erwähnt.</p>
+      </section>
+      <section class="tab-panel" id="technical">
+        <h2>Technische Daten</h2>
+        <p>Die technischen Werte ändern sich im MVP nicht automatisch, zeigen aber die geplante Informationsstruktur: Holzart, Abmessungen, Dachform, Dacheindeckung, Schneelast-Hinweise und Lieferumfang.</p>
+      </section>
+      <section class="tab-panel" id="benefits">
+        <h2>Vorteile</h2>
+        <ul>
+          <li>Konfiguration und Preis sind direkt sichtbar.</li>
+          <li>Beliebte Presets reduzieren die Einstiegshürde.</li>
+          <li>FAQ, Liefergebiet und Kontakt beantworten typische Kaufbarrieren.</li>
+        </ul>
+      </section>
+      <section class="tab-panel" id="video">
+        <h2>Video</h2>
+        <p>Platzhalter für ein späteres Video oder einen kurzen Walkthrough des Konfigurators.</p>
+      </section>
+
+      <section class="section" id="presets" aria-labelledby="preset-heading">
+        <h2 id="preset-heading">Unsere beliebtesten Konfigurationen</h2>
+        <div class="preset-grid">
+          <article class="preset-card">
+            <h3>Ideal für alle Wetterbedingungen</h3>
+            <img src="https://www.scs-holzshop.de/media/converted/catalog/product/cache/67ee89799642c567a71fc92f3699d937/e/i/einzelcarport_2.webp" alt="SCS Einzelcarport mit Seitenverkleidung">
+            <p class="preset-meta">Flachdach-Carport 2,5 × 3 m, HNF Fichte, links/rechts/hinten Wand</p>
+            <strong class="preset-price">6.063,77 €</strong>
+            <button class="button button-yellow" type="button" data-preset="weather">Konfiguration öffnen</button>
+          </article>
+          <article class="preset-card">
+            <h3>Perfekt für die ganze Familie</h3>
+            <img src="https://www.scs-holzshop.de/media/converted/catalog/product/cache/67ee89799642c567a71fc92f3699d937/d/o/doppelcarport_2.webp" alt="SCS Doppelcarport mit Satteldach">
+            <p class="preset-meta">Satteldach-Carport 5 × 3 m, Rundprofil Fichte, links/rechts/hinten Wand</p>
+            <strong class="preset-price">8.142,72 €</strong>
+            <button class="button button-yellow" type="button" data-preset="family">Konfiguration öffnen</button>
+          </article>
+          <article class="preset-card">
+            <h3>Ideal für kleinere Budgets</h3>
+            <img src="https://www.scs-holzshop.de/media/resized/6936739f7e9d556aa5920e2211a34f1e/347x180/wysiwyg/homepage/carport-mobile1x.webp" alt="SCS Carport-Konfigurator Visualisierung">
+            <p class="preset-meta">Wellplatten-Dach, 3 × 3 m, Fichtenholz, ohne Seitenverkleidung</p>
+            <strong class="preset-price">5.327,06 €</strong>
+            <button class="button button-yellow" type="button" data-preset="budget">Konfiguration öffnen</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="reviews-heading">
+        <h2 id="reviews-heading">Was Kunden sagen</h2>
+        <div class="reviews">
+          <div class="rating-card">
+            <div>
+              <h3>Hervorragend</h3>
+              <p>4,8 Rating<br>564 Bewertungen</p>
+              <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
+            </div>
+          </div>
+          <div class="review-list">
+            <article class="review"><h3>Heinrich M.</h3><p class="stars">★★★★★</p><p>Unser Carport wurde exakt nach Wunsch gefertigt und passt perfekt. Die Qualität des Holzes ist top.</p><small>Hamburg, vor 3 Wochen</small></article>
+            <article class="review"><h3>Jan H.</h3><p class="stars">★★★★☆</p><p>Die Produktinfos waren verständlich, die Auswahl war schnell erledigt und der Aufbau gut machbar.</p><small>Leipzig, vor 3 Tagen</small></article>
+            <article class="review"><h3>Marko J.</h3><p class="stars">★★★★☆</p><p>Stabiler Carport, gute Verarbeitung und passgenaue Teile. Der Prototyp zeigt die wichtigsten Infos klar.</p><small>Mannheim, vor 6 Wochen</small></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section two-columns" id="liefergebiet" aria-labelledby="delivery-heading">
+        <div class="delivery-box">
+          <h2 id="delivery-heading">Liefergebiet</h2>
+          <p>Waren bis maximal 13,50 Meter Länge werden mit dem hauseigenen Fuhrpark und innerhalb der SCS-Lieferzonen zu einem Pauschalpreis ausgeliefert. Der Check ist im Prototyp eine Dummy-Funktion.</p>
+          <form class="plz-form" data-plz-form>
+            <input type="text" inputmode="numeric" maxlength="5" placeholder="PLZ" aria-label="Postleitzahl">
+            <button class="button button-yellow" type="submit">Liefergebiet prüfen</button>
+          </form>
+          <p class="form-result" data-plz-result aria-live="polite"></p>
+        </div>
+        <img src="assets/images/germany-map.svg" alt="Vereinfachte Deutschlandkarte mit markiertem Liefergebiet">
+      </section>
+
+      <section class="section" id="faq" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Häufigste Fragen & unsere Antworten</h2>
+        <div class="faq-layout">
+          <img class="faq-image" src="https://www.scs-holzshop.de/media/converted/catalog/product/cache/67ee89799642c567a71fc92f3699d937/e/i/einzelcarport_2.webp" alt="SCS Einzelcarport als Beispiel für FAQ und Aufbauhinweise">
+          <div class="faq-list">
+            <article class="faq-item is-open"><button class="faq-question" type="button">Welche Lieferzeiten haben wir? <span>⌃</span></button><div class="faq-answer"><p>Die Lieferzeit beträgt im Beispiel 5–8 Werktage in Liefergebiet 1 und 10–15 Werktage in Liefergebiet 2.</p></div></article>
+            <article class="faq-item"><button class="faq-question" type="button">Warum bei SCS-Holzshop kaufen? <span>⌄</span></button><div class="faq-answer"><p>Der Prototyp hebt Beratung, Sortiment, Erfahrung und transparente Konfiguration als Kaufargumente hervor.</p></div></article>
+            <article class="faq-item"><button class="faq-question" type="button">Welchen Service können wir bieten? <span>⌄</span></button><div class="faq-answer"><p>Geplant sind Fachberatung, Lieferhinweise und eine verständliche Zusammenfassung der Wunschkonfiguration.</p></div></article>
+            <article class="faq-item"><button class="faq-question" type="button">Benötige ich eine Baugenehmigung? <span>⌄</span></button><div class="faq-answer"><p>Das hängt vom Bundesland und Standort ab. Im echten Shop wäre hier ein deutlicher Hinweis auf lokale Vorschriften sinnvoll.</p></div></article>
+            <article class="faq-item"><button class="faq-question" type="button">Kann ich meine Konfiguration nachträglich ändern? <span>⌄</span></button><div class="faq-answer"><p>Im Prototyp kann die Auswahl jederzeit geändert und erneut zusammengefasst werden.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="kontakt" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Antwort nicht gefunden? Dann kontaktieren Sie uns direkt!</h2>
+        <div class="contact-grid">
+          <article class="contact-card"><span class="dot"></span><h3>Anrufen</h3><p>+49 8224 / 966 - 100</p></article>
+          <article class="contact-card"><span class="dot"></span><h3>WhatsApp</h3><p>Nachricht senden</p></article>
+          <article class="contact-card"><span class="dot"></span><h3>E-Mail</h3><p>info@scs-holzshop.de</p></article>
+          <img class="team-photo" src="https://www.scs-holzshop.de/media/converted/wysiwyg/contact-us/Gruppenbild_Onlineshop_0226_uka.webp" alt="SCS Beratungsteam vor gelben LKWs">
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><a class="logo footer-logo" href="index.html"><span class="logo-main">SCS</span><span class="logo-sub">Holzwerke</span></a></div>
+        <div class="footer-col"><h3>Hilfe & Kontakt</h3><ul><li><a href="#kontakt">Kontakt</a></li><li><a href="#liefergebiet">Versand</a></li><li>Rückgabe & Widerruf</li><li>AGB</li><li>Datenschutz</li><li>Impressum</li></ul></div>
+        <div class="footer-col"><h3>Über SCS</h3><ul><li>Unternehmen</li><li>Nachhaltigkeit</li><li>Standorte</li><li>Unsere Fachmärkte</li></ul></div>
+        <div class="footer-col"><h3>Service</h3><ul><li>Ratgeber</li><li>Kundenreferenzen</li><li>FAQ</li></ul></div>
+        <div class="footer-col"><h3>Zahlungsarten</h3><div class="payment-grid" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+      </div>
+      <p class="copyright">Studienprojekt, kein offizieller SCS-Shop. Copyright-Hinweis als Platzhalter.</p>
+    </footer>
+
+    <dialog class="modal" id="summary-modal">
+      <div class="modal-content">
+        <h2>Konfigurations-Zusammenfassung</h2>
+        <div id="modal-summary"></div>
+        <p><strong>Hinweis:</strong> Dies ist kein echter Checkout. Für die Abgabe wird nur gezeigt, wie eine Anfrage- oder Warenkorb-Zusammenfassung aussehen könnte.</p>
+        <div class="modal-actions">
+          <button class="button button-yellow" type="button" id="close-modal">Verstanden</button>
+          <button class="button button-ghost" type="button" id="print-summary">Zusammenfassung drucken</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="js/main.js"></script>
+    <script src="js/configurator.js"></script>
+  </body>
+</html>
