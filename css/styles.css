@@ -264,12 +264,21 @@ h3 { line-height: 1.2; }
 .contact-card { padding: 24px; }
 
 .category-card {
-  min-height: 150px;
+  min-height: 230px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.category-card img {
+  width: calc(100% + 48px);
+  height: 118px;
+  margin: -24px -24px 18px;
+  object-fit: cover;
+  background: #eee;
 }
 
 .category-card span { color: var(--color-muted); font-size: 0.85rem; text-transform: none; font-weight: 600; }
@@ -308,7 +317,7 @@ h3 { line-height: 1.2; }
   position: relative;
   min-height: 610px;
   padding: 24px;
-  background: #d5e2e8 url('../assets/images/carport-hero.svg') center/cover no-repeat;
+  background: #d5e2e8 url('https://www.scs-holzshop.de/media/resized/6936739f7e9d556aa5920e2211a34f1e/347x180/wysiwyg/homepage/carport-mobile1x.webp') center/cover no-repeat;
 }
 
 .config-panel {
@@ -505,8 +514,10 @@ fieldset { padding: 0; border: 0; }
 }
 
 .faq-image {
+  width: 100%;
   min-height: 430px;
-  background: linear-gradient(160deg, #3a668a, #d7c4a3 58%, #7a5a38);
+  object-fit: cover;
+  background: #eee;
 }
 
 .faq-item { border-bottom: 1px solid var(--color-white); background: #e7e7e7; }
@@ -528,11 +539,10 @@ fieldset { padding: 0; border: 0; }
 .contact-card { text-align: center; }
 .contact-card .dot { margin-bottom: 16px; }
 .team-photo {
+  width: 100%;
   min-height: 170px;
-  background: linear-gradient(135deg, #f5d43c 0 25%, #dfdfdf 25% 100%);
-  display: grid;
-  place-items: center;
-  font-weight: 900;
+  object-fit: cover;
+  background: #eee;
 }
 
 .site-footer { background: #e5e5e5; padding-top: 64px; }

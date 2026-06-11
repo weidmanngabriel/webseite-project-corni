@@ -28,5 +28,5 @@ Diese Datei hält projektspezifische Arbeitsregeln sowie den aktuellen Projektst
 - Gemeinsames Styling liegt in `css/styles.css`.
 - Allgemeine UI-Interaktionen liegen in `js/main.js`.
 - Die Konfigurator-Logik liegt in `js/configurator.js`.
-- Bilder und einfache Platzhaltergrafiken liegen in `assets/images/`.
+- Bilder können direkt von der öffentlichen SCS-Holzshop-Seite eingebunden werden, wenn keine lokalen Bilddateien verfügbar sind; lokale Hilfsgrafiken liegen in `assets/images/`.
 - Preisberechnungen dürfen fiktiv sein, müssen aber im Code nachvollziehbar bleiben.
