@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Carport Visualisierung</title>
+  <desc id="desc">Illustration eines Holz-Carports vor einem modernen Haus.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#c9ddea"/>
+      <stop offset="1" stop-color="#eef5f1"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" x2="1">
+      <stop offset="0" stop-color="#d8b16b"/>
+      <stop offset="1" stop-color="#8b5f2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="520" fill="url(#sky)"/>
+  <circle cx="740" cy="82" r="46" fill="#fff5b5" opacity=".8"/>
+  <path d="M0 360c140-34 252-36 380 0 168 46 330 18 520-18v178H0z" fill="#8cb26d"/>
+  <path d="M620 160h165l60 75v185H620z" fill="#efefef"/>
+  <path d="M620 160h165l60 75H680z" fill="#d8d8d8"/>
+  <rect x="680" y="235" width="88" height="185" fill="#b58b45"/>
+  <rect x="712" y="240" width="34" height="74" fill="#404a4f"/>
+  <rect x="800" y="264" width="22" height="156" fill="#7b2832"/>
+  <ellipse cx="385" cy="386" rx="185" ry="28" fill="#2b2b2b" opacity=".25"/>
+  <path d="M276 330h220c42 0 74 27 82 66H198c8-40 36-66 78-66z" fill="#2f363b"/>
+  <path d="M255 330h245c31 0 59 20 75 52H212c10-32 22-52 43-52z" fill="#6e777f"/>
+  <circle cx="285" cy="396" r="31" fill="#151719"/><circle cx="505" cy="396" r="31" fill="#151719"/>
+  <circle cx="285" cy="396" r="16" fill="#cdd3d8"/><circle cx="505" cy="396" r="16" fill="#cdd3d8"/>
+  <rect x="160" y="245" width="520" height="24" fill="url(#wood)"/>
+  <rect x="170" y="220" width="500" height="28" fill="#e6c27d"/>
+  <rect x="185" y="268" width="18" height="154" fill="url(#wood)"/>
+  <rect x="645" y="268" width="18" height="154" fill="url(#wood)"/>
+  <rect x="415" y="268" width="18" height="154" fill="url(#wood)"/>
+  <path d="M198 278l78-58h26l-96 75zM646 278l-78-58h-26l96 75zM420 278l-72-58h-23l88 75z" fill="#9f6d2f" opacity=".9"/>
+  <rect x="155" y="212" width="530" height="14" fill="#f7d67e"/>
+</svg>

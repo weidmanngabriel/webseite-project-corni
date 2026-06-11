@@ -5,22 +5,28 @@ Diese Datei hält projektspezifische Arbeitsregeln sowie den aktuellen Projektst
 ## Arbeitsregeln
 
 - Es sind keine Playwright-Screenshots notwendig.
-- Wenn sich Anforderungen, der Projektumfang oder architektonische Entscheidungen ändern, muss der Abschnitt „Projektstand“ entsprechend ergänzt oder angepasst werden.
+- Wenn sich Anforderungen, der Projektumfang, die Abgabeanforderungen oder architektonische Entscheidungen ändern, muss der Abschnitt „Projektstand“ entsprechend ergänzt oder angepasst werden.
+- Die `README.md` soll bei relevanten Änderungen an Setup, Features, Live-URL, Limitierungen oder Abgabehinweisen aktualisiert werden.
 - Änderungen sollen einfach verständlich und wartbar bleiben.
-- Neue Abstraktionen, Frameworks oder Build-Schritte sollen nur eingeführt werden, wenn sie wirklich notwendig sind.
+- Neue Abstraktionen, Frameworks, Build-Schritte oder Paketmanager sollen nur eingeführt werden, wenn sie wirklich notwendig sind.
 
 ## Projektstand
 
 ### High-Level Requirements
 
-- Das Projekt stellt eine einfache statische Webseite bereit.
-- Die Startseite liegt in `index.html` im Repository-Root.
-- Die Webseite soll ohne Build-Schritt direkt auslieferbar sein.
-- Die Seite dient aktuell vor allem dazu, die Deployment-Pipeline sichtbar zu prüfen.
+- Das Projekt ist eine statische, deutschsprachige Studienprojekt-Website zur UX-Überarbeitung des SCS-Carport-Konfigurators.
+- Die Website soll über GitHub Pages live erreichbar sein und am Ende als ZIP mit Code und Dokumentation eingereicht werden können.
+- Die Startseite (`index.html`) dient als SCS-nahe Shop-Einstiegsseite mit klarer Weiterleitung zum Konfigurator.
+- Die Konfigurator-Seite (`konfigurator.html`) ist der Hauptfokus und enthält eine bedienbare Auswahl-Logik für Carport-Art, Dachform, Maße, Dacheindeckung, Seitenverkleidung und Menge.
+- Ein echter Checkout, echte Zahlung, Login, CMS und Backend sind nicht Teil des MVP; der Warenkorb-/Anfrage-Prozess wird nur als Zusammenfassung angedeutet.
+- Die README dokumentiert Projektbeschreibung, Setup, Technologieentscheidung, UX-Konzept, Limitierungen, Future Work und AI Use Declaration.
 
 ### Architektonische Entscheidungen
 
-- Es wird bewusst eine einzelne statische HTML-Datei verwendet.
-- CSS ist aktuell direkt in `index.html` eingebettet, damit der Projektstand minimal und leicht nachvollziehbar bleibt.
-- Es gibt derzeit keine JavaScript-Abhängigkeiten, kein Frontend-Framework und keinen Paketmanager-Workflow.
-- Zusätzliche Dateien oder Tools sollen erst ergänzt werden, wenn ein konkreter Bedarf besteht.
+- Es werden HTML, CSS und Vanilla JavaScript verwendet.
+- Die Seite bleibt ohne Build-Schritt direkt auslieferbar und GitHub-Pages-kompatibel.
+- Gemeinsames Styling liegt in `css/styles.css`.
+- Allgemeine UI-Interaktionen liegen in `js/main.js`.
+- Die Konfigurator-Logik liegt in `js/configurator.js`.
+- Bilder und einfache Platzhaltergrafiken liegen in `assets/images/`.
+- Preisberechnungen dürfen fiktiv sein, müssen aber im Code nachvollziehbar bleiben.
