@@ -322,7 +322,11 @@ h3 { line-height: 1.2; }
 
 .config-panel {
   width: 280px;
+  max-height: 455px;
   padding: 22px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
   background: var(--color-white);
   border-radius: 14px;
   box-shadow: var(--shadow-card);
@@ -571,7 +575,7 @@ fieldset { padding: 0; border: 0; }
   .category-grid { grid-template-columns: repeat(2, 1fr); }
   .trust-grid, .preset-grid, .review-list, .contact-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .config-stage { display: grid; gap: 24px; background-position: center top; padding-top: 270px; }
-  .config-panel { width: 100%; }
+  .config-panel { width: 100%; max-height: none; }
   .price-box { position: static; width: 100%; }
 }
 
