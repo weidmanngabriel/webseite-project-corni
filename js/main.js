@@ -18,8 +18,20 @@ const setupFaq = () => {
   document.querySelectorAll('.faq-question').forEach((button) => {
     button.addEventListener('click', () => {
       const item = button.closest('.faq-item');
-      const isOpen = item.classList.toggle('is-open');
-      button.querySelector('span').textContent = isOpen ? '⌃' : '⌄';
+      const wasOpen = item.classList.contains('is-open');
+      if (wasOpen) return;
+
+      document.querySelectorAll('.faq-item').forEach((faqItem) => {
+        faqItem.classList.remove('is-open');
+        const question = faqItem.querySelector('.faq-question');
+        question?.setAttribute('aria-expanded', 'false');
+        const icon = question?.querySelector('span');
+        if (icon) icon.textContent = '⌄';
+      });
+
+      item.classList.add('is-open');
+      button.setAttribute('aria-expanded', 'true');
+      button.querySelector('span').textContent = '⌃';
     });
   });
 };
