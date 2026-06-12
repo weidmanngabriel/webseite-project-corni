@@ -790,7 +790,7 @@ fieldset { padding: 0; border: 0; }
 .review {
   flex: 0 0 calc(100% / 3);
   display: grid;
-  align-content: space-between;
+  grid-template-rows: 38px auto 1fr;
   min-height: 245px;
   padding: 0 18px;
 }
@@ -800,7 +800,7 @@ fieldset { padding: 0; border: 0; }
   justify-content: space-between;
   gap: 16px;
   align-items: center;
-  margin-bottom: 16px;
+  margin: 0;
 }
 
 .review h3 {
@@ -811,8 +811,9 @@ fieldset { padding: 0; border: 0; }
 
 .stars { color: #f0c800; letter-spacing: 0.2em; }
 .review .stars { margin: 0; white-space: nowrap; }
-.review p { margin-bottom: 20px; }
+.review > p { margin: 18px 0 0; }
 .review small {
+  align-self: end;
   color: #333;
   font-size: 0.62rem;
   line-height: 1.35;
