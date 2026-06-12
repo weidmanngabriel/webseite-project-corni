@@ -405,6 +405,9 @@ h3 { line-height: 1.2; }
 .config-panel {
   width: 280px;
   max-height: 100%;
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: 30px;
   padding: 24px 22px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -464,7 +467,6 @@ h3 { line-height: 1.2; }
 
 .quick-link {
   width: 100%;
-  margin: 20px 0 26px;
   padding: 12px;
   border: 0;
   background: #eee;
@@ -475,9 +477,14 @@ h3 { line-height: 1.2; }
 
 .quick-link:hover { background: #dedede; }
 
-.option-group { margin: 0 0 22px; }
+.option-group {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
 .option-group legend, .option-label {
-  margin-bottom: 10px;
+  margin: 0;
   font-size: 1rem;
   font-weight: 900;
   line-height: 1.2;
@@ -522,7 +529,6 @@ fieldset { padding: 0; border: 0; }
   grid-template-columns: 1fr auto;
   gap: 12px;
   align-items: center;
-  margin-bottom: 10px;
   font-size: 0.85rem;
   font-weight: 700;
 }
