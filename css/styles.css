@@ -539,6 +539,8 @@ fieldset { padding: 0; border: 0; }
 
 .cover-grid .option-card {
   min-height: 96px;
+  font-size: 0.68rem;
+  line-height: 1.18;
 }
 
 .cover-grid .option-card img {
@@ -623,6 +625,10 @@ fieldset { padding: 0; border: 0; }
   border: solid var(--color-black);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+}
+
+.special-request-button {
+  width: 100%;
 }
 
 .price-box {
