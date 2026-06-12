@@ -968,14 +968,21 @@ fieldset { padding: 0; border: 0; }
 
 .contact-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.55fr);
-  gap: 44px;
-  align-items: end;
+  grid-template-columns: minmax(560px, 1fr) minmax(340px, 0.62fr);
+  gap: 56px;
+  align-items: center;
+}
+
+#kontakt h2 {
+  max-width: 980px;
+  margin-inline: auto;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  line-height: 1.12;
 }
 
 .contact-content {
   display: grid;
-  gap: 26px;
+  gap: 30px;
 }
 
 .contact-intro {
@@ -996,12 +1003,17 @@ fieldset { padding: 0; border: 0; }
 
 .contact-intro p { margin: 0; }
 
+.contact-content .contact-grid {
+  grid-template-columns: repeat(3, minmax(170px, 1fr));
+  gap: 20px;
+}
+
 .contact-card {
   display: grid;
   justify-items: center;
   align-content: center;
-  min-height: 146px;
-  padding: 24px 18px;
+  min-height: 150px;
+  padding: 24px 24px;
   text-align: center;
 }
 
@@ -1011,7 +1023,11 @@ fieldset { padding: 0; border: 0; }
   text-transform: uppercase;
 }
 
-.contact-card p { margin: 0; }
+.contact-card p {
+  margin: 0;
+  max-width: 18ch;
+  line-height: 1.35;
+}
 
 .contact-icon-circle {
   width: 31px;
@@ -1030,8 +1046,9 @@ fieldset { padding: 0; border: 0; }
 
 .team-photo {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 12;
   object-fit: cover;
+  object-position: center;
   background: #eee;
 }
 
@@ -1187,6 +1204,7 @@ fieldset { padding: 0; border: 0; }
   .review-carousel { grid-template-columns: 28px minmax(0, 1fr) 28px; gap: 8px; }
   .review { padding: 0 10px; }
   .review header { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .contact-content .contact-grid { grid-template-columns: 1fr; }
   .delivery-section { gap: 28px; }
   .delivery-tools { gap: 24px; }
   .config-stage { min-height: auto; padding: 180px 12px 12px; }
