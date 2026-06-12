@@ -405,7 +405,7 @@ h3 { line-height: 1.2; }
 .config-panel {
   width: 280px;
   max-height: 100%;
-  padding: 22px;
+  padding: 24px 22px;
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -464,7 +464,7 @@ h3 { line-height: 1.2; }
 
 .quick-link {
   width: 100%;
-  margin: 18px 0;
+  margin: 20px 0 26px;
   padding: 12px;
   border: 0;
   background: #eee;
@@ -475,8 +475,15 @@ h3 { line-height: 1.2; }
 
 .quick-link:hover { background: #dedede; }
 
-.option-group { margin: 18px 0; }
-.option-group legend, .option-label { margin-bottom: 8px; font-weight: 800; }
+.option-group { margin: 0 0 22px; }
+.option-group legend, .option-label {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.option-label { display: block; }
 fieldset { padding: 0; border: 0; }
 
 .option-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -490,20 +497,41 @@ fieldset { padding: 0; border: 0; }
   font-size: 0.72rem;
   font-weight: 800;
   text-align: center;
+  transition: background-color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
 }
 
 .option-card img { width: 100%; height: 58px; object-fit: cover; margin-bottom: 5px; }
+.option-card:hover {
+  background: #f7f7f7;
+  border-color: #d7d7d7;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+}
+
 .option-card.is-active { border-color: var(--color-yellow); background: #fffde0; }
+.option-card.is-active:hover { border-color: var(--color-yellow-dark); background: #fff9bd; }
 
 .segmented { display: grid; gap: 8px; }
-.segmented .option-card { min-height: auto; padding: 10px; }
+.segmented .option-card {
+  min-height: auto;
+  padding: 11px 10px;
+  box-shadow: none;
+}
 
 .dimension-row {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
-  margin-bottom: 9px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.dimension-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-muted);
+  font-weight: 700;
 }
 
 .dimension-row input,
@@ -511,6 +539,18 @@ fieldset { padding: 0; border: 0; }
   width: 100%;
   border: 1px solid #bbb;
   padding: 10px 12px;
+  transition: border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.dimension-row input {
+  width: 76px;
+  background: #f8f8f8;
+}
+
+.dimension-row input:hover,
+.dimension-row input:focus {
+  border-color: #777;
+  background: var(--color-white);
 }
 
 .switch-list { display: grid; gap: 8px; }
@@ -522,7 +562,10 @@ fieldset { padding: 0; border: 0; }
   padding: 10px;
   background: #f2f2f2;
   font-weight: 700;
+  transition: background-color 0.16s ease;
 }
+
+.switch-list label:hover { background: #e5e5e5; }
 
 .price-box {
   position: absolute;
