@@ -966,17 +966,71 @@ fieldset { padding: 0; border: 0; }
 .faq-answer { display: none; padding: 0 28px 24px; }
 .faq-item.is-open .faq-answer { display: block; }
 
-.contact-card { text-align: center; }
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.55fr);
+  gap: 44px;
+  align-items: end;
+}
+
+.contact-content {
+  display: grid;
+  gap: 26px;
+}
+
+.contact-intro {
+  text-align: center;
+}
+
+.contact-intro h3 {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-yellow);
+  color: #6a6a6a;
+  font-size: 1.12rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contact-intro p { margin: 0; }
+
+.contact-card {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  min-height: 146px;
+  padding: 24px 18px;
+  text-align: center;
+}
+
+.contact-card h3 {
+  margin: 18px 0 6px;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+}
+
+.contact-card p { margin: 0; }
+
+.contact-icon-circle {
+  width: 31px;
+  height: 31px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-yellow);
+}
+
 .contact-icon {
-  width: 42px;
-  height: 42px;
-  margin: 0 auto 16px;
+  width: 16px;
+  height: 16px;
   object-fit: contain;
 }
 
 .team-photo {
   width: 100%;
-  min-height: 170px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   background: #eee;
 }
@@ -1106,7 +1160,7 @@ fieldset { padding: 0; border: 0; }
   .benefit-list { overflow-x: auto; justify-content: flex-start; }
   .header-grid { grid-template-columns: 1fr; }
   .main-nav, .header-actions { justify-content: center; flex-wrap: wrap; }
-  .hero-grid, .teaser, .two-columns, .reviews, .faq-layout { grid-template-columns: 1fr; }
+  .hero-grid, .teaser, .two-columns, .reviews, .faq-layout, .contact-layout { grid-template-columns: 1fr; }
   .delivery-section, .delivery-tools { grid-template-columns: 1fr; }
   .category-grid { grid-template-columns: repeat(2, 1fr); }
   .trust-grid, .preset-grid, .review-list, .contact-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
