@@ -339,14 +339,17 @@ h3 { line-height: 1.2; }
 .config-stage {
   position: relative;
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
+  height: 72vh;
   min-height: 610px;
+  max-height: 650px;
   padding: 24px;
   background: #d5e2e8 url('../assets/images/hero/Carport flach preview.jpg') center/cover no-repeat;
 }
 
 .config-panel {
   width: 280px;
+  max-height: 100%;
   padding: 22px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -636,8 +639,8 @@ fieldset { padding: 0; border: 0; }
   .hero-grid, .teaser, .two-columns, .reviews, .faq-layout { grid-template-columns: 1fr; }
   .category-grid { grid-template-columns: repeat(2, 1fr); }
   .trust-grid, .preset-grid, .review-list, .contact-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
-  .config-stage { display: grid; gap: 24px; background-position: center top; padding-top: 270px; }
-  .config-panel { width: 100%; max-height: none; }
+  .config-stage { display: grid; gap: 24px; height: auto; max-height: none; background-position: center top; padding-top: 270px; }
+  .config-panel { width: 100%; max-height: 520px; }
   .config-panel.is-collapsed { width: 36px; justify-self: start; }
   .price-box { position: static; width: 100%; }
 }
