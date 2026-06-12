@@ -57,7 +57,22 @@ const setupScrollButtons = () => {
   });
 };
 
+const setupConfigPanelToggle = () => {
+  const panel = document.querySelector('.config-panel');
+  const button = document.querySelector('.collapse-pill');
+  if (!panel || !button) return;
+
+  button.addEventListener('click', () => {
+    const isCollapsed = panel.classList.toggle('is-collapsed');
+
+    button.textContent = isCollapsed ? '»' : '«';
+    button.setAttribute('aria-expanded', String(!isCollapsed));
+    button.setAttribute('aria-label', isCollapsed ? 'Panel öffnen' : 'Panel einklappen');
+  });
+};
+
 setupTabs();
 setupFaq();
 setupPlzCheck();
 setupScrollButtons();
+setupConfigPanelToggle();

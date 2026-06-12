@@ -338,6 +338,8 @@ h3 { line-height: 1.2; }
 
 .config-stage {
   position: relative;
+  display: flex;
+  align-items: stretch;
   min-height: 610px;
   padding: 24px;
   background: #d5e2e8 url('../assets/images/hero/Carport flach preview.jpg') center/cover no-repeat;
@@ -345,7 +347,6 @@ h3 { line-height: 1.2; }
 
 .config-panel {
   width: 280px;
-  max-height: min(420px, calc(100vh - 240px));
   padding: 22px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -354,6 +355,7 @@ h3 { line-height: 1.2; }
   background: var(--color-white);
   border-radius: 14px;
   box-shadow: var(--shadow-card);
+  transition: width 0.2s ease, padding 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .panel-head {
@@ -373,6 +375,30 @@ h3 { line-height: 1.2; }
   background: var(--color-black);
   color: var(--color-white);
   font-size: 1.2rem;
+}
+
+.config-panel.is-collapsed {
+  width: 36px;
+  min-height: 36px;
+  height: 36px;
+  padding: 0;
+  overflow: visible;
+  scrollbar-gutter: auto;
+  background: transparent;
+  box-shadow: none;
+}
+
+.config-panel.is-collapsed > :not(.panel-head),
+.config-panel.is-collapsed .panel-head h2 {
+  display: none;
+}
+
+.config-panel.is-collapsed .panel-head {
+  display: block;
+}
+
+.config-panel.is-collapsed .collapse-pill {
+  box-shadow: 0 10px 24px rgb(0 0 0 / 24%);
 }
 
 .quick-link {
@@ -612,6 +638,7 @@ fieldset { padding: 0; border: 0; }
   .trust-grid, .preset-grid, .review-list, .contact-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .config-stage { display: grid; gap: 24px; background-position: center top; padding-top: 270px; }
   .config-panel { width: 100%; max-height: none; }
+  .config-panel.is-collapsed { width: 36px; justify-self: start; }
   .price-box { position: static; width: 100%; }
 }
 
