@@ -531,25 +531,40 @@ fieldset { padding: 0; border: 0; }
 }
 
 .preset-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 58px 220px 1fr;
   padding: 34px 36px 36px;
   background: #eeeeee;
   border: 0;
 }
 
-.preset-card h3 {
-  margin-bottom: 24px;
-  font-size: 1.25rem;
-  font-weight: 900;
+.preset-heading {
+  display: grid;
+  place-items: center;
   text-align: center;
 }
 
-.preset-card img {
+.preset-heading h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.preset-image {
+  display: grid;
+  place-items: center;
+}
+
+.preset-image img {
   width: 100%;
-  height: 210px;
+  height: 200px;
   object-fit: contain;
-  margin-bottom: 26px;
+}
+
+.preset-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .preset-info {
@@ -558,6 +573,7 @@ fieldset { padding: 0; border: 0; }
   gap: 18px;
   align-items: end;
   margin-bottom: 22px;
+  min-height: 78px;
 }
 
 .preset-meta {
@@ -702,6 +718,9 @@ fieldset { padding: 0; border: 0; }
   .config-stage { display: grid; gap: 24px; height: auto; max-height: none; background-position: center top; padding-top: 270px; }
   .config-panel { width: 100%; max-height: 520px; }
   .config-panel.is-collapsed { width: 36px; justify-self: start; }
+  .preset-card { padding-inline: 28px; }
+  .preset-info { grid-template-columns: 1fr; gap: 10px; }
+  .preset-price { text-align: left; }
   .price-box { position: static; width: 100%; }
 }
 
