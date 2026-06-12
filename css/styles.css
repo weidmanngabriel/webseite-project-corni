@@ -213,26 +213,35 @@ h3 { line-height: 1.2; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 44px;
-  padding: 12px 22px;
-  border: 2px solid var(--color-black);
-  background: var(--color-black);
-  color: var(--color-white);
+  min-height: 38px;
+  padding: 10px 22px;
+  border: 0;
+  background: #eeeeee;
+  color: var(--color-black);
   font-weight: 800;
-  transition: transform 0.15s ease, background 0.15s ease;
+  font-size: 0.85rem;
+  text-align: center;
+  transition: background-color 0.16s ease, color 0.16s ease;
 }
 
-.button:hover { transform: translateY(-1px); }
+.button:hover { background: #dedede; }
 
 .button-yellow {
-  border-color: var(--color-yellow);
   background: var(--color-yellow);
   color: var(--color-black);
 }
 
+.button-yellow:hover { background: var(--color-yellow-dark); }
+
+.button-gray,
 .button-ghost {
-  background: transparent;
+  background: #eeeeee;
   color: var(--color-black);
+}
+
+.button-gray:hover,
+.button-ghost:hover {
+  background: #dedede;
 }
 
 .hero-actions {
@@ -378,7 +387,10 @@ h3 { line-height: 1.2; }
   background: var(--color-black);
   color: var(--color-white);
   font-size: 1.2rem;
+  transition: background-color 0.16s ease;
 }
+
+.collapse-pill:hover { background: #333333; }
 
 .config-panel.is-collapsed {
   width: 36px;
@@ -412,7 +424,10 @@ h3 { line-height: 1.2; }
   background: #eee;
   font-weight: 800;
   font-size: 0.78rem;
+  transition: background-color 0.16s ease;
 }
+
+.quick-link:hover { background: #dedede; }
 
 .option-group { margin: 18px 0; }
 .option-group legend, .option-label { margin-bottom: 8px; font-weight: 800; }
@@ -501,9 +516,6 @@ fieldset { padding: 0; border: 0; }
 
 .price-box .button {
   width: 100%;
-  min-height: 38px;
-  border: 0;
-  font-size: 0.85rem;
 }
 
 .selection-bar {
@@ -619,10 +631,7 @@ fieldset { padding: 0; border: 0; }
 
 .preset-card .button {
   width: 100%;
-  min-height: 38px;
   margin-top: auto;
-  border: 0;
-  font-size: 0.78rem;
 }
 
 .reviews {
