@@ -532,15 +532,15 @@ fieldset { padding: 0; border: 0; }
 
 .preset-card {
   display: grid;
-  grid-template-rows: 58px 220px 1fr;
-  padding: 34px 36px 36px;
+  grid-template-rows: 34px 220px 1fr;
+  padding: 22px 36px 36px;
   background: #eeeeee;
   border: 0;
 }
 
 .preset-heading {
   display: grid;
-  place-items: center;
+  place-items: start center;
   text-align: center;
 }
 
