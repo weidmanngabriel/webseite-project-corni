@@ -537,6 +537,10 @@ fieldset { padding: 0; border: 0; }
   box-shadow: none;
 }
 
+.cover-grid .option-card {
+  min-height: 96px;
+}
+
 .dimension-row {
   display: grid;
   grid-template-columns: 1fr auto;

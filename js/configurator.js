@@ -9,9 +9,11 @@ const labels = {
   },
   cover: {
     none: 'Ohne Dacheindeckung',
-    wave: 'Wellplatten',
-    trapezoid: 'Trapezblech',
-    sandwich: 'Sandwichpaneele',
+    wave: 'Wellplatte',
+    trapezoid: 'Trapezblech anthrazit',
+    trapezoidBrown: 'Trapezblech rotbraun',
+    sandwich: 'Sandwichpaneele anthrazit',
+    sandwichBrown: 'Sandwichpaneele rotbraun',
   },
 };
 
@@ -29,7 +31,9 @@ const coverPricePerSquareMeter = {
   none: 0,
   wave: 36,
   trapezoid: 52,
+  trapezoidBrown: 52,
   sandwich: 82,
+  sandwichBrown: 82,
 };
 
 const sideWallPrice = 420;
