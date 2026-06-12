@@ -490,6 +490,7 @@ h3 { line-height: 1.2; }
   line-height: 1.2;
 }
 
+.option-group legend { margin-bottom: 10px; }
 .option-label { display: block; }
 fieldset { padding: 0; border: 0; }
 
