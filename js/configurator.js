@@ -69,12 +69,19 @@ const claddingSurcharges = {
   marienhofLavagrau: 620,
 };
 
+const sideWallPrice = 420;
+
 const state = {
   type: 'single',
   roof: 'flat',
   width: 5,
   depth: 5,
   cover: 'none',
+  sides: {
+    left: false,
+    right: false,
+    back: false,
+  },
   cladding: 'none',
   quantity: 1,
 };
@@ -86,6 +93,7 @@ const presets = {
     width: 2.5,
     depth: 3,
     cover: 'sandwich',
+    sides: { left: true, right: true, back: true },
     cladding: 'hnfFichte',
     quantity: 1,
   },
@@ -95,6 +103,7 @@ const presets = {
     width: 5,
     depth: 3,
     cover: 'trapezoid',
+    sides: { left: true, right: true, back: true },
     cladding: 'rundFichte',
     quantity: 1,
   },
@@ -104,6 +113,7 @@ const presets = {
     width: 3,
     depth: 3,
     cover: 'wave',
+    sides: { left: false, right: false, back: false },
     cladding: 'none',
     quantity: 1,
   },
@@ -116,6 +126,7 @@ const formatPrice = (value) => new Intl.NumberFormat('de-DE', {
 
 const calculateUnitPrice = () => {
   const area = state.width * state.depth;
+  const activeSides = Object.values(state.sides).filter(Boolean).length;
   const sizeSurcharge = Math.max(0, area - 15) * 95;
   const coverSurcharge = area * coverPricePerSquareMeter[state.cover];
   const claddingSurcharge = claddingSurcharges[state.cladding];
@@ -124,13 +135,20 @@ const calculateUnitPrice = () => {
     + roofSurcharges[state.roof]
     + sizeSurcharge
     + coverSurcharge
+    + activeSides * sideWallPrice
     + claddingSurcharge;
 };
 
 const getTotalPrice = () => calculateUnitPrice() * state.quantity;
 
 const getSelectionText = () => {
-  return `${labels.type[state.type]}  >  ${labels.roof[state.roof]}  >  ${state.width} × ${state.depth} m  >  ${labels.cover[state.cover]}  >  ${labels.cladding[state.cladding]}`;
+  const sideText = [
+    `Links: ${state.sides.left ? 'Ja' : 'Nein'}`,
+    `Rechts: ${state.sides.right ? 'Ja' : 'Nein'}`,
+    `Hinten: ${state.sides.back ? 'Ja' : 'Nein'}`,
+  ].join('  >  ');
+
+  return `${labels.type[state.type]}  >  ${labels.roof[state.roof]}  >  ${state.width} × ${state.depth} m  >  ${labels.cover[state.cover]}  >  ${sideText}  >  ${labels.cladding[state.cladding]}`;
 };
 
 const updateActiveButtons = () => {
@@ -143,6 +161,9 @@ const updateInputs = () => {
   document.getElementById('width-input').value = state.width;
   document.getElementById('depth-input').value = state.depth;
 
+  document.querySelectorAll('[data-side]').forEach((checkbox) => {
+    checkbox.checked = state.sides[checkbox.dataset.side];
+  });
 };
 
 const render = () => {
@@ -154,7 +175,12 @@ const render = () => {
 };
 
 const setState = (nextState) => {
+  const previousSides = { ...state.sides };
   Object.assign(state, nextState);
+
+  if (nextState.sides) {
+    state.sides = { ...previousSides, ...nextState.sides };
+  }
 
   render();
 };
@@ -173,6 +199,14 @@ const setupNumberInputs = () => {
 
   widthInput.addEventListener('input', () => setState({ width: Number(widthInput.value) || 3 }));
   depthInput.addEventListener('input', () => setState({ depth: Number(depthInput.value) || 3 }));
+};
+
+const setupSideSwitches = () => {
+  document.querySelectorAll('[data-side]').forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+      setState({ sides: { [checkbox.dataset.side]: checkbox.checked } });
+    });
+  });
 };
 
 const setupPresets = () => {
@@ -213,6 +247,7 @@ const setupSummaryModal = () => {
 
 setupOptionButtons();
 setupNumberInputs();
+setupSideSwitches();
 setupPresets();
 setupSummaryModal();
 render();
