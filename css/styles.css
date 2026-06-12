@@ -437,8 +437,7 @@ fieldset { padding: 0; border: 0; }
 .segmented { display: grid; gap: 8px; }
 .segmented .option-card { min-height: auto; padding: 10px; }
 
-.dimension-row,
-.quantity-row {
+.dimension-row {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 8px;
@@ -447,7 +446,6 @@ fieldset { padding: 0; border: 0; }
 }
 
 .dimension-row input,
-.quantity-row input,
 .plz-form input {
   width: 100%;
   border: 1px solid #bbb;
@@ -469,8 +467,8 @@ fieldset { padding: 0; border: 0; }
   position: absolute;
   right: 24px;
   bottom: 24px;
-  width: min(280px, calc(100% - 48px));
-  padding: 22px;
+  width: min(300px, calc(100% - 48px));
+  padding: 20px;
   background: var(--color-white);
   border-radius: 12px;
   box-shadow: var(--shadow-card);
@@ -479,18 +477,34 @@ fieldset { padding: 0; border: 0; }
 .price-row {
   display: flex;
   justify-content: space-between;
-  gap: 18px;
+  gap: 16px;
   align-items: flex-end;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+  font-weight: 800;
 }
 
 .price {
   font-size: 1.55rem;
   font-weight: 900;
   text-align: right;
+  line-height: 1.05;
 }
 
-.tax-note { display: block; color: var(--color-muted); font-size: 0.72rem; font-weight: 600; }
+.tax-note {
+  display: block;
+  margin-top: 5px;
+  color: var(--color-muted);
+  font-size: 0.62rem;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.price-box .button {
+  width: 100%;
+  min-height: 38px;
+  border: 0;
+  font-size: 0.85rem;
+}
 
 .selection-bar {
   padding: 16px 20px;

@@ -117,7 +117,6 @@ const updateActiveButtons = () => {
 const updateInputs = () => {
   document.getElementById('width-input').value = state.width;
   document.getElementById('depth-input').value = state.depth;
-  document.getElementById('quantity-input').value = state.quantity;
 
   document.querySelectorAll('[data-side]').forEach((checkbox) => {
     checkbox.checked = state.sides[checkbox.dataset.side];
@@ -154,11 +153,9 @@ const setupOptionButtons = () => {
 const setupNumberInputs = () => {
   const widthInput = document.getElementById('width-input');
   const depthInput = document.getElementById('depth-input');
-  const quantityInput = document.getElementById('quantity-input');
 
   widthInput.addEventListener('input', () => setState({ width: Number(widthInput.value) || 3 }));
   depthInput.addEventListener('input', () => setState({ depth: Number(depthInput.value) || 3 }));
-  quantityInput.addEventListener('input', () => setState({ quantity: Math.max(1, Number(quantityInput.value) || 1) }));
 };
 
 const setupSideSwitches = () => {
