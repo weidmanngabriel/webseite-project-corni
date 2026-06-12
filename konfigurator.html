@@ -246,17 +246,33 @@
         </div>
       </section>
 
-      <section class="section two-columns" id="liefergebiet" aria-labelledby="delivery-heading">
+      <section class="section delivery-section" id="liefergebiet" aria-labelledby="delivery-heading">
         <div class="delivery-box">
-          <h2 id="delivery-heading">Liefergebiet</h2>
-          <p>Waren bis maximal 13,50 Meter Länge werden mit dem hauseigenen Fuhrpark und innerhalb der SCS-Lieferzonen zu einem Pauschalpreis ausgeliefert. Der Check ist im Prototyp eine Dummy-Funktion.</p>
-          <form class="plz-form" data-plz-form>
-            <input type="text" inputmode="numeric" maxlength="5" placeholder="PLZ" aria-label="Postleitzahl">
-            <button class="button button-yellow" type="submit">Liefergebiet prüfen</button>
-          </form>
-          <p class="form-result" data-plz-result aria-live="polite"></p>
+          <div class="delivery-copy">
+            <h2 id="delivery-heading">Liefergebiet</h2>
+            <p>Waren bis maximal 13,50 Meter Länge werden mit dem hauseigenen Fuhrpark und innerhalb der SCS-Lieferzonen zu einem Pauschalpreis ausgeliefert. Tragen Sie Ihre PLZ ein und prüfen Sie, ob Ihre Anschrift in unserem Liefergebiet <strong>(Baden-Württemberg, Bayern, Hessen, Rheinland-Pfalz, Nordrhein-Westfalen, Niedersachsen, Thüringen, Sachsen, Sachsen-Anhalt, Berlin, Brandenburg, Saarland)</strong> liegt.</p>
+            <p>Sehen Sie sich an wie Ihre Bestellung durch unseren <strong>SCS-Lieferservice</strong> bis zu Ihrer Haustüre geliefert wird.</p>
+          </div>
+          <div class="delivery-tools">
+            <div class="delivery-check">
+              <p>Tragen Sie Ihre PLZ ein und prüfen Sie, ob Ihre Anschrift in unserem Liefergebiet liegt.</p>
+              <form class="plz-form" data-plz-form>
+                <label class="plz-search">
+                  <span class="sr-only">Postleitzahl</span>
+                  <input type="text" inputmode="numeric" maxlength="5" placeholder="PLZ" aria-label="Postleitzahl">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+                </label>
+                <button class="button button-yellow" type="submit">Liefergebiet prüfen</button>
+              </form>
+              <p class="form-result" data-plz-result aria-live="polite"></p>
+            </div>
+            <div class="delivery-links">
+              <p><strong>Liefergebiet 1:</strong><a href="#video">Video Anlieferung Liefergebiet 1</a></p>
+              <p><strong>Liefergebiet 2:</strong><a href="#video">Video Anlieferung Liefergebiet 2</a></p>
+            </div>
+          </div>
         </div>
-        <img src="assets/images/hero/Lieferzonen.png" alt="Deutschlandkarte mit SCS-Lieferzonen">
+        <img class="delivery-map" src="assets/images/hero/Lieferzonen.png" alt="Deutschlandkarte mit SCS-Lieferzonen">
       </section>
 
       <section class="section" id="faq" aria-labelledby="faq-heading">
