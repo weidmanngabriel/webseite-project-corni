@@ -9,7 +9,7 @@ Dieses Repository enthält eine statische, deutschsprachige Studienprojekt-Websi
 Die Website ist für GitHub Pages vorbereitet. Nach dem Deployment kann die Live-URL hier ergänzt werden:
 
 ```text
-https://<github-user>.github.io/<repository-name>/
+https://weidmanngabriel.github.io/webseite-project-corni/konfigurator.html
 ```
 
 ## Deliverables
@@ -51,7 +51,10 @@ http://localhost:8000/
 │   ├── main.js             # Tabs, FAQ, PLZ-Check, Scroll-Buttons
 │   └── configurator.js     # Auswahl-State, Preisberechnung, Presets, Modal
 ├── assets/
-│   └── images/             # Lokale Hilfsgrafiken, z. B. Liefergebiet-Karte
+│   ├── icons/              # Lokale Service-, Kontakt- und Social-Icons
+│   ├── images/             # Lokale Produkt-, Hero-, Payment- und Lieferzonenbilder
+│   ├── logos/              # SCS-Logos
+│   └── trust/              # Trust- und Zertifizierungslogos
 ├── AGENTS.md               # Projektregeln und aktueller Projektstand
 └── README.md               # Dokumentation für Abgabe und Setup
 ```
@@ -94,7 +97,7 @@ http://localhost:8000/
 ## Konzept und Abweichungen
 
 - Der Aufbau orientiert sich am bereitgestellten Figma-/PNG-Prototypen und an typischen SCS-Shop-Elementen.
-- Produkt- und Servicebilder werden, soweit verfügbar, direkt von der öffentlichen SCS-Holzshop-Seite eingebunden. Für die Liefergebiet-Karte bleibt eine lokale vereinfachte SVG-Grafik im Projekt.
+- Produkt-, Service-, Zahlungs- und Lieferzonenbilder werden lokal aus `assets/` eingebunden, damit die ZIP-Abgabe ohne externe Bildquellen funktioniert.
 - Preise sind fiktiv, aber nachvollziehbar berechnet.
 - Die Darstellung ist bewusst reduziert, damit die Website im Rahmen der Abgabe stabil und wartbar bleibt.
 
@@ -106,12 +109,11 @@ http://localhost:8000/
 - Kein Backend und keine CMS-Anbindung.
 - Keine echte Lagerbestands- oder Lieferzeitprüfung.
 - Keine echte serverseitige Preisberechnung.
-- Einige Bilder werden extern von der SCS-Holzshop-Seite geladen; ohne Internetverbindung können sie nicht angezeigt werden.
-- Die Liefergebiet-Karte ist weiterhin eine vereinfachte Platzhaltergrafik.
+- Die Liefergebiet-Karte zeigt statisch die vorhandene lokale Lieferzonen-Grafik; die PLZ-Prüfung bleibt eine Dummy-Funktion.
 
 ## Future Work
 
-- Falls für die finale ZIP-Abgabe gewünscht: externe SCS-Bilder lokal speichern und Lizenz-/Nutzungsrechte prüfen.
+- Lizenz-/Nutzungsrechte der lokal eingebundenen SCS-nahen Bild- und Logoassets vor der finalen Veröffentlichung prüfen.
 - Konfigurator in klarere mobile Schritte aufteilen.
 - Preislogik mit echten Produktdaten ersetzen.
 - Anfrageformular mit Validierung ergänzen.

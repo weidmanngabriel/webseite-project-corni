@@ -12,11 +12,11 @@
 
     <div class="benefit-bar" aria-label="Shop-Vorteile">
       <ul class="container benefit-list">
-        <li><span class="dot" aria-hidden="true"></span>Zertifizierter Shop</li>
-        <li><span class="dot" aria-hidden="true"></span>Schnelle Lieferung</li>
-        <li><span class="dot" aria-hidden="true"></span>Kostenlose Fachberatung</li>
-        <li><span class="dot" aria-hidden="true"></span>180 Jahre Erfahrung</li>
-        <li><span class="dot" aria-hidden="true"></span>Hohe Verfügbarkeit</li>
+        <li><img class="benefit-icon" src="assets/icons/shield.svg" alt="">Zertifizierter Shop</li>
+        <li><img class="benefit-icon" src="assets/icons/delivery.svg" alt="">Schnelle Lieferung</li>
+        <li><img class="benefit-icon" src="assets/icons/support.svg" alt="">Kostenlose Fachberatung</li>
+        <li><img class="benefit-icon" src="assets/icons/medal.svg" alt="">180 Jahre Erfahrung</li>
+        <li><img class="benefit-icon" src="assets/icons/wood-grain.svg" alt="">Hohe Verfügbarkeit</li>
       </ul>
     </div>
 
@@ -30,14 +30,19 @@
           <a href="#sale">Sale %</a>
         </nav>
         <a class="logo" href="index.html" aria-label="SCS Holzwerke Startseite">
-          <span class="logo-main">SCS</span>
-          <span class="logo-sub">Holzwerke</span>
+          <img src="assets/logos/scs-logo-black.svg" alt="SCS Holzwerke">
         </a>
         <div class="header-actions" aria-label="Schnellzugriff">
           <input class="search" type="search" aria-label="Artikelsuche" placeholder="Artikelsuche">
-          <span class="icon-dot" title="Kundenkonto"></span>
-          <span class="icon-dot" title="Merkliste"></span>
-          <span class="icon-dot" title="Warenkorb"></span>
+          <button class="header-icon" type="button" aria-label="Kundenkonto" title="Kundenkonto">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+          </button>
+          <button class="header-icon" type="button" aria-label="Merkliste" title="Merkliste">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.2-8.5C.9 9 .9 4.8 4.4 3.4 7.2 2.3 10 4 12 6.5 14 4 16.8 2.3 19.6 3.4c3.5 1.4 3.5 5.6 1.6 9.1C19 16.6 12 21 12 21z"/></svg>
+          </button>
+          <button class="header-icon" type="button" aria-label="Warenkorb" title="Warenkorb">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6h15l-1.6 8.2H8L6 3H3"/><circle cx="9" cy="20" r="1.7"/><circle cx="18" cy="20" r="1.7"/></svg>
+          </button>
         </div>
       </div>
     </header>
@@ -55,7 +60,7 @@
             </div>
           </div>
           <div class="hero-card" aria-label="Carport Vorschau">
-            <img src="https://www.scs-holzshop.de/media/resized/6936739f7e9d556aa5920e2211a34f1e/347x180/wysiwyg/homepage/carport-mobile1x.webp" alt="SCS Carport-Visualisierung vor einem modernen Haus">
+            <img src="assets/images/hero/Carport flach preview.jpg" alt="SCS Carport-Visualisierung vor einem modernen Haus">
           </div>
         </div>
       </section>
@@ -65,23 +70,23 @@
           <h2 id="categories-heading">Sortiment im Überblick</h2>
           <div class="category-grid">
             <a class="category-card" id="holzbau" href="konfigurator.html">
-              <img src="https://www.scs-holzshop.de/media/converted/catalog/category/Kategoriebild_KVH_500x300_5.webp" alt="Konstruktionsvollholz im Lager">
+              <img src="assets/images/products/kvh.webp" alt="Konstruktionsvollholz im Lager">
               Holzbau <span>Konstruktionsholz & Bausätze</span>
             </a>
             <a class="category-card" id="fassade" href="konfigurator.html">
-              <img src="https://www.scs-holzshop.de/media/converted/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/s/c/scs_designline_fichte_vorvergraut_pefc_kl_1_1.webp" alt="SCS Designline Fassadenprofil">
+              <img src="assets/images/products/fassade.webp" alt="SCS Designline Fassadenprofil">
               Fassade <span>Profile, Pflege & Zubehör</span>
             </a>
             <a class="category-card" id="terrasse" href="konfigurator.html">
-              <img src="https://www.scs-holzshop.de/media/converted/resized/8c89e95127107ad6a772f5b11fb73f85/734x324/wysiwyg/content_seiten/Ratgeber/Terrassenratgeber/Terrassendielen_CTA_724x3241x.webp" alt="Terrassendielen auf einer Dachterrasse">
+              <img src="assets/images/products/terrasse.webp" alt="Terrassendielen auf einer Dachterrasse">
               Terrasse <span>Dielen, Unterbau & Planung</span>
             </a>
             <a class="category-card" href="konfigurator.html">
-              <img src="https://www.scs-holzshop.de/media/resized/6936739f7e9d556aa5920e2211a34f1e/347x180/wysiwyg/homepage/carport-mobile1x.webp" alt="SCS Carport-Konfigurator Visualisierung">
+              <img src="assets/images/hero/carport.webp" alt="SCS Carport-Konfigurator Visualisierung">
               Carport <span>Direkt zum Konfigurator</span>
             </a>
             <a class="category-card" id="sale" href="konfigurator.html">
-              <img src="https://www.scs-holzshop.de/media/converted/catalog/product/cache/67ee89799642c567a71fc92f3699d937/t/r/trapezprofil_wf_sib_l__1_2_2.webp" alt="Reduziertes Trapezprofil aus Holz">
+              <img src="assets/images/hero/sale.webp" alt="Reduziertes Holzprodukt aus dem Sale-Bereich">
               Sale % <span>Beispielhafte Angebotswelt</span>
             </a>
           </div>
@@ -132,8 +137,7 @@
       <div class="container footer-grid">
         <div>
           <a class="logo footer-logo" href="index.html">
-            <span class="logo-main">SCS</span>
-            <span class="logo-sub">Holzwerke</span>
+            <img src="assets/logos/scs-logo-black.svg" alt="SCS Holzwerke">
           </a>
         </div>
         <div class="footer-col">
@@ -162,7 +166,14 @@
         </div>
         <div class="footer-col">
           <h3>Zahlungsarten</h3>
-          <div class="payment-grid" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="payment-grid" aria-label="Zahlungsarten">
+            <img src="assets/images/payment/paypal.webp" alt="PayPal">
+            <img src="assets/images/payment/klarna.webp" alt="Klarna">
+            <img src="assets/images/payment/visa.webp" alt="Visa">
+            <img src="assets/images/payment/mastercard.webp" alt="Mastercard">
+            <img src="assets/images/payment/apple-pay.webp" alt="Apple Pay">
+            <img src="assets/images/payment/sepa.webp" alt="SEPA">
+          </div>
         </div>
       </div>
       <p class="copyright">Studienprojekt, kein offizieller SCS-Shop. Copyright-Hinweis als Platzhalter.</p>
