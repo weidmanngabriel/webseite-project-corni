@@ -687,7 +687,7 @@ fieldset { padding: 0; border: 0; }
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 18px;
-  align-items: end;
+  align-items: center;
   margin-bottom: 22px;
   min-height: 78px;
 }
