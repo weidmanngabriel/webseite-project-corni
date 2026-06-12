@@ -361,8 +361,35 @@ h3 { line-height: 1.2; }
   font-weight: 800;
 }
 
-.slider-dots { display: flex; gap: 10px; }
-.slider-dots span { width: 18px; height: 18px; border-radius: 50%; background: #666; }
+.config-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.config-action {
+  width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #303030;
+  transition: color 0.16s ease;
+}
+
+.config-action:hover { color: #666666; }
+
+.config-action svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 
 .config-stage {
   position: relative;
