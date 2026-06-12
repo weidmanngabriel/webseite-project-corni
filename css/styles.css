@@ -81,12 +81,31 @@ button { cursor: pointer; }
   flex: 0 0 auto;
 }
 
-.benefit-icon {
+.benefit-icon,
+.benefit-icon-circle {
   width: 27px;
   height: 27px;
-  object-fit: contain;
   flex: 0 0 auto;
 }
+
+.benefit-icon-circle {
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-yellow);
+}
+
+.benefit-icon-circle svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: #444444;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.benefit-icon { object-fit: contain; }
 
 .site-header {
   padding: 20px 0 18px;
