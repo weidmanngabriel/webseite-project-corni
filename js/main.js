@@ -71,8 +71,55 @@ const setupConfigPanelToggle = () => {
   });
 };
 
+const setupReviewCarousel = () => {
+  const carousel = document.querySelector('[data-review-carousel]');
+  if (!carousel) return;
+
+  const track = carousel.querySelector('[data-review-track]');
+  const reviews = Array.from(track?.children || []);
+  const previousButton = carousel.querySelector('[data-review-prev]');
+  const nextButton = carousel.querySelector('[data-review-next]');
+  if (!track || reviews.length === 0 || !previousButton || !nextButton) return;
+
+  let currentIndex = 0;
+
+  const getVisibleCount = () => {
+    if (window.matchMedia('(max-width: 640px)').matches) return 1;
+    if (window.matchMedia('(max-width: 980px)').matches) return 2;
+    return 3;
+  };
+
+  const renderCarousel = () => {
+    const visibleCount = getVisibleCount();
+    const maxIndex = Math.max(0, reviews.length - visibleCount);
+    currentIndex = Math.min(currentIndex, maxIndex);
+
+    reviews.forEach((review) => {
+      review.style.flexBasis = `${100 / visibleCount}%`;
+    });
+
+    track.style.transform = `translateX(-${currentIndex * (100 / visibleCount)}%)`;
+    previousButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === maxIndex;
+  };
+
+  previousButton.addEventListener('click', () => {
+    currentIndex = Math.max(0, currentIndex - 1);
+    renderCarousel();
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentIndex += 1;
+    renderCarousel();
+  });
+
+  window.addEventListener('resize', renderCarousel);
+  renderCarousel();
+};
+
 setupTabs();
 setupFaq();
 setupPlzCheck();
 setupScrollButtons();
 setupConfigPanelToggle();
+setupReviewCarousel();
