@@ -548,6 +548,17 @@ fieldset { padding: 0; border: 0; }
   object-fit: contain;
 }
 
+.cladding-grid .option-card {
+  min-height: 112px;
+  font-size: 0.64rem;
+  line-height: 1.14;
+}
+
+.cladding-grid .option-card img {
+  height: 68px;
+  object-fit: contain;
+}
+
 .dimension-row {
   display: grid;
   grid-template-columns: 1fr auto;
