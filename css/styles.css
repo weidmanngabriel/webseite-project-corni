@@ -580,9 +580,9 @@ fieldset { padding: 0; border: 0; }
 
 .option-card {
   min-height: 88px;
-  display: grid;
-  grid-template-rows: auto minmax(2.4em, auto);
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   padding: 6px;
   border: 2px solid transparent;
   background: #eee;
@@ -601,7 +601,7 @@ fieldset { padding: 0; border: 0; }
   aspect-ratio: 4 / 3;
   height: auto;
   object-fit: contain;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 .option-card:hover {
   background: #f7f7f7;
@@ -1408,13 +1408,12 @@ fieldset { padding: 0; border: 0; }
     padding-right: 4px;
   }
   .option-card {
-    min-height: 124px;
-    grid-template-rows: auto minmax(2.8em, auto);
+    min-height: 106px;
   }
-  .option-card img { aspect-ratio: 16 / 10; }
+  .option-card img { aspect-ratio: 16 / 9; }
   .cladding-grid .option-card {
-    min-height: 150px;
-    font-size: 0.76rem;
+    min-height: 118px;
+    font-size: 0.68rem;
     line-height: 1.12;
   }
   .preset-card { padding-inline: 28px; }
@@ -1462,15 +1461,20 @@ fieldset { padding: 0; border: 0; }
     max-height: 360px;
   }
   .option-card {
-    min-height: 116px;
-    padding: 7px;
-    font-size: 0.72rem;
+    min-height: 98px;
+    padding: 6px;
+    font-size: 0.64rem;
   }
   .cladding-grid .option-card {
-    min-height: 146px;
-    font-size: 0.7rem;
+    min-height: 112px;
+    font-size: 0.56rem;
+    line-height: 1.08;
   }
-  .option-card img { margin-bottom: 7px; }
+  .config-step .option-card {
+    overflow: hidden;
+    text-wrap: balance;
+  }
+  .option-card img { margin-bottom: 4px; }
   .switch-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
   .switch-list label { padding: 10px 8px; }
   .dimension-row { grid-template-columns: minmax(0, 1fr) auto; }
