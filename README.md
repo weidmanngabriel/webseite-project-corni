@@ -71,6 +71,7 @@ http://localhost:8000/
 ### Konfigurator-Seite
 
 - Auswahl für Carport-Art, Dachform, Maße sowie bildbasierte Varianten für Dacheindeckung und Seitenverkleidung.
+- Live-Preview über deckungsgleiche Render-Layer für Konstruktion, Dachbelag und Seitenverkleidung.
 - Dynamische Preisberechnung auf Basis einer vereinfachten, fiktiven Logik.
 - Live-Zusammenfassung der aktuellen Auswahl.
 - Preset-Karten für beliebte Konfigurationen.

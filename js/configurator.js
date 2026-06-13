@@ -70,6 +70,33 @@ const claddingSurcharges = {
 };
 
 const sideWallPrice = 420;
+const renderRoot = 'assets/images/configurator/render';
+
+const coverRenderSlugs = {
+  none: null,
+  wave: 'wellplatte',
+  trapezoid: 'trapezblech_anthrazitgrau',
+  trapezoidBrown: 'trapezblech_rotbraun',
+  sandwich: 'sandwichpaneele_anthrazitgrau',
+  sandwichBrown: 'sandwichpaneele_rotbraun',
+};
+
+const claddingRenderSlugs = {
+  none: [],
+  faseFichte: ['fasebretter_fichte', 'faserbretter_fichte'],
+  rundFichte: ['rundprofil_fichte'],
+  hnfFichte: ['hnf_bretter_fichte'],
+  blockFichte: ['blockhausprofil_fichte', 'blockhaus_fichte'],
+  deckelLaerche: ['deckelschalung_laerche'],
+  rhombusLaerche: ['rhombusleisten_laerche'],
+  rhombusKeim: ['rhombusleisten_kelm', 'rhombuasleisten_kelm'],
+  rhombusDuraLavagrau: ['rhombusleisten_dura_lavagrau'],
+  rhombusDuraKristallgrau: ['rhombusleisten_dura_kristallgrau'],
+  rhombusBlack: ['rhombus_nf', 'rhombuas_nf'],
+  trapezFichte: ['trapezprofil_fichte'],
+  trapezLaerche: ['trapezprofil_laerche'],
+  marienhofLavagrau: ['marienhofprofil_lavagrau'],
+};
 
 const state = {
   type: 'single',
@@ -151,6 +178,76 @@ const getSelectionText = () => {
   return `${labels.type[state.type]}  >  ${labels.roof[state.roof]}  >  ${state.width} × ${state.depth} m  >  ${labels.cover[state.cover]}  >  ${sideText}  >  ${labels.cladding[state.cladding]}`;
 };
 
+const getRenderBasePath = () => `${renderRoot}/${state.type}/${state.roof}`;
+
+const withImageExtensions = (pathWithoutExtension) => {
+  return [`${pathWithoutExtension}.png`, `${pathWithoutExtension}.jpg`];
+};
+
+const setPreviewLayer = (image, sources) => {
+  if (!image) return;
+
+  const nextSources = sources.filter(Boolean);
+
+  if (nextSources.length === 0) {
+    image.hidden = true;
+    image.removeAttribute('src');
+    image.onerror = null;
+    image.onload = null;
+    return;
+  }
+
+  let index = 0;
+
+  image.hidden = false;
+  image.onload = () => {
+    image.hidden = false;
+  };
+  image.onerror = () => {
+    index += 1;
+
+    if (index < nextSources.length) {
+      image.src = nextSources[index];
+      return;
+    }
+
+    image.hidden = true;
+    image.removeAttribute('src');
+    image.onerror = null;
+    image.onload = null;
+  };
+
+  image.src = nextSources[index];
+};
+
+const getCladdingSources = (side) => {
+  if (!state.sides[side] || state.cladding === 'none') return [];
+
+  const basePath = `${getRenderBasePath()}/cladding/${side}`;
+  const slugs = claddingRenderSlugs[state.cladding] || [];
+
+  return slugs.flatMap((slug) => withImageExtensions(`${basePath}/${slug}`));
+};
+
+const updatePreviewLayers = () => {
+  const basePath = getRenderBasePath();
+  const structure = document.getElementById('preview-structure');
+  const back = document.getElementById('preview-cladding-back');
+  const left = document.getElementById('preview-cladding-left');
+  const right = document.getElementById('preview-cladding-right');
+  const roof = document.getElementById('preview-roof');
+  const roofSlug = coverRenderSlugs[state.cover];
+
+  setPreviewLayer(structure, [
+    `${basePath}/${state.type}_${state.roof}_structure.jpg`,
+    `${basePath}/${state.type}_${state.roof}_structure.png`,
+  ]);
+  setPreviewLayer(back, getCladdingSources('back'));
+  setPreviewLayer(left, getCladdingSources('left'));
+  setPreviewLayer(right, getCladdingSources('right'));
+  setPreviewLayer(roof, roofSlug ? withImageExtensions(`${basePath}/roof/${roofSlug}`) : []);
+};
+
 const updateActiveButtons = () => {
   document.querySelectorAll('[data-option]').forEach((button) => {
     button.classList.toggle('is-active', state[button.dataset.option] === button.dataset.value);
@@ -167,6 +264,7 @@ const updateInputs = () => {
 };
 
 const render = () => {
+  updatePreviewLayers();
   updateActiveButtons();
   updateInputs();
   document.getElementById('quantity-label').textContent = `${state.quantity} Stück`;

@@ -411,10 +411,43 @@ h3 { line-height: 1.2; }
   min-height: 610px;
   max-height: 650px;
   padding: 24px;
-  background: #d5e2e8 url('../assets/images/hero/Carport flach preview.jpg') center/cover no-repeat;
+  overflow: hidden;
+  background: #d5e2e8;
+}
+
+.config-visual {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #d5e2e8;
+  pointer-events: none;
+}
+
+.config-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
+}
+
+.config-layer[hidden] { display: none; }
+
+.config-layer-structure { z-index: 1; }
+.config-layer-back { z-index: 2; }
+.config-layer-left { z-index: 3; }
+.config-layer-right { z-index: 4; }
+.config-layer-roof { z-index: 5; }
+
+.config-panel,
+.price-box {
+  z-index: 10;
 }
 
 .config-panel {
+  position: relative;
   width: 280px;
   max-height: 100%;
   display: grid;
