@@ -583,6 +583,7 @@ fieldset { padding: 0; border: 0; }
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   padding: 6px;
   border: 2px solid transparent;
   background: #eee;
@@ -598,10 +599,19 @@ fieldset { padding: 0; border: 0; }
 
 .option-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  height: auto;
+  height: 58px;
   object-fit: contain;
   margin-bottom: 4px;
+}
+
+.option-card-label {
+  width: 100%;
+  min-height: 2.35em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.15;
+  text-align: center;
 }
 .option-card:hover {
   background: #f7f7f7;
@@ -625,7 +635,7 @@ fieldset { padding: 0; border: 0; }
   line-height: 1.18;
 }
 
-.cover-grid .option-card img { aspect-ratio: 4 / 3; }
+.cover-grid .option-card img { height: 64px; }
 
 .cladding-grid .option-card {
   min-height: 112px;
@@ -633,7 +643,7 @@ fieldset { padding: 0; border: 0; }
   line-height: 1.14;
 }
 
-.cladding-grid .option-card img { aspect-ratio: 4 / 3; }
+.cladding-grid .option-card img { height: 68px; }
 
 .dimension-row {
   display: grid;
@@ -1408,14 +1418,16 @@ fieldset { padding: 0; border: 0; }
     padding-right: 4px;
   }
   .option-card {
-    min-height: 106px;
+    min-height: 104px;
   }
-  .option-card img { aspect-ratio: 16 / 9; }
+  .option-card img { height: 64px; }
+  .option-card-label { min-height: 2.3em; }
   .cladding-grid .option-card {
-    min-height: 118px;
+    min-height: 122px;
     font-size: 0.68rem;
     line-height: 1.12;
   }
+  .cladding-grid .option-card img { height: 78px; }
   .preset-card { padding-inline: 28px; }
   .preset-info { grid-template-columns: 1fr; gap: 10px; }
   .preset-price { text-align: left; }
@@ -1461,20 +1473,25 @@ fieldset { padding: 0; border: 0; }
     max-height: 360px;
   }
   .option-card {
-    min-height: 98px;
+    min-height: 96px;
     padding: 6px;
     font-size: 0.64rem;
   }
   .cladding-grid .option-card {
-    min-height: 112px;
-    font-size: 0.56rem;
+    min-height: 118px;
+    font-size: 0.58rem;
     line-height: 1.08;
   }
-  .config-step .option-card {
+  .config-step .option-card-label {
     overflow: hidden;
     text-wrap: balance;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    min-height: 2.2em;
   }
-  .option-card img { margin-bottom: 4px; }
+  .option-card img { height: 58px; margin-bottom: 4px; }
+  .cladding-grid .option-card img { height: 78px; }
   .switch-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
   .switch-list label { padding: 10px 8px; }
   .dimension-row { grid-template-columns: minmax(0, 1fr) auto; }
