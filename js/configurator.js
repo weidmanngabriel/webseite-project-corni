@@ -72,6 +72,17 @@ const claddingSurcharges = {
 const sideWallPrice = 420;
 const renderRoot = 'assets/images/configurator/render';
 
+const dimensionRules = {
+  single: {
+    width: { min: 2.5, max: 4.75, step: 0.25 },
+  },
+  double: {
+    width: { min: 5, max: 8, step: 0.25 },
+  },
+  depth: { min: 3, max: 6, step: 0.25 },
+  height: { min: 2.25, max: 3, step: 0.25 },
+};
+
 const coverRenderSlugs = {
   none: null,
   wave: 'wellplatte',
@@ -101,8 +112,9 @@ const claddingRenderSlugs = {
 const state = {
   type: 'single',
   roof: 'flat',
-  width: 5,
+  width: 3.5,
   depth: 5,
+  height: 2.5,
   cover: 'none',
   sides: {
     left: false,
@@ -119,6 +131,7 @@ const presets = {
     roof: 'flat',
     width: 2.5,
     depth: 3,
+    height: 2.5,
     cover: 'sandwich',
     sides: { left: true, right: true, back: true },
     cladding: 'hnfFichte',
@@ -129,6 +142,7 @@ const presets = {
     roof: 'gable',
     width: 5,
     depth: 3,
+    height: 2.75,
     cover: 'trapezoid',
     sides: { left: true, right: true, back: true },
     cladding: 'rundFichte',
@@ -139,6 +153,7 @@ const presets = {
     roof: 'flat',
     width: 3,
     depth: 3,
+    height: 2.25,
     cover: 'wave',
     sides: { left: false, right: false, back: false },
     cladding: 'none',
@@ -151,16 +166,35 @@ const formatPrice = (value) => new Intl.NumberFormat('de-DE', {
   currency: 'EUR',
 }).format(value);
 
+const snapToStep = (value, rule) => {
+  const stepped = Math.round((value - rule.min) / rule.step) * rule.step + rule.min;
+  return Number(stepped.toFixed(2));
+};
+
+const clampDimension = (value, rule) => {
+  const numericValue = Number.isFinite(value) ? value : rule.min;
+  const clamped = Math.min(rule.max, Math.max(rule.min, numericValue));
+  return snapToStep(clamped, rule);
+};
+
+const normalizeDimensions = () => {
+  state.width = clampDimension(state.width, dimensionRules[state.type].width);
+  state.depth = clampDimension(state.depth, dimensionRules.depth);
+  state.height = clampDimension(state.height, dimensionRules.height);
+};
+
 const calculateUnitPrice = () => {
   const area = state.width * state.depth;
   const activeSides = Object.values(state.sides).filter(Boolean).length;
   const sizeSurcharge = Math.max(0, area - 15) * 95;
+  const heightSurcharge = Math.max(0, state.height - dimensionRules.height.min) * 480;
   const coverSurcharge = area * coverPricePerSquareMeter[state.cover];
   const claddingSurcharge = claddingSurcharges[state.cladding];
 
   return basePrices[state.type]
     + roofSurcharges[state.roof]
     + sizeSurcharge
+    + heightSurcharge
     + coverSurcharge
     + activeSides * sideWallPrice
     + claddingSurcharge;
@@ -175,7 +209,7 @@ const getSelectionText = () => {
     `Hinten: ${state.sides.back ? 'Ja' : 'Nein'}`,
   ].join('  >  ');
 
-  return `${labels.type[state.type]}  >  ${labels.roof[state.roof]}  >  ${state.width} × ${state.depth} m  >  ${labels.cover[state.cover]}  >  ${sideText}  >  ${labels.cladding[state.cladding]}`;
+  return `${labels.type[state.type]}  >  ${labels.roof[state.roof]}  >  ${state.width} × ${state.depth} × ${state.height} m  >  ${labels.cover[state.cover]}  >  ${sideText}  >  ${labels.cladding[state.cladding]}`;
 };
 
 const getRenderBasePath = () => `${renderRoot}/${state.type}/${state.roof}`;
@@ -255,8 +289,25 @@ const updateActiveButtons = () => {
 };
 
 const updateInputs = () => {
-  document.getElementById('width-input').value = state.width;
-  document.getElementById('depth-input').value = state.depth;
+  const widthInput = document.getElementById('width-input');
+  const depthInput = document.getElementById('depth-input');
+  const heightInput = document.getElementById('height-input');
+  const widthRule = dimensionRules[state.type].width;
+
+  widthInput.min = widthRule.min;
+  widthInput.max = widthRule.max;
+  widthInput.step = widthRule.step;
+  widthInput.value = state.width;
+
+  depthInput.min = dimensionRules.depth.min;
+  depthInput.max = dimensionRules.depth.max;
+  depthInput.step = dimensionRules.depth.step;
+  depthInput.value = state.depth;
+
+  heightInput.min = dimensionRules.height.min;
+  heightInput.max = dimensionRules.height.max;
+  heightInput.step = dimensionRules.height.step;
+  heightInput.value = state.height;
 
   document.querySelectorAll('[data-side]').forEach((checkbox) => {
     checkbox.checked = state.sides[checkbox.dataset.side];
@@ -280,6 +331,7 @@ const setState = (nextState) => {
     state.sides = { ...previousSides, ...nextState.sides };
   }
 
+  normalizeDimensions();
   render();
 };
 
@@ -294,9 +346,11 @@ const setupOptionButtons = () => {
 const setupNumberInputs = () => {
   const widthInput = document.getElementById('width-input');
   const depthInput = document.getElementById('depth-input');
+  const heightInput = document.getElementById('height-input');
 
-  widthInput.addEventListener('input', () => setState({ width: Number(widthInput.value) || 3 }));
-  depthInput.addEventListener('input', () => setState({ depth: Number(depthInput.value) || 3 }));
+  widthInput.addEventListener('change', () => setState({ width: Number(widthInput.value) }));
+  depthInput.addEventListener('change', () => setState({ depth: Number(depthInput.value) }));
+  heightInput.addEventListener('change', () => setState({ height: Number(heightInput.value) }));
 };
 
 const setupSideSwitches = () => {

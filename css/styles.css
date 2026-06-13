@@ -1301,8 +1301,37 @@ fieldset { padding: 0; border: 0; }
   .trust-grid, .preset-grid, .review-list, .contact-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-brand { grid-row: auto; }
   .footer-payments, .footer-rating, .footer-certificates { grid-column: auto; }
-  .config-stage { display: grid; gap: 24px; height: auto; max-height: none; background-position: center top; padding-top: 270px; }
-  .config-panel { width: 100%; max-height: 520px; }
+  .config-stage {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    padding: 16px;
+  }
+  .config-visual {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 320px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-card);
+  }
+  .config-panel {
+    width: 100%;
+    max-height: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    overflow: visible;
+    scrollbar-gutter: auto;
+  }
+  .config-panel > .panel-head,
+  .config-panel > .quick-link,
+  .config-panel > .special-request-button {
+    grid-column: 1 / -1;
+  }
   .config-panel.is-collapsed { width: 36px; justify-self: start; }
   .preset-card { padding-inline: 28px; }
   .preset-info { grid-template-columns: 1fr; gap: 10px; }
@@ -1326,8 +1355,24 @@ fieldset { padding: 0; border: 0; }
   .contact-content .contact-grid { grid-template-columns: 1fr; }
   .delivery-section { gap: 28px; }
   .delivery-tools { gap: 24px; }
-  .config-stage { min-height: auto; padding: 180px 12px 12px; }
-  .option-grid { grid-template-columns: 1fr; }
+  .config-titlebar { padding: 12px 14px; gap: 12px; }
+  .config-actions { gap: 8px; }
+  .config-stage { padding: 10px; gap: 12px; }
+  .config-visual {
+    min-height: 0;
+    border-radius: 8px;
+  }
+  .config-panel {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 18px 16px;
+    border-radius: 10px;
+  }
+  .option-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .switch-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .switch-list label { padding: 10px 8px; }
+  .dimension-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .dimension-row input { width: 88px; }
   .footer-grid { gap: 32px; }
   .footer-logo img { width: 145px; }
   .payment-grid { grid-template-columns: repeat(3, 56px); }

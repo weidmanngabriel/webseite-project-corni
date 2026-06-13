@@ -71,6 +71,7 @@ http://localhost:8000/
 ### Konfigurator-Seite
 
 - Auswahl für Carport-Art, Dachform, Maße sowie bildbasierte Varianten für Dacheindeckung und Seitenverkleidung.
+- Maßlogik mit unterschiedlichen Breitenbereichen für Einzel- und Doppelcarports sowie Tiefe und Höhe in 0,25-m-Schritten.
 - Live-Preview über deckungsgleiche Render-Layer für Konstruktion, Dachbelag und Seitenverkleidung.
 - Dynamische Preisberechnung auf Basis einer vereinfachten, fiktiven Logik.
 - Live-Zusammenfassung der aktuellen Auswahl.
