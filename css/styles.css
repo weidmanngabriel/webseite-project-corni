@@ -535,6 +535,37 @@ h3 { line-height: 1.2; }
   line-height: 1.2;
 }
 
+.config-step legend,
+.config-step .option-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.config-step legend span:last-child,
+.config-step .option-label span:last-child {
+  display: none;
+  color: var(--color-muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.step-actions {
+  display: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.step-actions .button {
+  width: 100%;
+  padding-inline: 12px;
+}
+
+.step-actions .button:only-child {
+  grid-column: 1 / -1;
+}
+
 .option-group legend { margin-bottom: 10px; }
 .option-label { display: block; }
 fieldset { padding: 0; border: 0; }
@@ -553,7 +584,13 @@ fieldset { padding: 0; border: 0; }
   transition: background-color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
 }
 
-.option-card img { width: 100%; height: 58px; object-fit: cover; margin-bottom: 5px; }
+.option-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
 .option-card:hover {
   background: #f7f7f7;
   border-color: #d7d7d7;
@@ -576,10 +613,7 @@ fieldset { padding: 0; border: 0; }
   line-height: 1.18;
 }
 
-.cover-grid .option-card img {
-  height: 64px;
-  object-fit: contain;
-}
+.cover-grid .option-card img { aspect-ratio: 4 / 3; }
 
 .cladding-grid .option-card {
   min-height: 112px;
@@ -587,10 +621,7 @@ fieldset { padding: 0; border: 0; }
   line-height: 1.14;
 }
 
-.cladding-grid .option-card img {
-  height: 68px;
-  object-fit: contain;
-}
+.cladding-grid .option-card img { aspect-ratio: 4 / 3; }
 
 .dimension-row {
   display: grid;
@@ -1299,8 +1330,12 @@ fieldset { padding: 0; border: 0; }
   .delivery-section, .delivery-tools { grid-template-columns: 1fr; }
   .category-grid { grid-template-columns: repeat(2, 1fr); }
   .trust-grid, .preset-grid, .review-list, .contact-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-brand { grid-row: auto; }
+  .footer-brand {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
   .footer-payments, .footer-rating, .footer-certificates { grid-column: auto; }
+  .footer-certificates { grid-column: 1 / -1; }
   .config-stage {
     display: grid;
     grid-template-columns: 1fr;
@@ -1322,8 +1357,8 @@ fieldset { padding: 0; border: 0; }
   .config-panel {
     width: 100%;
     max-height: none;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
+    grid-template-columns: 1fr;
+    gap: 16px;
     overflow: visible;
     scrollbar-gutter: auto;
   }
@@ -1333,6 +1368,32 @@ fieldset { padding: 0; border: 0; }
     grid-column: 1 / -1;
   }
   .config-panel.is-collapsed { width: 36px; justify-self: start; }
+  .config-step {
+    display: none;
+    padding: 18px;
+    border: 1px solid var(--color-border);
+    background: #f7f7f7;
+  }
+  .config-step.is-active {
+    display: grid;
+  }
+  .config-step legend span:last-child,
+  .config-step .option-label span:last-child {
+    display: inline;
+  }
+  .step-actions {
+    display: grid;
+  }
+  .config-step .option-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .config-step .cladding-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .option-card img { aspect-ratio: 16 / 10; }
   .preset-card { padding-inline: 28px; }
   .preset-info { grid-template-columns: 1fr; gap: 10px; }
   .preset-price { text-align: left; }
@@ -1345,7 +1406,7 @@ fieldset { padding: 0; border: 0; }
   .site-header { padding-top: 14px; }
   .main-nav { gap: 12px; font-size: 0.78rem; }
   .header-actions { display: none; }
-  .category-grid, .trust-grid, .preset-grid, .review-list, .contact-grid, .footer-grid, .tabs { grid-template-columns: 1fr; }
+  .category-grid, .trust-grid, .preset-grid, .review-list, .contact-grid, .tabs { grid-template-columns: 1fr; }
   .section { padding: 48px 0; }
   .hero { padding-bottom: 48px; }
   .teaser, .delivery-box, .tab-panel { padding: 22px; }
@@ -1369,12 +1430,37 @@ fieldset { padding: 0; border: 0; }
     border-radius: 10px;
   }
   .option-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .config-step { padding: 14px; }
+  .config-step .option-grid,
+  .config-step .cladding-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .config-step .cladding-grid {
+    max-height: 360px;
+  }
   .switch-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
   .switch-list label { padding: 10px 8px; }
   .dimension-row { grid-template-columns: minmax(0, 1fr) auto; }
   .dimension-row input { width: 88px; }
-  .footer-grid { gap: 32px; }
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 34px;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    gap: 22px;
+  }
+  .footer-col,
+  .footer-section {
+    min-width: 0;
+  }
+  .footer-certificates {
+    grid-column: 1 / -1;
+  }
   .footer-logo img { width: 145px; }
-  .payment-grid { grid-template-columns: repeat(3, 56px); }
-  .payment-grid img { width: 56px; height: 38px; }
+  .payment-grid { grid-template-columns: repeat(2, minmax(54px, 62px)); }
+  .payment-grid img { width: 100%; height: 38px; }
+  .certificate-grid { grid-template-columns: repeat(3, minmax(58px, 74px)); }
 }

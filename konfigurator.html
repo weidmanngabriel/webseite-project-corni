@@ -87,8 +87,8 @@
 
             <button class="quick-link" type="button" data-scroll-target="#presets">Beliebteste Konfigurationen anschauen</button>
 
-            <fieldset class="option-group">
-              <legend>Art</legend>
+            <fieldset class="option-group config-step is-active" data-config-step="1">
+              <legend><span>Art</span><span>1/5</span></legend>
               <div class="option-grid">
                 <button class="option-card is-active" type="button" data-option="type" data-value="single">
                   <img src="assets/images/hero/Beliebteste Konfiguration flach.png" alt="">
@@ -99,10 +99,11 @@
                   Doppelcarport
                 </button>
               </div>
+              <div class="step-actions"><button class="button button-yellow" type="button" data-step-next>Weiter</button></div>
             </fieldset>
 
-            <fieldset class="option-group">
-              <legend>Dachart</legend>
+            <fieldset class="option-group config-step" data-config-step="2">
+              <legend><span>Dachart</span><span>2/5</span></legend>
               <div class="option-grid">
                 <button class="option-card is-active" type="button" data-option="roof" data-value="flat">
                   <img src="assets/images/hero/Beliebteste Konfiguration flach.png" alt="">
@@ -113,17 +114,19 @@
                   Satteldach
                 </button>
               </div>
+              <div class="step-actions"><button class="button button-gray" type="button" data-step-prev>Zurück</button><button class="button button-yellow" type="button" data-step-next>Weiter</button></div>
             </fieldset>
 
-            <div class="option-group">
-              <p class="option-label">Größe</p>
+            <div class="option-group config-step" data-config-step="3">
+              <p class="option-label"><span>Größe</span><span>3/5</span></p>
               <label class="dimension-row"><span>Breite</span><span class="dimension-control"><input id="width-input" name="width" type="number" min="2.5" max="4.75" step="0.25" value="3.5"><span>m</span></span></label>
               <label class="dimension-row"><span>Tiefe</span><span class="dimension-control"><input id="depth-input" name="depth" type="number" min="3" max="6" step="0.25" value="5"><span>m</span></span></label>
               <label class="dimension-row"><span>Höhe</span><span class="dimension-control"><input id="height-input" name="height" type="number" min="2.25" max="3" step="0.25" value="2.5"><span>m</span></span></label>
+              <div class="step-actions"><button class="button button-gray" type="button" data-step-prev>Zurück</button><button class="button button-yellow" type="button" data-step-next>Weiter</button></div>
             </div>
 
-            <fieldset class="option-group">
-              <legend>Dacheindeckung</legend>
+            <fieldset class="option-group config-step" data-config-step="4">
+              <legend><span>Dacheindeckung</span><span>4/5</span></legend>
               <div class="option-grid cover-grid">
                 <button class="option-card is-active" type="button" data-option="cover" data-value="none">
                   <img src="assets/images/configurator/Ohne Dacheindeckung.png" alt="">
@@ -150,10 +153,11 @@
                   Sandwichpaneele rotbraun
                 </button>
               </div>
+              <div class="step-actions"><button class="button button-gray" type="button" data-step-prev>Zurück</button><button class="button button-yellow" type="button" data-step-next>Weiter</button></div>
             </fieldset>
 
-            <div class="option-group">
-              <p class="option-label">Seitenverkleidung</p>
+            <div class="option-group config-step" data-config-step="5">
+              <p class="option-label"><span>Seitenverkleidung</span><span>5/5</span></p>
               <div class="switch-list">
                 <label>Links <input type="checkbox" data-side="left"></label>
                 <label>Rechts <input type="checkbox" data-side="right"></label>
@@ -217,6 +221,7 @@
                   Marienhofprofil Lavagrau
                 </button>
               </div>
+              <div class="step-actions"><button class="button button-gray" type="button" data-step-prev>Zurück</button></div>
             </div>
 
             <a class="button button-yellow special-request-button" href="sonderwunsch.html">Sonderwunsch anfragen</a>

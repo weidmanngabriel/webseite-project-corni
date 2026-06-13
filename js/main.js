@@ -83,6 +83,37 @@ const setupConfigPanelToggle = () => {
   });
 };
 
+const setupConfigSteps = () => {
+  const steps = Array.from(document.querySelectorAll('[data-config-step]'));
+  if (steps.length === 0) return;
+
+  let activeIndex = Math.max(0, steps.findIndex((step) => step.classList.contains('is-active')));
+
+  const renderSteps = () => {
+    steps.forEach((step, index) => {
+      step.classList.toggle('is-active', index === activeIndex);
+    });
+  };
+
+  document.querySelectorAll('[data-step-next]').forEach((button) => {
+    button.addEventListener('click', () => {
+      activeIndex = Math.min(steps.length - 1, activeIndex + 1);
+      renderSteps();
+      steps[activeIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+
+  document.querySelectorAll('[data-step-prev]').forEach((button) => {
+    button.addEventListener('click', () => {
+      activeIndex = Math.max(0, activeIndex - 1);
+      renderSteps();
+      steps[activeIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+
+  renderSteps();
+};
+
 const setupReviewCarousel = () => {
   const carousel = document.querySelector('[data-review-carousel]');
   if (!carousel) return;
@@ -134,4 +165,5 @@ setupFaq();
 setupPlzCheck();
 setupScrollButtons();
 setupConfigPanelToggle();
+setupConfigSteps();
 setupReviewCarousel();
