@@ -994,13 +994,14 @@ fieldset { padding: 0; border: 0; }
   display: grid;
   grid-template-columns: 330px 1fr;
   gap: 46px;
-  align-items: start;
+  align-items: center;
 }
 
 .faq-image {
   width: 100%;
   min-height: 430px;
   object-fit: cover;
+  object-position: center;
   background: #eee;
 }
 
@@ -1016,9 +1017,29 @@ fieldset { padding: 0; border: 0; }
   font-size: 1.1rem;
   font-weight: 900;
   text-align: left;
+  cursor: pointer;
 }
-.faq-answer { display: none; padding: 0 28px 24px; }
-.faq-item.is-open .faq-answer { display: block; }
+
+.faq-question span {
+  flex: 0 0 auto;
+  transition: transform 0.2s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 28px;
+  opacity: 0;
+  transition: max-height 0.28s ease, opacity 0.2s ease, padding 0.28s ease;
+}
+
+.faq-item.is-open .faq-question span { transform: rotate(180deg); }
+
+.faq-item.is-open .faq-answer {
+  max-height: 520px;
+  padding: 0 28px 24px;
+  opacity: 1;
+}
 
 .contact-layout {
   display: grid;

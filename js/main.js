@@ -19,7 +19,6 @@ const setupFaq = () => {
     button.addEventListener('click', () => {
       const item = button.closest('.faq-item');
       const wasOpen = item.classList.contains('is-open');
-      if (wasOpen) return;
 
       document.querySelectorAll('.faq-item').forEach((faqItem) => {
         faqItem.classList.remove('is-open');
@@ -29,9 +28,10 @@ const setupFaq = () => {
         if (icon) icon.textContent = '⌄';
       });
 
+      if (wasOpen) return;
+
       item.classList.add('is-open');
       button.setAttribute('aria-expanded', 'true');
-      button.querySelector('span').textContent = '⌃';
     });
   });
 };
