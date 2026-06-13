@@ -30,7 +30,12 @@ a { color: inherit; text-decoration: none; }
 
 button, input, select { font: inherit; }
 
-button { cursor: pointer; }
+button {
+  color: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
 
 .container {
   width: min(var(--max-width), calc(100% - 32px));
@@ -515,6 +520,7 @@ h3 { line-height: 1.2; }
   padding: 12px;
   border: 0;
   background: #eee;
+  color: var(--color-black);
   font-weight: 800;
   font-size: 0.78rem;
   transition: background-color 0.16s ease;
@@ -574,13 +580,19 @@ fieldset { padding: 0; border: 0; }
 
 .option-card {
   min-height: 88px;
+  display: grid;
+  grid-template-rows: auto minmax(2.4em, auto);
+  align-items: end;
   padding: 6px;
   border: 2px solid transparent;
   background: #eee;
   color: var(--color-black);
   font-size: 0.72rem;
   font-weight: 800;
+  line-height: 1.18;
   text-align: center;
+  overflow-wrap: anywhere;
+  hyphens: auto;
   transition: background-color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
 }
 
@@ -763,6 +775,7 @@ fieldset { padding: 0; border: 0; }
   padding: 18px 12px;
   border: 0;
   background: #fff;
+  color: var(--color-black);
   font-weight: 900;
   font-size: 1rem;
 }
@@ -1078,6 +1091,7 @@ fieldset { padding: 0; border: 0; }
   padding: 22px 28px;
   border: 0;
   background: transparent;
+  color: var(--color-black);
   font-size: 1.1rem;
   font-weight: 900;
   text-align: left;
@@ -1393,7 +1407,16 @@ fieldset { padding: 0; border: 0; }
     overflow-y: auto;
     padding-right: 4px;
   }
+  .option-card {
+    min-height: 124px;
+    grid-template-rows: auto minmax(2.8em, auto);
+  }
   .option-card img { aspect-ratio: 16 / 10; }
+  .cladding-grid .option-card {
+    min-height: 150px;
+    font-size: 0.76rem;
+    line-height: 1.12;
+  }
   .preset-card { padding-inline: 28px; }
   .preset-info { grid-template-columns: 1fr; gap: 10px; }
   .preset-price { text-align: left; }
@@ -1438,6 +1461,16 @@ fieldset { padding: 0; border: 0; }
   .config-step .cladding-grid {
     max-height: 360px;
   }
+  .option-card {
+    min-height: 116px;
+    padding: 7px;
+    font-size: 0.72rem;
+  }
+  .cladding-grid .option-card {
+    min-height: 146px;
+    font-size: 0.7rem;
+  }
+  .option-card img { margin-bottom: 7px; }
   .switch-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
   .switch-list label { padding: 10px 8px; }
   .dimension-row { grid-template-columns: minmax(0, 1fr) auto; }
