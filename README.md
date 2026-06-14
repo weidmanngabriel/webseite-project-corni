@@ -66,9 +66,9 @@ http://localhost:8000/
 
 - SCS-nahe Benefit-Leiste und Header-Struktur.
 - Header und Footer sind als wiederverwendbare Web Components ausgelagert.
-- Grossformatiger Hero-Bereich mit Shop-Navigation und direktem Einstieg in den Konfigurator.
-- SCS-nahe Kategorie-, Bewertungs-, Inspirations-, Ratgeber-, Logistik-, Kontakt- und News-Sektionen.
-- PLZ-Dummycheck und Carport-Konfigurator-Teaser als klare Conversion-Einstiege.
+- Hero-Bereich im gleichen Stil wie die Konfigurator-Seite mit direktem Einstieg in den Konfigurator.
+- SCS-nahe Kategorie-, Preset-, Bewertungs-, Liefergebiet-, FAQ- und Kontakt-Sektionen.
+- PLZ-Dummycheck und beliebte Carport-Konfigurationen als klare Conversion-Einstiege.
 - Service-/Trust-Elemente und gemeinsamer Footer.
 
 ### Konfigurator-Seite
@@ -104,7 +104,7 @@ Neue Seiten binden Header und Footer über `js/layout.js` ein:
 ```
 
 Für die Startseite kann `current="home"` verwendet werden; für die Konfigurator-Seite `current="carport"`.
-Auf der Startseite wird zusätzlich `variant="hero"` genutzt, damit die Navigation wie auf einer Shop-Startseite über dem Hero-Bild liegen kann.
+Die Startseite nutzt bewusst den normalen Header, damit sie gestalterisch näher an der Konfigurator-Seite bleibt.
 
 ## UX- und Conversion-Rate-Entscheidungen
 
@@ -113,6 +113,7 @@ Auf der Startseite wird zusätzlich `variant="hero"` genutzt, damit die Navigati
 - Die aktuelle Auswahl und der Preis werden live aktualisiert.
 - Beliebte Konfigurationen bieten schnelle Einstiegspunkte für unentschlossene Nutzerinnen und Nutzer.
 - FAQ, Liefergebiet und Kontaktbereich reduzieren typische Kaufbarrieren.
+- Die Startseite übernimmt zentrale Konfigurator-Patterns, damit Einstieg und Produktseite wie ein zusammenhängender Flow wirken.
 - Statt echtem Checkout wird eine Anfrage-Zusammenfassung gezeigt, damit der MVP realistisch bleibt.
 
 ## Konzept und Abweichungen
