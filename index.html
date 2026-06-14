@@ -10,90 +10,251 @@
   <body>
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-    <site-header current="home"></site-header>
+    <site-header current="home" variant="hero"></site-header>
 
     <main id="main">
-      <section class="hero">
-        <div class="container hero-grid">
+      <section class="home-hero" aria-labelledby="home-hero-heading">
+        <div class="container home-hero-content">
+          <p>SCS-Carports</p>
+          <h1 id="home-hero-heading">Stabil. Maßgenau. Konfigurierbar.</h1>
+          <a class="button button-yellow home-hero-button" href="konfigurator.html">Jetzt Carport konfigurieren</a>
+        </div>
+      </section>
+
+      <section class="section home-section" id="kategorien" aria-labelledby="categories-heading">
+        <div class="container">
+          <div class="section-heading">
+            <h2 id="categories-heading">Beliebte Kategorien</h2>
+          </div>
+          <div class="shop-category-grid">
+            <a class="shop-tile" id="holzbau" href="konfigurator.html">
+              <img src="assets/images/products/kvh.webp" alt="Konstruktionsvollholz">
+              <span>Konstruktionsvollholz</span>
+            </a>
+            <a class="shop-tile" href="konfigurator.html">
+              <img src="assets/images/products/bsh.webp" alt="Brettschichtholz">
+              <span>Brettschichtholz</span>
+            </a>
+            <a class="shop-tile" href="konfigurator.html">
+              <img src="assets/images/products/hobelware.webp" alt="Hobelware">
+              <span>Hobelware</span>
+            </a>
+            <a class="shop-tile" id="fassade" href="konfigurator.html">
+              <img src="assets/images/products/fassade.webp" alt="Fassadenprofil">
+              <span>Fassade</span>
+            </a>
+            <a class="shop-tile" id="terrasse" href="konfigurator.html">
+              <img src="assets/images/products/terrasse.webp" alt="Terrassendiele">
+              <span>Terrasse</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section home-section" aria-labelledby="home-reviews-heading">
+        <div class="container">
+          <div class="section-heading">
+            <h2 id="home-reviews-heading">Das sagen unsere Kunden über uns</h2>
+          </div>
+          <div class="home-reviews">
+            <aside class="shop-rating" aria-label="Gesamtbewertung">
+              <div class="rating-stars">★★★★★</div>
+              <strong>4,89</strong>
+              <span>Hervorragend</span>
+              <img src="assets/trust/trusted-shop.svg" alt="Trusted Shops">
+            </aside>
+            <article class="shop-review">
+              <div class="rating-stars">★★★★★</div>
+              <p class="review-meta">gestern von Bernd R.</p>
+              <h3>Besonders für Heimwerker sinnvoll</h3>
+              <p>Längere Holzbauteile wurden sauber angeliefert. Die Beratung war direkt und die Ware passte zur Bestellung.</p>
+              <a href="#kontakt">Mehr lesen</a>
+            </article>
+            <article class="shop-review">
+              <div class="rating-stars">★★★★★</div>
+              <p class="review-meta">gestern von Alios H.</p>
+              <h3>Schnell und zuverlässig</h3>
+              <p>Der Liefertermin wurde eingehalten und Rückfragen zum Carport konnten telefonisch schnell geklärt werden.</p>
+              <a href="#kontakt">Mehr lesen</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section home-section" aria-labelledby="inspiration-heading">
+        <div class="container">
+          <div class="section-heading">
+            <h2 id="inspiration-heading">Auf der Suche nach Inspiration?</h2>
+            <p>Sehen Sie, welche Projekte mit Holz von SCS möglich sind und starten Sie direkt mit einer passenden Idee.</p>
+          </div>
+          <div class="project-grid">
+            <a class="project-tile" href="konfigurator.html">
+              <img src="assets/images/hero/Beliebteste Konfiguration satteldach.png" alt="Carport aus dem Konfigurator">
+              <span>Carport aus dem SCS Konfigurator</span>
+            </a>
+            <a class="project-tile" href="konfigurator.html">
+              <img src="assets/images/hero/carport.webp" alt="Verkleidetes Doppelcarport">
+              <span>Verkleidetes Doppelcarport</span>
+            </a>
+            <a class="project-tile" href="#fassade">
+              <img src="assets/images/hero/facade-mobile.webp" alt="Fassade mit Holzverkleidung">
+              <span>Terrassenüberdachung & Fassade</span>
+            </a>
+            <a class="project-tile" href="#terrasse">
+              <img src="assets/images/products/terrasse.webp" alt="Terrasse mit Holzdielen">
+              <span>Terrassenüberdachung</span>
+            </a>
+          </div>
+          <div class="section-cta">
+            <a class="button button-yellow" href="konfigurator.html">Alle Projekte entdecken</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section home-section" aria-labelledby="tips-heading">
+        <div class="container">
+          <div class="section-heading">
+            <h2 id="tips-heading">Tipps & Ideen</h2>
+          </div>
+          <div class="project-grid">
+            <a class="project-tile" href="konfigurator.html">
+              <img src="assets/images/hero/kvh-installation.webp" alt="Holzmontage mit Akkuschrauber">
+              <span>SCS Holz Ratgeber</span>
+            </a>
+            <a class="project-tile" href="konfigurator.html">
+              <img src="assets/images/hero/Carport flach preview.jpg" alt="Carport vor einem Haus">
+              <span>Ratgeber Carport</span>
+            </a>
+            <a class="project-tile" href="#fassade">
+              <img src="assets/images/hero/facade-mobile.webp" alt="Holzfassade">
+              <span>Ratgeber Fassade</span>
+            </a>
+            <a class="project-tile" href="#terrasse">
+              <img src="assets/images/products/terrasse.webp" alt="Terrassendielen">
+              <span>Ratgeber Terrasse</span>
+            </a>
+          </div>
+          <div class="section-cta">
+            <a class="button button-yellow" href="konfigurator.html">Alle Themen entdecken</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="logistics-band" aria-labelledby="logistics-heading">
+        <div class="container">
+          <div class="section-heading">
+            <h2 id="logistics-heading">Unsere Logistik-Facts</h2>
+          </div>
+          <div class="facts-grid">
+            <div><strong>25</strong><span>Eigene LKW</span><p>Lieferung und Entladung</p></div>
+            <div><strong>180</strong><span>Jahre Erfahrung</span><p>Traditionelles Hobelwerk</p></div>
+            <div><strong>13,5 m</strong><span>Max. Lieferlänge</span><p>Ohne Nachschnitt</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section home-section" aria-labelledby="tools-heading">
+        <div class="container home-tools">
+          <article class="home-tool-card">
+            <div class="section-heading">
+              <h2 id="tools-heading">SCS Carport Konfigurator</h2>
+              <p>Ihr Traumcarport zum Greifen nah.</p>
+            </div>
+            <img src="assets/images/hero/Carport flach preview.jpg" alt="Carport-Konfigurator Vorschau">
+            <a class="button button-yellow" href="konfigurator.html">Jetzt konfigurieren</a>
+          </article>
+          <article class="home-delivery-check">
+            <div class="section-heading">
+              <h2>Liefergebiet-Check</h2>
+              <p>Liefergebiet prüfen, schnell und einfach.</p>
+            </div>
+            <form data-plz-form>
+              <label class="sr-only" for="home-plz">Postleitzahl</label>
+              <input id="home-plz" type="text" inputmode="numeric" maxlength="5" placeholder="PLZ">
+              <button class="button button-gray" type="submit">Liefergebiet prüfen</button>
+            </form>
+            <p class="plz-result" data-plz-result aria-live="polite"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section home-team" id="kontakt" aria-labelledby="team-heading">
+        <div class="container team-layout">
           <div>
-            <p class="eyebrow">Studienprojekt · UX-Rework</p>
-            <h1>Carports einfacher konfigurieren.</h1>
-            <p class="lead">Diese Website zeigt einen statischen Prototypen für eine überarbeitete SCS-Shop-Erfahrung. Der Fokus liegt auf einem verständlichen Carport-Konfigurator mit Live-Auswahl, Preisübersicht und Anfrage-Zusammenfassung.</p>
-            <div class="hero-actions">
-              <a class="button button-yellow" href="konfigurator.html">Carport konfigurieren</a>
-              <a class="button button-gray" href="#konzept">Konzept ansehen</a>
+            <div class="section-heading section-heading-left">
+              <h2 id="team-heading">Ihr Team von SCS</h2>
+              <p>Fragen zum Produkt? Wir helfen gerne.</p>
             </div>
           </div>
-          <div class="hero-card" aria-label="Carport Vorschau">
-            <img src="assets/images/hero/Carport flach preview.jpg" alt="SCS Carport-Visualisierung vor einem modernen Haus">
-          </div>
+          <img src="assets/images/hero/team-wide.webp" alt="SCS Beratungsteam vor gelben LKW">
         </div>
       </section>
 
-      <section class="section" id="kategorien" aria-labelledby="categories-heading">
+      <section class="section home-contact" aria-label="Kontaktmöglichkeiten">
+        <div class="container contact-grid contact-grid-home">
+          <article class="contact-card contact-card-large">
+            <span class="contact-icon-circle"><img class="contact-icon" src="assets/icons/phone.webp" alt=""></span>
+            <h3>Anrufen</h3>
+            <p>Direkter Kontakt zu unseren Experten</p>
+            <strong>+49 8224 / 9660 - 100</strong>
+            <small>Mo.-Fr.: 07:00-17:00 Uhr</small>
+          </article>
+          <article class="contact-card contact-card-large">
+            <span class="contact-icon-circle"><img class="contact-icon" src="assets/icons/message.webp" alt=""></span>
+            <h3>WhatsApp</h3>
+            <p>Schnelle Antworten auf Ihre Fragen</p>
+            <strong>Nachricht senden</strong>
+            <small>Antwort meist innerhalb von 30 Minuten</small>
+          </article>
+          <article class="contact-card contact-card-large">
+            <span class="contact-icon-circle"><img class="contact-icon" src="assets/icons/mail.webp" alt=""></span>
+            <h3>E-Mail</h3>
+            <p>Detaillierte Anfragen und Angebote</p>
+            <strong>info@scs-holzshop.de</strong>
+            <small>Antwort innerhalb von 24 Stunden</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="section home-section" aria-labelledby="news-heading">
         <div class="container">
-          <h2 id="categories-heading">Sortiment im Überblick</h2>
-          <div class="category-grid">
-            <a class="category-card" id="holzbau" href="konfigurator.html">
-              <img src="assets/images/products/kvh.webp" alt="Konstruktionsvollholz im Lager">
-              Holzbau <span>Konstruktionsholz & Bausätze</span>
+          <div class="section-heading">
+            <h2 id="news-heading">Aktuelles rund um SCS</h2>
+          </div>
+          <div class="news-grid">
+            <a class="project-tile" href="#kontakt">
+              <img src="assets/images/hero/forest.webp" alt="Wald von oben">
+              <span>Nachhaltigkeit</span>
             </a>
-            <a class="category-card" id="fassade" href="konfigurator.html">
-              <img src="assets/images/products/fassade.webp" alt="SCS Designline Fassadenprofil">
-              Fassade <span>Profile, Pflege & Zubehör</span>
+            <a class="project-tile news-tile-large" id="sale" href="#sale">
+              <img src="assets/images/hero/sale.webp" alt="Sale Aktion">
+              <span>Sale %</span>
             </a>
-            <a class="category-card" id="terrasse" href="konfigurator.html">
-              <img src="assets/images/products/terrasse.webp" alt="Terrassendielen auf einer Dachterrasse">
-              Terrasse <span>Dielen, Unterbau & Planung</span>
+            <a class="project-tile" href="#tips-heading">
+              <img src="assets/images/hero/kvh-installation.webp" alt="Montagearbeiten am Holz">
+              <span>Tipps & Ideen</span>
             </a>
-            <a class="category-card" href="konfigurator.html">
-              <img src="assets/images/hero/carport.webp" alt="SCS Carport-Konfigurator Visualisierung">
-              Carport <span>Direkt zum Konfigurator</span>
+            <a class="project-tile" href="#kontakt">
+              <img src="assets/images/hero/fleet-mobile.webp" alt="SCS LKW im Lager">
+              <span>Eigener Fuhrpark</span>
             </a>
-            <a class="category-card" id="sale" href="konfigurator.html">
-              <img src="assets/images/hero/sale.webp" alt="Reduziertes Holzprodukt aus dem Sale-Bereich">
-              Sale % <span>Beispielhafte Angebotswelt</span>
+            <a class="project-tile" href="#home-reviews-heading">
+              <img src="assets/trust/trusted-shop-mobile.webp" alt="Trusted Shops Auszeichnung">
+              <span>Wir sind ausgezeichnet</span>
             </a>
           </div>
         </div>
       </section>
 
-      <section class="section section-muted" id="konzept" aria-labelledby="concept-heading">
-        <div class="container teaser">
+      <section class="section shop-intro" aria-labelledby="shop-intro-heading">
+        <div class="container shop-intro-grid">
           <div>
-            <p class="eyebrow">Hauptfunktion</p>
-            <h2 id="concept-heading">Konfigurator statt unübersichtlicher Produktseite</h2>
-            <p class="lead">Nutzerinnen und Nutzer sollen schneller verstehen, welche Optionen verfügbar sind, wie sich die Auswahl auf den Preis auswirkt und welche Konfiguration gerade aktiv ist.</p>
+            <div class="section-heading section-heading-left">
+              <h2 id="shop-intro-heading">Holzshop für Profi-Heimwerker</h2>
+            </div>
+            <p>Im SCS Holz Online Shop finden Sie eine breite Produktpalette von Holzbauteilen, Hobelware, Platten, Terrassen und Carports. Dazu kommen persönlicher Service, kurze Wege und eine Lieferung, die auch lange Bauteile sauber abwickelt.</p>
           </div>
-          <div>
-            <ul>
-              <li>Schrittweise Auswahl für Art, Dachform, Maße und Zubehör</li>
-              <li>Dynamische Zusammenfassung mit fiktiver, nachvollziehbarer Preislogik</li>
-              <li>Beliebte Konfigurationen als Einstiegshilfe</li>
-              <li>Kein echter Checkout: Anfrage und Warenkorb werden bewusst nur angedeutet</li>
-            </ul>
-            <a class="button button-yellow" href="konfigurator.html">Zum Konfigurator</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="trust-heading">
-        <div class="container">
-          <h2 id="trust-heading">Warum dieser Aufbau?</h2>
-          <div class="trust-grid">
-            <article class="trust-card">
-              <h3>Schneller Einstieg</h3>
-              <p>Die Startseite führt ohne Umwege zum zentralen Studienprojekt: dem Carport-Konfigurator.</p>
-            </article>
-            <article class="trust-card">
-              <h3>Shopnahes Design</h3>
-              <p>Gelbe Akzente, klare Karten und Service-Elemente orientieren sich am SCS-Holzshop-Kontext.</p>
-            </article>
-            <article class="trust-card">
-              <h3>Einfach abgebbar</h3>
-              <p>Die Website benötigt keinen Build-Prozess und kann direkt über GitHub Pages live laufen.</p>
-            </article>
-          </div>
+          <img src="assets/images/hero/truck.webp" alt="Gelber SCS LKW im Lager">
         </div>
       </section>
     </main>

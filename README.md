@@ -66,9 +66,10 @@ http://localhost:8000/
 
 - SCS-nahe Benefit-Leiste und Header-Struktur.
 - Header und Footer sind als wiederverwendbare Web Components ausgelagert.
-- Hero-Bereich mit direktem Einstieg in den Konfigurator.
-- Kategorie-Karten und kurzer Konzeptbereich.
-- Service-/Trust-Elemente und Footer.
+- Grossformatiger Hero-Bereich mit Shop-Navigation und direktem Einstieg in den Konfigurator.
+- SCS-nahe Kategorie-, Bewertungs-, Inspirations-, Ratgeber-, Logistik-, Kontakt- und News-Sektionen.
+- PLZ-Dummycheck und Carport-Konfigurator-Teaser als klare Conversion-Einstiege.
+- Service-/Trust-Elemente und gemeinsamer Footer.
 
 ### Konfigurator-Seite
 
@@ -103,6 +104,7 @@ Neue Seiten binden Header und Footer über `js/layout.js` ein:
 ```
 
 Für die Startseite kann `current="home"` verwendet werden; für die Konfigurator-Seite `current="carport"`.
+Auf der Startseite wird zusätzlich `variant="hero"` genutzt, damit die Navigation wie auf einer Shop-Startseite über dem Hero-Bild liegen kann.
 
 ## UX- und Conversion-Rate-Entscheidungen
 
@@ -133,7 +135,7 @@ Für die Startseite kann `current="home"` verwendet werden; für die Konfigurato
 ## Future Work
 
 - Lizenz-/Nutzungsrechte der lokal eingebundenen SCS-nahen Bild- und Logoassets vor der finalen Veröffentlichung prüfen.
-- Konfigurator in klarere mobile Schritte aufteilen.
+- Mobile Stepper-Ansicht mit weiteren echten Nutzertests prüfen und verfeinern.
 - Preislogik mit echten Produktdaten ersetzen.
 - Anfrageformular mit Validierung ergänzen.
 - Barrierefreiheit und Tastaturbedienung weiter prüfen.

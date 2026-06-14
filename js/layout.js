@@ -8,12 +8,12 @@ const benefitItems = [
     icon: '<path d="M3 7h11v9H3z"/><path d="M14 10h3.5l2.5 3v3h-6z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/>',
   },
   {
-    label: 'Kostenlose Fachberatung',
-    icon: '<path d="M7 12.5 10 15c.8.7 1.9.7 2.7 0l4.8-4.2"/><path d="M2.5 15V8.5h3.2l3.1 2.1"/><path d="M21.5 15V8.5h-3.2l-2.2 1.4"/><path d="M9 10.6 11.8 8h2.6l2.8 2.8"/>',
-  },
-  {
     label: '180 Jahre Erfahrung',
     icon: '<circle cx="12" cy="9" r="4"/><path d="m9.6 12.3-.9 7 3.3-2 3.3 2-.9-7"/>',
+  },
+  {
+    label: 'Kostenlose Fachberatung',
+    icon: '<path d="M7 12.5 10 15c.8.7 1.9.7 2.7 0l4.8-4.2"/><path d="M2.5 15V8.5h3.2l3.1 2.1"/><path d="M21.5 15V8.5h-3.2l-2.2 1.4"/><path d="M9 10.6 11.8 8h2.6l2.8 2.8"/>',
   },
   {
     label: 'Hohe Verfügbarkeit',
@@ -38,6 +38,8 @@ const iconButton = (label, title, icon) => `
 class SiteHeader extends HTMLElement {
   connectedCallback() {
     const current = this.getAttribute('current') || '';
+    const variant = this.getAttribute('variant') || '';
+    const headerClass = variant === 'hero' ? 'site-header site-header-hero' : 'site-header';
 
     this.innerHTML = `
       <div class="benefit-bar" aria-label="Shop-Vorteile">
@@ -48,7 +50,7 @@ class SiteHeader extends HTMLElement {
         </ul>
       </div>
 
-      <header class="site-header">
+      <header class="${headerClass}">
         <div class="container header-grid">
           <nav class="main-nav" aria-label="Hauptnavigation">
             ${navItems.map((item) => `<a href="${item.href}"${current === item.key ? ' aria-current="page"' : ''}>${item.label}</a>`).join('')}
