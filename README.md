@@ -48,6 +48,7 @@ http://localhost:8000/
 ├── css/
 │   └── styles.css          # Gemeinsames Styling
 ├── js/
+│   ├── layout.js           # Wiederverwendbarer Header und Footer
 │   ├── main.js             # Tabs, FAQ, PLZ-Check, Scroll-Buttons
 │   └── configurator.js     # Auswahl-State, Preisberechnung, Presets, Modal
 ├── assets/
@@ -64,6 +65,7 @@ http://localhost:8000/
 ### Startseite
 
 - SCS-nahe Benefit-Leiste und Header-Struktur.
+- Header und Footer sind als wiederverwendbare Web Components ausgelagert.
 - Hero-Bereich mit direktem Einstieg in den Konfigurator.
 - Kategorie-Karten und kurzer Konzeptbereich.
 - Service-/Trust-Elemente und Footer.
@@ -87,6 +89,20 @@ http://localhost:8000/
 - **CSS** für Layout, Responsive Design und SCS-nahe Gestaltung.
 - **Vanilla JavaScript** für Interaktionen und Konfigurator-Logik.
 - **Kein Framework, kein Backend, kein Build-Prozess**, damit die Website leicht verständlich, wartbar und GitHub-Pages-kompatibel bleibt.
+
+## Wiederverwendbarer Header und Footer
+
+Neue Seiten binden Header und Footer über `js/layout.js` ein:
+
+```html
+<site-header current="carport"></site-header>
+...
+<site-footer></site-footer>
+
+<script src="js/layout.js"></script>
+```
+
+Für die Startseite kann `current="home"` verwendet werden; für die Konfigurator-Seite `current="carport"`.
 
 ## UX- und Conversion-Rate-Entscheidungen
 
