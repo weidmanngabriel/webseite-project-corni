@@ -1,6 +1,6 @@
 # SCS Carport-Konfigurator Studienprojekt
 
-Dieses Repository enthält eine statische, deutschsprachige Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators. Der Fokus liegt auf einer verständlichen Konfigurator-Seite mit Auswahl-Logik, Preisübersicht und Anfrage-Zusammenfassung.
+Dieses Repository enthält eine statische, deutschsprachige Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators. Der Fokus liegt auf einer verständlichen Konfigurator-Seite mit Auswahl-Logik, Preisübersicht, Warenkorb und simuliertem Checkout-Prozess.
 
 > Hinweis: Dies ist ein Studienprojekt und kein offizieller SCS-Holzshop.
 
@@ -45,12 +45,16 @@ http://localhost:8000/
 /
 ├── index.html              # Startseite mit Shop-Einstieg
 ├── konfigurator.html       # Hauptseite mit Carport-Konfigurator
+├── warenkorb.html          # Warenkorb mit Mengen, Entfernen, Gutschein und Checkout-Einstieg
+├── checkout.html           # Simulierter Checkout mit Adresse, Versand, Zahlung und Prüfung
+├── bestellung.html         # Lokale Bestellbestätigung nach Checkout-Abschluss
 ├── css/
 │   └── styles.css          # Gemeinsames Styling
 ├── js/
+│   ├── cart.js             # LocalStorage-Warenkorb, Checkout-Logik, Bestellbestätigung
 │   ├── layout.js           # Wiederverwendbarer Header und Footer
 │   ├── main.js             # Tabs, FAQ, PLZ-Check, Scroll-Buttons
-│   └── configurator.js     # Auswahl-State, Preisberechnung, Presets, Modal
+│   └── configurator.js     # Auswahl-State, Preisberechnung, Presets, Warenkorb-Übergabe
 ├── assets/
 │   ├── icons/              # Lokale Service-, Kontakt- und Social-Icons
 │   ├── images/             # Lokale Produkt-, Hero-, Payment- und Lieferzonenbilder
@@ -70,6 +74,7 @@ http://localhost:8000/
 - SCS-nahe Kategorie-, Preset-, Bewertungs-, Liefergebiet-, FAQ- und Kontakt-Sektionen.
 - PLZ-Dummycheck und beliebte Carport-Konfigurationen als klare Conversion-Einstiege.
 - Service-/Trust-Elemente und gemeinsamer Footer.
+- Warenkorb-Badge im Header zeigt gespeicherte Artikel browser-lokal an.
 
 ### Konfigurator-Seite
 
@@ -80,9 +85,16 @@ http://localhost:8000/
 - Dynamische Preisberechnung auf Basis einer vereinfachten, fiktiven Logik.
 - Live-Zusammenfassung der aktuellen Auswahl.
 - Preset-Karten für beliebte Konfigurationen.
-- Zusammenfassungsmodal als angedeuteter Anfrage-/Warenkorb-Prozess.
+- Warenkorb-Übergabe mit gespeicherter Konfiguration, Menge, Einzelpreis und Produktdetails.
 - Produktinfos, technische Daten, Vorteile und Video-Platzhalter über Tabs.
 - Kundenstimmen, Liefergebiet-Dummycheck, FAQ-Akkordeon und Kontaktbereich.
+
+### Warenkorb und Checkout
+
+- `warenkorb.html` zeigt konfigurierte Artikel, Produktdetails, Mengensteuerung, Entfernen-Funktion, Gutschein-Dummycode `SCS10` und Checkout-Einstieg.
+- `checkout.html` enthält Kontaktdaten, Lieferadresse, dynamische PLZ-/Versandkostenlogik, Zahlungsart-Auswahl, optionale Nachricht und finale Bestätigung.
+- `bestellung.html` zeigt nach Abschluss eine lokale Bestellbestätigung mit Bestellnummer, Kundendaten, Artikeln und nächstem Beratungs-/Angebotsschritt.
+- Der gesamte Flow nutzt `localStorage`; dadurch bleibt er statisch, GitHub-Pages-kompatibel und ohne Backend lauffähig.
 
 ## Technologieentscheidung
 
@@ -114,7 +126,7 @@ Die Startseite nutzt bewusst den normalen Header, damit sie gestalterisch näher
 - Beliebte Konfigurationen bieten schnelle Einstiegspunkte für unentschlossene Nutzerinnen und Nutzer.
 - FAQ, Liefergebiet und Kontaktbereich reduzieren typische Kaufbarrieren.
 - Die Startseite übernimmt zentrale Konfigurator-Patterns, damit Einstieg und Produktseite wie ein zusammenhängender Flow wirken.
-- Statt echtem Checkout wird eine Anfrage-Zusammenfassung gezeigt, damit der MVP realistisch bleibt.
+- Der Checkout bildet gängige Shop-Schritte ab, bleibt aber transparent als lokaler Studienprototyp ohne echte Bestellung gekennzeichnet.
 
 ## Konzept und Abweichungen
 
@@ -125,9 +137,9 @@ Die Startseite nutzt bewusst den normalen Header, damit sie gestalterisch näher
 
 ## Bekannte Limitierungen
 
-- Kein echter Checkout.
-- Keine echte Zahlung.
-- Keine Kundendaten-Erfassung.
+- Kein produktiver Checkout mit Backend-Anbindung.
+- Keine echte Zahlung; Zahlungsarten sind nur auswählbare Prototyp-Optionen.
+- Kundendaten werden nicht übertragen, sondern nur lokal im Browser für die Demo-Bestätigung gespeichert.
 - Kein Backend und keine CMS-Anbindung.
 - Keine echte Lagerbestands- oder Lieferzeitprüfung.
 - Keine echte serverseitige Preisberechnung.
@@ -138,7 +150,7 @@ Die Startseite nutzt bewusst den normalen Header, damit sie gestalterisch näher
 - Lizenz-/Nutzungsrechte der lokal eingebundenen SCS-nahen Bild- und Logoassets vor der finalen Veröffentlichung prüfen.
 - Mobile Stepper-Ansicht mit weiteren echten Nutzertests prüfen und verfeinern.
 - Preislogik mit echten Produktdaten ersetzen.
-- Anfrageformular mit Validierung ergänzen.
+- Checkout an echtes Backend, E-Mail-Angebotsprozess oder Shop-System anbinden.
 - Barrierefreiheit und Tastaturbedienung weiter prüfen.
 - Optional: Vergleich mehrerer Konfigurationen oder PDF-Export der Zusammenfassung.
 

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Warenkorb | SCS Carport Studienprojekt</title>
+    <meta name="description" content="Warenkorb des statischen SCS Carport-Prototyps mit Mengen, Rabattcode und Checkout-Einstieg.">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+    <site-header current="cart"></site-header>
+
+    <main id="main" class="container checkout-page">
+      <p class="breadcrumb"><a href="index.html">Home</a> &gt; <strong>Warenkorb</strong></p>
+      <header class="checkout-header">
+        <div>
+          <p class="eyebrow">Sicher einkaufen</p>
+          <h1 class="page-title">Ihr Warenkorb</h1>
+          <p class="lead">Prüfen Sie Ihre konfigurierte Auswahl, passen Sie Mengen an und starten Sie den simulierten Checkout.</p>
+        </div>
+        <ol class="checkout-progress" aria-label="Checkout Fortschritt">
+          <li aria-current="step">Warenkorb</li>
+          <li>Adresse</li>
+          <li>Zahlung</li>
+          <li>Prüfen</li>
+        </ol>
+      </header>
+
+      <div class="checkout-layout">
+        <section class="cart-list" data-cart-page aria-label="Warenkorb Artikel"></section>
+
+        <aside class="checkout-side">
+          <div class="voucher-box">
+            <h2>Gutschein</h2>
+            <p>Für den Prototyp funktioniert der Code <strong>SCS10</strong>.</p>
+            <div class="voucher-form">
+              <label class="sr-only" for="discount-code">Gutscheincode</label>
+              <input id="discount-code" data-discount-code type="text" placeholder="Code eingeben">
+              <button class="button button-gray" type="button" data-apply-discount>Einlösen</button>
+            </div>
+          </div>
+          <div data-cart-summary></div>
+          <div class="trust-strip">
+            <span>SSL-Dummy</span>
+            <span>Trusted Shops</span>
+            <span>Fachberatung</span>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <site-footer></site-footer>
+
+    <script src="js/layout.js"></script>
+    <script src="js/cart.js"></script>
+  </body>
+</html>

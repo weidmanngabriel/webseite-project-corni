@@ -42,8 +42,8 @@
             <p>Die Preislogik ist im Prototyp fiktiv, aber nachvollziehbar und während der Auswahl aktualisiert.</p>
           </article>
           <article class="trust-card">
-            <h3>Anfrage statt Checkout</h3>
-            <p>Der Ablauf endet bewusst mit einer Zusammenfassung, weil Login, Zahlung und Backend nicht Teil des MVP sind.</p>
+            <h3>Checkout als Prototyp</h3>
+            <p>Warenkorb, Adresse, Zahlungsauswahl und Bestätigung werden simuliert, ohne echte Bestellung oder Backend.</p>
           </article>
         </div>
       </section>
@@ -190,7 +190,7 @@
           <div class="faq-list">
             <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">Was kann ich konfigurieren? <span>⌄</span></button><div class="faq-answer"><p>Im MVP lassen sich Carport-Art, Dachform, Maße, Dacheindeckung, Seitenverkleidung und Menge auswählen. Die aktuelle Auswahl bleibt im Konfigurator sichtbar.</p></div></article>
             <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">Ist der Preis verbindlich? <span>⌄</span></button><div class="faq-answer"><p>Nein. Die Preisberechnung ist für das Studienprojekt fiktiv, aber im Code nachvollziehbar aufgebaut. Ein echter Shop würde daraus eine Anfrage oder ein Angebot erzeugen.</p></div></article>
-            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">Gibt es einen echten Checkout? <span>⌄</span></button><div class="faq-answer"><p>Nein. Checkout, Zahlung, Login, CMS und Backend sind nicht Teil des MVP. Der Prototyp zeigt nur die Anfrage- und Zusammenfassungslogik.</p></div></article>
+            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">Gibt es einen echten Checkout? <span>⌄</span></button><div class="faq-answer"><p>Der Checkout ist bedienbar, aber simuliert. Warenkorb, Kundendaten, Lieferkosten, Zahlungsart und Bestätigung funktionieren lokal im Browser; es wird keine echte Bestellung ausgelöst.</p></div></article>
             <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">Warum diese Startseite? <span>⌄</span></button><div class="faq-answer"><p>Die Startseite bildet einen SCS-nahen Shop-Einstieg ab und führt Nutzerinnen und Nutzer gezielt zum Carport-Konfigurator als Hauptfunktion des Projekts.</p></div></article>
           </div>
         </div>
@@ -218,6 +218,7 @@
     <site-footer></site-footer>
 
     <script src="js/layout.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

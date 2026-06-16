@@ -197,6 +197,11 @@
               <span id="quantity-label">1 Stück</span>
               <strong class="price"><span id="price-output">5.327,06 €</span><span class="tax-note">inkl. MwSt. zzgl. Versand</span></strong>
             </div>
+            <div class="quantity-selector" aria-label="Menge wählen">
+              <button type="button" data-quantity-step="-1" aria-label="Menge reduzieren">−</button>
+              <output id="quantity-output" for="quantity-label">1</output>
+              <button type="button" data-quantity-step="1" aria-label="Menge erhöhen">+</button>
+            </div>
             <button class="button button-yellow" id="summary-button" type="button">In den Warenkorb</button>
           </aside>
         </div>
@@ -382,15 +387,18 @@
       <div class="modal-content">
         <h2>Konfigurations-Zusammenfassung</h2>
         <div id="modal-summary"></div>
-        <p><strong>Hinweis:</strong> Dies ist kein echter Checkout. Für die Abgabe wird nur gezeigt, wie eine Anfrage- oder Warenkorb-Zusammenfassung aussehen könnte.</p>
+        <p><strong>Hinweis:</strong> Warenkorb und Checkout sind ein lokaler Prototyp. Es wird keine echte Bestellung oder Zahlung ausgelöst.</p>
         <div class="modal-actions">
-          <button class="button button-yellow" type="button" id="close-modal">Verstanden</button>
+          <a class="button button-yellow" href="warenkorb.html">Zum Warenkorb</a>
+          <a class="button button-gray" href="checkout.html">Direkt zur Kasse</a>
+          <button class="button button-ghost" type="button" id="close-modal">Weiter konfigurieren</button>
           <button class="button button-gray" type="button" id="print-summary">Zusammenfassung drucken</button>
         </div>
       </div>
     </dialog>
 
     <script src="js/layout.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
     <script src="js/configurator.js"></script>
   </body>

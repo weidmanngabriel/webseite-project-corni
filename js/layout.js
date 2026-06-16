@@ -29,7 +29,12 @@ const navItems = [
   { href: 'index.html#sale', label: 'Sale %', key: 'sale' },
 ];
 
-const iconButton = (label, title, icon) => `
+const iconButton = (label, title, icon, href = '') => href ? `
+  <a class="header-icon" href="${href}" aria-label="${label}" title="${title}">
+    <svg aria-hidden="true" viewBox="0 0 24 24">${icon}</svg>
+    ${label === 'Warenkorb' ? '<span class="cart-badge" data-cart-count hidden>0</span>' : ''}
+  </a>
+` : `
   <button class="header-icon" type="button" aria-label="${label}" title="${title}">
     <svg aria-hidden="true" viewBox="0 0 24 24">${icon}</svg>
   </button>
@@ -62,7 +67,7 @@ class SiteHeader extends HTMLElement {
             <input class="search" type="search" aria-label="Artikelsuche" placeholder="Artikelsuche">
             ${iconButton('Kundenkonto', 'Kundenkonto', '<path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/>')}
             ${iconButton('Merkliste', 'Merkliste', '<path d="M12 21s-7-4.4-9.2-8.5C.9 9 .9 4.8 4.4 3.4 7.2 2.3 10 4 12 6.5 14 4 16.8 2.3 19.6 3.4c3.5 1.4 3.5 5.6 1.6 9.1C19 16.6 12 21 12 21z"/>')}
-            ${iconButton('Warenkorb', 'Warenkorb', '<path d="M6 6h15l-1.6 8.2H8L6 3H3"/><circle cx="9" cy="20" r="1.7"/><circle cx="18" cy="20" r="1.7"/>')}
+            ${iconButton('Warenkorb', 'Warenkorb', '<path d="M6 6h15l-1.6 8.2H8L6 3H3"/><circle cx="9" cy="20" r="1.7"/><circle cx="18" cy="20" r="1.7"/>', 'warenkorb.html')}
           </div>
         </div>
       </header>

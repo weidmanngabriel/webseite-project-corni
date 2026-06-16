@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout | SCS Carport Studienprojekt</title>
+    <meta name="description" content="Simulierter Checkout-Prozess für den statischen SCS Carport-Prototyp.">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+    <site-header current="cart"></site-header>
+
+    <main id="main" class="container checkout-page">
+      <p class="breadcrumb"><a href="index.html">Home</a> &gt; <a href="warenkorb.html">Warenkorb</a> &gt; <strong>Checkout</strong></p>
+      <header class="checkout-header">
+        <div>
+          <p class="eyebrow">Checkout</p>
+          <h1 class="page-title">Bestellung abschließen</h1>
+          <p class="lead">Der Ablauf wirkt wie ein echter Shop-Checkout, sendet aber keine Daten und führt keine Zahlung aus.</p>
+        </div>
+        <ol class="checkout-progress" aria-label="Checkout Fortschritt">
+          <li>Warenkorb</li>
+          <li aria-current="step">Adresse</li>
+          <li>Zahlung</li>
+          <li>Prüfen</li>
+        </ol>
+      </header>
+
+      <form class="checkout-layout" data-checkout-form novalidate>
+        <div class="checkout-main">
+          <section class="checkout-panel">
+            <div class="panel-title">
+              <span>1</span>
+              <div>
+                <h2>Kontaktdaten</h2>
+                <p>Für Rückfragen zur Konfiguration und zum Angebot.</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <label>Vorname <input name="firstName" autocomplete="given-name" required></label>
+              <label>Nachname <input name="lastName" autocomplete="family-name" required></label>
+              <label>E-Mail <input name="email" type="email" autocomplete="email" required></label>
+              <label>Telefon <input name="phone" type="tel" autocomplete="tel" required></label>
+            </div>
+          </section>
+
+          <section class="checkout-panel">
+            <div class="panel-title">
+              <span>2</span>
+              <div>
+                <h2>Lieferadresse</h2>
+                <p>Die PLZ aktualisiert Liefergebiet, Lieferzeit und Versandkosten.</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <label>Straße und Hausnummer <input name="street" autocomplete="street-address" required></label>
+              <label>PLZ <input name="postalCode" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code" required></label>
+              <label>Ort <input name="city" autocomplete="address-level2" required></label>
+              <label>Land
+                <select name="country" autocomplete="country-name" required>
+                  <option value="Deutschland">Deutschland</option>
+                  <option value="Österreich">Österreich</option>
+                  <option value="Schweiz">Schweiz</option>
+                </select>
+              </label>
+            </div>
+            <p class="form-result" data-delivery-result aria-live="polite">Die Lieferkosten werden nach Eingabe der PLZ aktualisiert.</p>
+          </section>
+
+          <section class="checkout-panel">
+            <div class="panel-title">
+              <span>3</span>
+              <div>
+                <h2>Zahlungsart</h2>
+                <p>Die Auswahl ist rein visuell und löst keine Zahlung aus.</p>
+              </div>
+            </div>
+            <div class="payment-options">
+              <label><input type="radio" name="payment" value="PayPal" required><span><img src="assets/images/payment/paypal.webp" alt="">PayPal</span></label>
+              <label><input type="radio" name="payment" value="Kreditkarte"><span><img src="assets/images/payment/visa.webp" alt="">Kreditkarte</span></label>
+              <label><input type="radio" name="payment" value="Klarna"><span><img src="assets/images/payment/klarna.webp" alt="">Klarna</span></label>
+              <label><input type="radio" name="payment" value="SEPA"><span><img src="assets/images/payment/sepa.webp" alt="">SEPA</span></label>
+            </div>
+          </section>
+
+          <section class="checkout-panel">
+            <div class="panel-title">
+              <span>4</span>
+              <div>
+                <h2>Prüfen und anfragen</h2>
+                <p>Im echten Shop würden hier AGB, Widerruf und verbindliche Zahlung greifen.</p>
+              </div>
+            </div>
+            <label class="checkbox-line">
+              <input name="terms" type="checkbox" required>
+              <span>Ich akzeptiere die simulierten AGB und bestätige, dass dies ein Studienprojekt ohne echte Bestellung ist.</span>
+            </label>
+            <label class="checkbox-line">
+              <input name="newsletter" type="checkbox">
+              <span>Ich möchte optionale Beratungshinweise zur Carport-Planung erhalten.</span>
+            </label>
+            <textarea name="message" rows="4" placeholder="Optionale Nachricht an die Fachberatung"></textarea>
+          </section>
+        </div>
+
+        <aside class="checkout-side">
+          <section class="checkout-review" data-checkout-items aria-label="Artikelübersicht"></section>
+          <div class="voucher-box">
+            <h2>Gutschein</h2>
+            <div class="voucher-form">
+              <label class="sr-only" for="checkout-discount">Gutscheincode</label>
+              <input id="checkout-discount" name="discountCode" data-discount-code type="text" placeholder="SCS10">
+            </div>
+          </div>
+          <div data-checkout-summary></div>
+          <button class="button button-yellow summary-action" type="submit">Jetzt zahlungspflichtig bestellen</button>
+          <p class="summary-note">Demo-Hinweis: Der Button erzeugt nur eine lokale Bestellbestätigung.</p>
+        </aside>
+      </form>
+    </main>
+
+    <site-footer></site-footer>
+
+    <script src="js/layout.js"></script>
+    <script src="js/cart.js"></script>
+  </body>
+</html>

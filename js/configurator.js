@@ -212,6 +212,39 @@ const getSelectionText = () => {
   return `${labels.type[state.type]}  >  ${labels.roof[state.roof]}  >  ${state.width} × ${state.depth} × ${state.height} m  >  ${labels.cover[state.cover]}  >  ${sideText}  >  ${labels.cladding[state.cladding]}`;
 };
 
+const getActiveSidesText = () => {
+  const activeSides = Object.entries(state.sides)
+    .filter(([, enabled]) => enabled)
+    .map(([side]) => ({ left: 'links', right: 'rechts', back: 'hinten' }[side]));
+
+  return activeSides.length > 0 ? activeSides.join(', ') : 'keine';
+};
+
+const getCartImage = () => `${getRenderBasePath()}/${state.type}_${state.roof}_structure.jpg`;
+
+const getCartItem = () => {
+  const unitPrice = calculateUnitPrice();
+  const configuration = JSON.parse(JSON.stringify(state));
+  const { quantity, ...signatureConfiguration } = configuration;
+
+  return {
+    title: `${labels.type[state.type]} ${labels.roof[state.roof]}`,
+    summary: `${state.width} × ${state.depth} × ${state.height} m, ${labels.cover[state.cover]}, Seiten: ${getActiveSidesText()}`,
+    image: getCartImage(),
+    unitPrice,
+    quantity: state.quantity,
+    configuration,
+    signature: JSON.stringify(signatureConfiguration),
+    details: [
+      { label: 'Carport-Art', value: labels.type[state.type] },
+      { label: 'Dachform', value: labels.roof[state.roof] },
+      { label: 'Maße', value: `${state.width} × ${state.depth} × ${state.height} m` },
+      { label: 'Dacheindeckung', value: labels.cover[state.cover] },
+      { label: 'Seitenverkleidung', value: `${labels.cladding[state.cladding]} (${getActiveSidesText()})` },
+    ],
+  };
+};
+
 const getRenderBasePath = () => `${renderRoot}/${state.type}/${state.roof}`;
 
 const withImageExtensions = (pathWithoutExtension) => {
@@ -319,6 +352,7 @@ const render = () => {
   updateActiveButtons();
   updateInputs();
   document.getElementById('quantity-label').textContent = `${state.quantity} Stück`;
+  document.getElementById('quantity-output').textContent = state.quantity;
   document.getElementById('price-output').textContent = formatPrice(getTotalPrice());
   document.getElementById('selection-output').textContent = getSelectionText();
 };
@@ -361,6 +395,15 @@ const setupSideSwitches = () => {
   });
 };
 
+const setupQuantityButtons = () => {
+  document.querySelectorAll('[data-quantity-step]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const nextQuantity = Math.min(9, Math.max(1, state.quantity + Number(button.dataset.quantityStep)));
+      setState({ quantity: nextQuantity });
+    });
+  });
+};
+
 const setupPresets = () => {
   document.querySelectorAll('[data-preset]').forEach((button) => {
     button.addEventListener('click', () => {
@@ -378,12 +421,15 @@ const setupSummaryModal = () => {
   const printButton = document.getElementById('print-summary');
 
   openButton.addEventListener('click', () => {
+    window.SCSCart?.addItem(getCartItem());
+
     modalSummary.innerHTML = `
       <ul>
         <li><strong>Auswahl:</strong> ${getSelectionText()}</li>
         <li><strong>Menge:</strong> ${state.quantity}</li>
         <li><strong>Preis:</strong> ${formatPrice(getTotalPrice())} inkl. MwSt. zzgl. Versand</li>
       </ul>
+      <p>Die Konfiguration wurde dem Warenkorb hinzugefügt.</p>
     `;
 
     if (typeof modal.showModal === 'function') {
@@ -400,6 +446,7 @@ const setupSummaryModal = () => {
 setupOptionButtons();
 setupNumberInputs();
 setupSideSwitches();
+setupQuantityButtons();
 setupPresets();
 setupSummaryModal();
 render();
