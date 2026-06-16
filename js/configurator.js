@@ -122,7 +122,6 @@ const state = {
     back: false,
   },
   cladding: 'none',
-  quantity: 1,
 };
 
 const presets = {
@@ -135,7 +134,6 @@ const presets = {
     cover: 'sandwich',
     sides: { left: true, right: true, back: true },
     cladding: 'hnfFichte',
-    quantity: 1,
   },
   family: {
     type: 'double',
@@ -146,7 +144,6 @@ const presets = {
     cover: 'trapezoid',
     sides: { left: true, right: true, back: true },
     cladding: 'rundFichte',
-    quantity: 1,
   },
   budget: {
     type: 'single',
@@ -157,7 +154,6 @@ const presets = {
     cover: 'wave',
     sides: { left: false, right: false, back: false },
     cladding: 'none',
-    quantity: 1,
   },
 };
 
@@ -200,7 +196,7 @@ const calculateUnitPrice = () => {
     + claddingSurcharge;
 };
 
-const getTotalPrice = () => calculateUnitPrice() * state.quantity;
+const getTotalPrice = () => calculateUnitPrice();
 
 const getSelectionText = () => {
   const sideText = [
@@ -225,16 +221,15 @@ const getCartImage = () => `${getRenderBasePath()}/${state.type}_${state.roof}_s
 const getCartItem = () => {
   const unitPrice = calculateUnitPrice();
   const configuration = JSON.parse(JSON.stringify(state));
-  const { quantity, ...signatureConfiguration } = configuration;
 
   return {
     title: `${labels.type[state.type]} ${labels.roof[state.roof]}`,
     summary: `${state.width} × ${state.depth} × ${state.height} m, ${labels.cover[state.cover]}, Seiten: ${getActiveSidesText()}`,
     image: getCartImage(),
+    previewLayers: getPreviewLayers(),
     unitPrice,
-    quantity: state.quantity,
     configuration,
-    signature: JSON.stringify(signatureConfiguration),
+    signature: JSON.stringify(configuration),
     details: [
       { label: 'Carport-Art', value: labels.type[state.type] },
       { label: 'Dachform', value: labels.roof[state.roof] },
@@ -296,6 +291,25 @@ const getCladdingSources = (side) => {
   return slugs.flatMap((slug) => withImageExtensions(`${basePath}/${slug}`));
 };
 
+const getPreviewLayers = () => {
+  const basePath = getRenderBasePath();
+  const roofSlug = coverRenderSlugs[state.cover];
+
+  return [
+    {
+      name: 'structure',
+      sources: [
+        `${basePath}/${state.type}_${state.roof}_structure.jpg`,
+        `${basePath}/${state.type}_${state.roof}_structure.png`,
+      ],
+    },
+    { name: 'back', sources: getCladdingSources('back') },
+    { name: 'left', sources: getCladdingSources('left') },
+    { name: 'right', sources: getCladdingSources('right') },
+    { name: 'roof', sources: roofSlug ? withImageExtensions(`${basePath}/roof/${roofSlug}`) : [] },
+  ];
+};
+
 const updatePreviewLayers = () => {
   const basePath = getRenderBasePath();
   const structure = document.getElementById('preview-structure');
@@ -351,8 +365,6 @@ const render = () => {
   updatePreviewLayers();
   updateActiveButtons();
   updateInputs();
-  document.getElementById('quantity-label').textContent = `${state.quantity} Stück`;
-  document.getElementById('quantity-output').textContent = state.quantity;
   document.getElementById('price-output').textContent = formatPrice(getTotalPrice());
   document.getElementById('selection-output').textContent = getSelectionText();
 };
@@ -395,15 +407,6 @@ const setupSideSwitches = () => {
   });
 };
 
-const setupQuantityButtons = () => {
-  document.querySelectorAll('[data-quantity-step]').forEach((button) => {
-    button.addEventListener('click', () => {
-      const nextQuantity = Math.min(9, Math.max(1, state.quantity + Number(button.dataset.quantityStep)));
-      setState({ quantity: nextQuantity });
-    });
-  });
-};
-
 const setupPresets = () => {
   document.querySelectorAll('[data-preset]').forEach((button) => {
     button.addEventListener('click', () => {
@@ -426,7 +429,6 @@ const setupSummaryModal = () => {
     modalSummary.innerHTML = `
       <ul>
         <li><strong>Auswahl:</strong> ${getSelectionText()}</li>
-        <li><strong>Menge:</strong> ${state.quantity}</li>
         <li><strong>Preis:</strong> ${formatPrice(getTotalPrice())} inkl. MwSt. zzgl. Versand</li>
       </ul>
       <p>Die Konfiguration wurde dem Warenkorb hinzugefügt.</p>
@@ -446,7 +448,6 @@ const setupSummaryModal = () => {
 setupOptionButtons();
 setupNumberInputs();
 setupSideSwitches();
-setupQuantityButtons();
 setupPresets();
 setupSummaryModal();
 render();

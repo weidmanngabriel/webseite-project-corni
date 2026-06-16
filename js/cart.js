@@ -43,31 +43,13 @@ const saveCart = (items) => {
 const createId = () => `scs-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
 const addItem = (item) => {
-  const items = getCart();
   const signature = item.signature || JSON.stringify(item.configuration || {});
-  const existing = items.find((cartItem) => cartItem.signature === signature);
 
-  if (existing) {
-    existing.quantity += item.quantity || 1;
-  } else {
-    items.push({
-      id: createId(),
-      signature,
-      ...item,
-      quantity: item.quantity || 1,
-    });
-  }
-
-  saveCart(items);
-};
-
-const updateQuantity = (id, quantity) => {
-  const nextQuantity = Math.max(1, Number(quantity) || 1);
-  const items = getCart().map((item) => (
-    item.id === id ? { ...item, quantity: nextQuantity } : item
-  ));
-
-  saveCart(items);
+  saveCart([{
+    id: createId(),
+    signature,
+    ...item,
+  }]);
 };
 
 const removeItem = (id) => {
@@ -88,7 +70,7 @@ const getDeliveryRegion = (postalCode = '') => {
 
 const getCartTotals = (postalCode = '', discountCode = '') => {
   const items = getCart();
-  const subtotal = items.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
+  const subtotal = items.reduce((sum, item) => sum + item.unitPrice, 0);
   const delivery = items.length > 0 ? getDeliveryRegion(postalCode) : { ...deliveryRegions.zone1, price: 0 };
   const discount = discountCode.trim().toUpperCase() === 'SCS10' ? subtotal * 0.1 : 0;
   const total = Math.max(0, subtotal - discount + delivery.price);
@@ -108,6 +90,29 @@ const getItemDetailsHtml = (item) => `
     ${(item.details || []).map((detail) => `<li><strong>${detail.label}:</strong> ${detail.value}</li>`).join('')}
   </ul>
 `;
+
+const escapeAttribute = (value) => String(value)
+  .replace(/&/g, '&amp;')
+  .replace(/"/g, '&quot;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;');
+
+const getPreviewHtml = (item, modifier = '') => {
+  const layers = item.previewLayers || [
+    { name: 'structure', sources: [item.image] },
+  ];
+
+  return `
+    <div class="configured-preview ${modifier}" aria-hidden="true">
+      ${layers.map((layer) => {
+        const sources = (layer.sources || []).filter(Boolean);
+        if (sources.length === 0) return '';
+
+        return `<img class="preview-layer preview-layer-${layer.name}" src="${escapeAttribute(sources[0])}" data-preview-sources="${escapeAttribute(JSON.stringify(sources))}" alt="">`;
+      }).join('')}
+    </div>
+  `;
+};
 
 const getEmptyCartHtml = () => `
   <section class="empty-state">
@@ -133,7 +138,7 @@ const getSummaryHtml = (totals, options = {}) => `
 `;
 
 const renderCartCount = () => {
-  const count = getCart().reduce((sum, item) => sum + item.quantity, 0);
+  const count = getCart().length;
 
   document.querySelectorAll('[data-cart-count]').forEach((badge) => {
     badge.textContent = String(count);
@@ -158,21 +163,18 @@ const renderCartPage = () => {
 
   root.innerHTML = items.map((item) => `
     <article class="cart-item">
-      <img src="${item.image}" alt="">
+      ${getPreviewHtml(item)}
       <div class="cart-item-body">
         <div class="cart-item-title">
           <div>
             <p class="eyebrow">Konfigurierter Artikel</p>
             <h2>${item.title}</h2>
           </div>
-          <strong>${money(item.unitPrice * item.quantity)}</strong>
+          <strong>${money(item.unitPrice)}</strong>
         </div>
         ${getItemDetailsHtml(item)}
         <div class="cart-item-actions">
-          <label class="quantity-field">Menge
-            <input type="number" min="1" max="9" value="${item.quantity}" data-cart-quantity="${item.id}">
-          </label>
-          <a class="button button-gray" href="konfigurator.html">Ähnlich konfigurieren</a>
+          <a class="button button-gray" href="konfigurator.html">Konfiguration ändern</a>
           <button class="button button-ghost" type="button" data-cart-remove="${item.id}">Entfernen</button>
         </div>
       </div>
@@ -206,13 +208,13 @@ const renderCheckoutPage = () => {
 
   itemsRoot.innerHTML = items.map((item) => `
     <article class="checkout-line">
-      <img src="${item.image}" alt="">
+      ${getPreviewHtml(item, 'configured-preview-small')}
       <div>
         <h3>${item.title}</h3>
         <p>${item.summary}</p>
-        <small>${item.quantity} x ${money(item.unitPrice)}</small>
+        <small>1 Stück</small>
       </div>
-      <strong>${money(item.quantity * item.unitPrice)}</strong>
+      <strong>${money(item.unitPrice)}</strong>
     </article>
   `).join('');
 
@@ -230,13 +232,6 @@ const renderCheckoutPage = () => {
 
 const setupCartPage = () => {
   if (!document.querySelector('[data-cart-page]')) return;
-
-  document.addEventListener('change', (event) => {
-    if (event.target.matches('[data-cart-quantity]')) {
-      updateQuantity(event.target.dataset.cartQuantity, event.target.value);
-      renderCartPage();
-    }
-  });
 
   document.addEventListener('click', (event) => {
     const removeButton = event.target.closest('[data-cart-remove]');
@@ -336,13 +331,13 @@ const renderOrderPage = () => {
       <div class="checkout-review">
         ${order.items.map((item) => `
           <article class="checkout-line">
-            <img src="${item.image}" alt="">
+            ${getPreviewHtml(item, 'configured-preview-small')}
             <div>
               <h3>${item.title}</h3>
               <p>${item.summary}</p>
-              <small>${item.quantity} x ${money(item.unitPrice)}</small>
+              <small>1 Stück</small>
             </div>
-            <strong>${money(item.quantity * item.unitPrice)}</strong>
+            <strong>${money(item.unitPrice)}</strong>
           </article>
         `).join('')}
       </div>
@@ -369,3 +364,19 @@ window.SCSCart = {
   money,
   renderCartCount,
 };
+
+document.addEventListener('error', (event) => {
+  const image = event.target;
+  if (!(image instanceof HTMLImageElement) || !image.matches('[data-preview-sources]')) return;
+
+  const sources = JSON.parse(image.dataset.previewSources || '[]');
+  const nextIndex = Number(image.dataset.previewIndex || '0') + 1;
+
+  if (nextIndex < sources.length) {
+    image.dataset.previewIndex = String(nextIndex);
+    image.src = sources[nextIndex];
+    return;
+  }
+
+  image.hidden = true;
+}, true);

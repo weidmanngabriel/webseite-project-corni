@@ -45,7 +45,7 @@ http://localhost:8000/
 /
 ├── index.html              # Startseite mit Shop-Einstieg
 ├── konfigurator.html       # Hauptseite mit Carport-Konfigurator
-├── warenkorb.html          # Warenkorb mit Mengen, Entfernen, Gutschein und Checkout-Einstieg
+├── warenkorb.html          # Warenkorb mit Konfigurationsvorschau, Entfernen, Gutschein und Checkout-Einstieg
 ├── checkout.html           # Simulierter Checkout mit Adresse, Versand, Zahlung und Prüfung
 ├── bestellung.html         # Lokale Bestellbestätigung nach Checkout-Abschluss
 ├── css/
@@ -85,13 +85,14 @@ http://localhost:8000/
 - Dynamische Preisberechnung auf Basis einer vereinfachten, fiktiven Logik.
 - Live-Zusammenfassung der aktuellen Auswahl.
 - Preset-Karten für beliebte Konfigurationen.
-- Warenkorb-Übergabe mit gespeicherter Konfiguration, Menge, Einzelpreis und Produktdetails.
+- Warenkorb-Übergabe mit gespeicherter Konfiguration, Einzelpreis, Produktdetails und visueller Layer-Vorschau.
 - Produktinfos, technische Daten, Vorteile und Video-Platzhalter über Tabs.
 - Kundenstimmen, Liefergebiet-Dummycheck, FAQ-Akkordeon und Kontaktbereich.
 
 ### Warenkorb und Checkout
 
-- `warenkorb.html` zeigt konfigurierte Artikel, Produktdetails, Mengensteuerung, Entfernen-Funktion, Gutschein-Dummycode `SCS10` und Checkout-Einstieg.
+- `warenkorb.html` zeigt die aktuelle Carport-Konfiguration, Produktdetails, echte Layer-Vorschau, Entfernen-Funktion, Gutschein-Dummycode `SCS10` und Checkout-Einstieg.
+- Der Warenkorb ist bewusst auf einen Carport-Bausatz ausgelegt; eine neue Konfiguration ersetzt die vorherige Warenkorb-Auswahl.
 - `checkout.html` enthält Kontaktdaten, Lieferadresse, dynamische PLZ-/Versandkostenlogik, Zahlungsart-Auswahl, optionale Nachricht und finale Bestätigung.
 - `bestellung.html` zeigt nach Abschluss eine lokale Bestellbestätigung mit Bestellnummer, Kundendaten, Artikeln und nächstem Beratungs-/Angebotsschritt.
 - Der gesamte Flow nutzt `localStorage`; dadurch bleibt er statisch, GitHub-Pages-kompatibel und ohne Backend lauffähig.
