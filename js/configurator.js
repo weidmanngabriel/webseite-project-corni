@@ -424,7 +424,16 @@ const setupSummaryModal = () => {
   const printButton = document.getElementById('print-summary');
 
   openButton.addEventListener('click', () => {
-    window.SCSCart?.addItem(getCartItem());
+    if (!window.SCSCart) {
+      modalSummary.innerHTML = '<p>Der Warenkorb konnte nicht geladen werden. Bitte laden Sie die Seite erneut.</p>';
+
+      if (typeof modal.showModal === 'function') {
+        modal.showModal();
+      }
+      return;
+    }
+
+    window.SCSCart.addItem(getCartItem());
 
     modalSummary.innerHTML = `
       <ul>
