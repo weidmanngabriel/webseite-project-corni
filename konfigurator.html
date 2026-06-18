@@ -194,7 +194,7 @@
 
           <aside class="price-box" aria-label="Preisübersicht">
             <div class="price-row">
-              <span>1 Stück</span>
+              <span id="quantity-label">1 Stück</span>
               <strong class="price"><span id="price-output">5.327,06 €</span><span class="tax-note">inkl. MwSt. zzgl. Versand</span></strong>
             </div>
             <button class="button button-yellow" id="summary-button" type="button">In den Warenkorb</button>
@@ -207,33 +207,77 @@
       <section class="tabs" aria-label="Produktinformationen">
         <button class="tab-button is-active" type="button" data-tab="description">Produktbeschreibung</button>
         <button class="tab-button" type="button" data-tab="technical">Technische Daten</button>
-        <button class="tab-button" type="button" data-tab="benefits">Vorteile</button>
+        <button class="tab-button" type="button" data-tab="data-sheets">Datenblätter</button>
         <button class="tab-button" type="button" data-tab="video">Video</button>
       </section>
       <section class="tab-panel is-active" id="description">
-        <h2>Produktinfo</h2>
-        <h3>Individuelle Planung</h3>
-        <p>Ein Einzelcarport ganz nach Ihren Vorstellungen – im SCS Carport Konfigurator frei planbar. Sie kombinieren Dachform, Maße, Dacheindeckung und Seitenverkleidung flexibel nach Bedarf.</p>
-        <h3>Material & Qualität</h3>
-        <p>Der Carport wird als hochwertiger Brettschichtholz-Bausatz gedacht. Die Darstellung ist ein Studienprototyp und bildet den Beratungs- und Auswahlprozess vereinfacht ab.</p>
-        <h3>Fertigung, Aufbau & Lieferumfang</h3>
-        <p>Der Lieferumfang wird als Zusammenfassung sichtbar gemacht. Zuschnitte, Verbindungsmittel und Montageunterlagen werden im Prototyp beispielhaft erwähnt.</p>
+        <h2>Produktbeschreibung</h2>
+        <p>Der SCS Einzelcarport ist als frei planbarer Holzbausatz gedacht. Im Konfigurator werden Dachform, Außenmaße, Dacheindeckung und Seitenverkleidung passend zum Standort ausgewählt.</p>
+        <div class="tab-info-grid">
+          <article>
+            <h3>Material</h3>
+            <p>Die tragenden Bauteile bestehen aus Brettschichtholz aus Fichte in Sichtqualität. Die Oberflächen sind allseitig gehobelt, die Kanten leicht gefast und für den sichtbaren konstruktiven Einsatz ausgelegt.</p>
+          </article>
+          <article>
+            <h3>Aufbau</h3>
+            <p>Der Carport wird als vorbereiteter Bausatz geliefert: Holzteile werden zugeschnitten, Verbindungen gefräst und Bohrungen vorbereitet. Pfostenträger werden auf einem Betonfundament verschraubt.</p>
+          </article>
+          <article>
+            <h3>Dach & Seiten</h3>
+            <p>Zur Auswahl stehen Flachdach oder Satteldach. Die Dacheindeckung kann ohne Set, mit Wellplatten, Trapezblech oder Sandwichpaneelen geplant werden. Seitenverkleidungen erhöhen Wetter- und Sichtschutz.</p>
+          </article>
+          <article>
+            <h3>Lieferung</h3>
+            <p>Die Lieferung erfolgt je nach PLZ innerhalb der SCS-Liefergebiete. Der Prototyp zeigt die Lieferprüfung als vereinfachten Dummy-Check und bildet keine verbindliche Tourenplanung ab.</p>
+          </article>
+        </div>
+        <aside class="experience-callout" aria-labelledby="experience-heading">
+          <div>
+            <p class="eyebrow">Erfahrungsbericht: SCS Carport Bausatz</p>
+            <h3 id="experience-heading">Einen Carport konfiguriert und aufgebaut - so ging es</h3>
+            <p>Ein Kundenbericht zeigt den Ablauf von Planung, Sonderwunsch-Abstimmung, Fundamentvorbereitung, Lieferung und Aufbau des Carport-Bausatzes.</p>
+          </div>
+          <a class="button button-yellow" href="https://www.scs-holzshop.de/kunden-erfahrungsbericht-zum-scs-carportbausatz" target="_blank" rel="noopener">Jetzt lesen</a>
+        </aside>
       </section>
       <section class="tab-panel" id="technical">
         <h2>Technische Daten</h2>
-        <p>Die technischen Werte ändern sich im MVP nicht automatisch, zeigen aber die geplante Informationsstruktur: Holzart, Abmessungen, Dachform, Dacheindeckung, Schneelast-Hinweise und Lieferumfang.</p>
+        <div class="technical-table" role="table" aria-label="Technische Daten Einzelcarport">
+          <div role="row"><strong role="rowheader">Holzart</strong><span role="cell">Fichte, Brettschichtholz in Sichtqualität</span></div>
+          <div role="row"><strong role="rowheader">Oberfläche</strong><span role="cell">allseitig gehobelt, Kanten leicht gefast</span></div>
+          <div role="row"><strong role="rowheader">Festigkeitsklasse</strong><span role="cell">GL24h, technisch getrocknet</span></div>
+          <div role="row"><strong role="rowheader">Maximale Maße</strong><span role="cell">Einzelcarport bis 4,75 m Breite, 6 m Tiefe und 3 m Höhe</span></div>
+          <div role="row"><strong role="rowheader">Maßbezug</strong><span role="cell">Außenmaße der Stützen; Höhe als Durchfahrtshöhe am niedrigsten Punkt</span></div>
+          <div role="row"><strong role="rowheader">Dachformen</strong><span role="cell">Flachdach mit 5° Dachneigung oder Satteldach mit 20° Dachneigung</span></div>
+          <div role="row"><strong role="rowheader">Lieferzeit</strong><span role="cell">Beispielhaft bis 4 Wochen in Liefergebiet 1, bis 5 Wochen in Liefergebiet 2</span></div>
+        </div>
       </section>
-      <section class="tab-panel" id="benefits">
-        <h2>Vorteile</h2>
+      <section class="tab-panel" id="data-sheets">
+        <h2>Datenblätter & Lieferumfang</h2>
+        <p>Für den Prototyp werden die wichtigsten Dokumente und Bestandteile zusammengefasst, statt lange PDF-Listen abzubilden.</p>
+        <a class="document-link" href="assets/documents/SCS%20PEFC%20Zertifikat.pdf" target="_blank" rel="noopener">
+          <span class="document-icon" aria-hidden="true">PDF</span>
+          <span>
+            <strong>PEFC-Zertifikat öffnen</strong>
+            <small>PDF wird in einem neuen Tab geöffnet.</small>
+          </span>
+        </a>
         <ul>
-          <li>Konfiguration und Preis sind direkt sichtbar.</li>
-          <li>Beliebte Presets reduzieren die Einstiegshürde.</li>
-          <li>FAQ, Liefergebiet und Kontakt beantworten typische Kaufbarrieren.</li>
+          <li>Montageanleitung für den Aufbau des Carport-Bausatzes</li>
+          <li>Statik-Nachweis als wichtige Planungsunterlage</li>
+          <li>Beschläge, Verbindungsmittel, Pfostenträger und Schraubanker</li>
+          <li>Dachschalung sowie bestellte Dacheindeckung mit Kantteilen und Schrauben</li>
+          <li>Bestellte Seitenverkleidungen inklusive passender Fassadenschrauben</li>
+          <li>Dachrinnenset bei Auswahl eines Dacheindeckungssets</li>
         </ul>
       </section>
       <section class="tab-panel" id="video">
         <h2>Video</h2>
-        <p>Platzhalter für ein späteres Video oder einen kurzen Walkthrough des Konfigurators.</p>
+        <p>Der Screenshot führt zu YouTube und öffnet den externen Videobereich in einem neuen Tab.</p>
+        <a class="video-teaser" href="https://www.youtube.com/user/SCSHolzwerke?sub_confirmation=1" target="_blank" rel="noopener" aria-label="Video auf YouTube öffnen">
+          <img src="assets/images/video/Configurator-video.png" alt="Vorschau des SCS Carport Videos">
+          <span class="play-button" aria-hidden="true"></span>
+        </a>
       </section>
 
       <section class="section" id="presets" aria-labelledby="preset-heading">
@@ -382,18 +426,15 @@
       <div class="modal-content">
         <h2>Konfigurations-Zusammenfassung</h2>
         <div id="modal-summary"></div>
-        <p><strong>Hinweis:</strong> Warenkorb und Checkout sind ein lokaler Prototyp. Es wird keine echte Bestellung oder Zahlung ausgelöst.</p>
+        <p><strong>Hinweis:</strong> Dies ist kein echter Checkout. Für die Abgabe wird nur gezeigt, wie eine Anfrage- oder Warenkorb-Zusammenfassung aussehen könnte.</p>
         <div class="modal-actions">
-          <a class="button button-yellow" href="warenkorb.html">Zum Warenkorb</a>
-          <a class="button button-gray" href="checkout.html">Direkt zur Kasse</a>
-          <button class="button button-ghost" type="button" id="close-modal">Weiter konfigurieren</button>
+          <button class="button button-yellow" type="button" id="close-modal">Verstanden</button>
           <button class="button button-gray" type="button" id="print-summary">Zusammenfassung drucken</button>
         </div>
       </div>
     </dialog>
 
     <script src="js/layout.js"></script>
-    <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
     <script src="js/configurator.js"></script>
   </body>

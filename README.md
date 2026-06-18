@@ -86,7 +86,7 @@ http://localhost:8000/
 - Live-Zusammenfassung der aktuellen Auswahl.
 - Preset-Karten für beliebte Konfigurationen.
 - Warenkorb-Übergabe mit gespeicherter Konfiguration, Einzelpreis, Produktdetails und visueller Layer-Vorschau.
-- Produktinfos, technische Daten, Vorteile und Video-Platzhalter über Tabs.
+- Produktbeschreibung, technische Daten, Datenblätter/Lieferumfang und Video-Platzhalter über Tabs.
 - Kundenstimmen, Liefergebiet-Dummycheck, FAQ-Akkordeon und Kontaktbereich.
 
 ### Warenkorb und Checkout
