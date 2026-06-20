@@ -319,20 +319,26 @@ h3 { line-height: 1.2; }
 
 .button-gray,
 .button-ghost {
-  background: #eeeeee;
+  background: #d6d6d6;
   color: var(--color-black);
 }
 
 .button-gray:hover,
 .button-ghost:hover {
-  background: #dedede;
+  background: #c4c4c4;
 }
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-top: 28px;
+}
+
+.hero-actions .button {
+  width: 100%;
+  box-shadow: none;
+  outline: none;
 }
 
 .hero-card {
@@ -2709,6 +2715,7 @@ fieldset { padding: 0; border: 0; }
   .header-actions { display: flex; }
   .header-actions .search { display: none; }
   .category-grid, .trust-grid, .preset-grid, .review-list, .contact-grid, .tabs { grid-template-columns: 1fr; }
+  .hero-actions { grid-template-columns: 1fr; }
   .section { padding: 48px 0; }
   .hero { padding-bottom: 48px; }
   .home-hero {
