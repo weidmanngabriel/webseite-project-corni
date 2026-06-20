@@ -247,8 +247,8 @@ button {
 .breadcrumb strong { color: var(--color-black); }
 
 .hero {
-  padding: 34px 0 70px;
-  background: linear-gradient(180deg, #fff 0%, #f7f7f7 100%);
+  padding: 48px 0 20px;
+  background: linear-gradient(180deg, #fff 0%, #efefef 100%);
 }
 
 .hero-grid {
@@ -296,13 +296,14 @@ h3 { line-height: 1.2; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 38px;
-  padding: 10px 22px;
+  min-height: 44px;
+  padding: 11px 26px;
   border: 0;
   background: #eeeeee;
   color: var(--color-black);
   font-weight: 800;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
   text-align: center;
   transition: background-color 0.16s ease, color 0.16s ease;
 }
@@ -335,9 +336,10 @@ h3 { line-height: 1.2; }
 }
 
 .hero-card {
-  padding: 22px;
+  padding: 28px;
   background: var(--color-white);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+  border-radius: 4px;
 }
 
 .hero-card img {
@@ -348,13 +350,12 @@ h3 { line-height: 1.2; }
 }
 
 .home-entry {
-  margin-top: 10px;
-  border-top: 1px solid #ddd;
+  margin-top: 0;
 }
 
 .home-entry .hero-card img {
   object-fit: contain;
-  background: #eeeeee;
+  background: #f5f5f5;
 }
 
 .home-overview {
