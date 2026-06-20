@@ -247,7 +247,7 @@ button {
 .breadcrumb strong { color: var(--color-black); }
 
 .hero {
-  padding: 48px 0 20px;
+  padding: 48px 0 48px;
   background: linear-gradient(180deg, #fff 0%, #efefef 100%);
 }
 
@@ -277,7 +277,7 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   line-height: 1.15;
   text-align: center;
@@ -374,7 +374,7 @@ h3 { line-height: 1.2; }
   color: #444444;
 }
 
-.section { padding: 70px 0; }
+.section { padding: 40px 0; }
 .section-muted { background: #f3f3f3; }
 
 .section-lead {
@@ -1786,14 +1786,14 @@ fieldset { padding: 0; border: 0; }
 .delivery-section {
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.9fr);
-  gap: 44px;
+  gap: 28px;
   align-items: center;
 }
 
 .delivery-box {
   display: grid;
-  gap: 34px;
-  padding: 44px 38px;
+  gap: 24px;
+  padding: 28px 28px;
   background: #eee;
 }
 
@@ -1878,7 +1878,7 @@ fieldset { padding: 0; border: 0; }
 
 .faq-image {
   width: 100%;
-  min-height: 430px;
+  min-height: 280px;
   object-fit: cover;
   object-position: center;
   background: #eee;
