@@ -7,9 +7,29 @@
     <meta name="description" content="Statische Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators.">
     <link rel="stylesheet" href="css/styles.css">
     <style>
-      .trust-bar { display:flex; gap:1rem 2.5rem; flex-wrap:wrap; justify-content:center; background:#f8f6f1; border-radius:10px; padding:1rem 2rem; margin-bottom:2.5rem; }
-      .trust-bar-item { display:flex; align-items:center; gap:.45rem; font-size:.875rem; font-weight:600; color:#222; white-space:nowrap; }
-      .trust-bar-item::before { content:'✓'; color:#f5a623; font-weight:800; }
+      .trust-bar { display:flex; gap:1rem 2.5rem; flex-wrap:wrap; justify-content:center; background:var(--color-light); border:1px solid var(--color-border); padding:1rem 2rem; margin-bottom:2.5rem; }
+      .trust-bar-item { display:flex; align-items:center; gap:.5rem; font-size:.78rem; font-weight:800; color:var(--color-text); text-transform:uppercase; letter-spacing:.06em; white-space:nowrap; }
+      .trust-bar-item::before { content:''; display:inline-block; width:18px; height:18px; background:var(--color-yellow); border-radius:50%; flex-shrink:0; }
+
+      .process-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; list-style:none; padding:0; margin:0; }
+      .process-step { display:flex; flex-direction:column; gap:.5rem; padding:24px; background:var(--color-white); border:1px solid var(--color-border); }
+      .process-number { width:27px; height:27px; background:var(--color-yellow); color:var(--color-black); font-weight:900; font-size:.82rem; border-radius:50%; display:inline-grid; place-items:center; flex-shrink:0; }
+      .process-step h3 { margin:0; font-size:1rem; }
+      .process-step p { margin:0; font-size:.875rem; color:var(--color-muted); line-height:1.55; }
+
+      .roof-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+      .roof-table { width:100%; border-collapse:collapse; font-size:.875rem; min-width:520px; }
+      .roof-table th, .roof-table td { padding:.7rem 1rem; text-align:left; border-bottom:1px solid var(--color-border); vertical-align:top; }
+      .roof-table thead th { background:var(--color-light); font-weight:800; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; }
+      .roof-table thead th:first-child { background:transparent; }
+      .roof-table tbody tr:hover { background:#f8f8f8; }
+      .roof-table td:first-child { font-weight:800; font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--color-muted); white-space:nowrap; }
+      .roof-table-note { font-size:.8rem; color:var(--color-muted); margin-top:.75rem; }
+
+      .quality-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+      .quality-item { padding:24px; background:var(--color-white); border:1px solid var(--color-border); }
+      .quality-item h3 { margin:0 0 .5rem; font-size:1rem; }
+      .quality-item p { margin:0; font-size:.875rem; color:var(--color-muted); line-height:1.6; }
     </style>
   </head>
   <body>
@@ -41,6 +61,32 @@
         <span class="trust-bar-item">CNC-Zuschnitt auf Maß</span>
         <span class="trust-bar-item">Lieferung mit eigenem Fuhrpark</span>
       </div>
+
+      <section class="section" id="ablauf" aria-labelledby="process-heading">
+        <h2 id="process-heading">So einfach läuft Ihre Bestellung ab</h2>
+        <ol class="process-steps">
+          <li class="process-step">
+            <span class="process-number" aria-hidden="true">1</span>
+            <h3>Konfigurieren</h3>
+            <p>Dachform, Maße und Optionen im Konfigurator wählen – der Preis wird sofort live berechnet.</p>
+          </li>
+          <li class="process-step">
+            <span class="process-number" aria-hidden="true">2</span>
+            <h3>Anfrage senden</h3>
+            <p>Konfiguration absenden. Wir prüfen Ihre Angaben und melden uns kurzfristig mit einem verbindlichen Angebot.</p>
+          </li>
+          <li class="process-step">
+            <span class="process-number" aria-hidden="true">3</span>
+            <h3>Lieferung</h3>
+            <p>Ihr Bausatz wird CNC-gefertigt, montagefertig verpackt und mit dem eigenen Fuhrpark zu Ihnen gebracht.</p>
+          </li>
+          <li class="process-step">
+            <span class="process-number" aria-hidden="true">4</span>
+            <h3>Aufbau</h3>
+            <p>Mit der beiliegenden Montageanleitung selbst aufbauen – oder einen Fachbetrieb beauftragen. Beides möglich.</p>
+          </li>
+        </ol>
+      </section>
 
       <section class="section" id="presets" aria-labelledby="preset-heading">
         <h2 id="preset-heading">Sofort loskonfigurieren – unsere beliebtesten Varianten</h2>
@@ -90,6 +136,86 @@
               <a class="button button-yellow" href="konfigurator.html">Konfiguration öffnen</a>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="section" id="qualitaet" aria-labelledby="quality-heading">
+        <h2 id="quality-heading">Warum SCS-Holz – Qualität, die man sieht und spürt</h2>
+        <div class="quality-grid">
+          <div class="quality-item">
+            <h3>Technisch getrocknet & maßhaltig</h3>
+            <p>Konstruktionsvollholz und Brettschichtholz werden technisch getrocknet geliefert. Kein Verziehen, keine Risse – auch Jahre nach der Montage.</p>
+          </div>
+          <div class="quality-item">
+            <h3>CNC-Zuschnitt auf den Millimeter</h3>
+            <p>Jedes Bauteil wird millimetergenau gefertigt. Was im Konfigurator passt, passt auch auf Ihrem Grundstück – garantiert.</p>
+          </div>
+          <div class="quality-item">
+            <h3>Montagefertig geliefert</h3>
+            <p>Alle Teile kommen beschriftet, fertig zugeschnitten und mit Montageanleitung. Keine Säge nötig, kein Rätselraten beim Aufbau.</p>
+          </div>
+          <div class="quality-item">
+            <h3>Eigene Fertigung & eigener Fuhrpark</h3>
+            <p>Wir produzieren und liefern selbst – keine Zwischenhändler. Das bedeutet: direkte Kommunikation, kurze Wege, feste Pauschalpreise.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="dachformen" aria-labelledby="roof-comparison-heading">
+        <h2 id="roof-comparison-heading">Welche Dachform passt zu Ihnen?</h2>
+        <div class="roof-table-wrap">
+          <table class="roof-table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Flachdach</th>
+                <th scope="col">Satteldach</th>
+                <th scope="col">Wellenplatte</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Optik</td>
+                <td>Modern, schlicht</td>
+                <td>Klassisch, massiv</td>
+                <td>Einfach, funktional</td>
+              </tr>
+              <tr>
+                <td>Preisniveau</td>
+                <td>Mittel</td>
+                <td>Höher</td>
+                <td>Günstig</td>
+              </tr>
+              <tr>
+                <td>Stauraum unter Dach</td>
+                <td>Nein</td>
+                <td>Ja</td>
+                <td>Nein</td>
+              </tr>
+              <tr>
+                <td>Schneelast</td>
+                <td>Mittel</td>
+                <td>Hoch</td>
+                <td>Mittel</td>
+              </tr>
+              <tr>
+                <td>Selbstaufbau</td>
+                <td>Gut machbar</td>
+                <td>Gut machbar</td>
+                <td>Sehr einfach</td>
+              </tr>
+              <tr>
+                <td>Ideal für</td>
+                <td>Modernes Haus, knappes Grundstück</td>
+                <td>Mehrere Fahrzeuge, schneereiche Lagen</td>
+                <td>Kleines Budget, schneller Einstieg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="roof-table-note">Alle Varianten sind im Konfigurator vollständig anpassbar – Maße, Verkleidung und Eindeckung nach Wunsch.</p>
+        <div style="margin-top:1.25rem;">
+          <a class="button button-yellow" href="konfigurator.html">Jetzt im Konfigurator vergleichen</a>
         </div>
       </section>
 
