@@ -6,31 +6,6 @@
     <title>SCS Holzwerke | Carport-Konfigurator Studienprojekt</title>
     <meta name="description" content="Statische Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators.">
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-      .trust-bar { display:flex; gap:1rem 2.5rem; flex-wrap:wrap; justify-content:center; background:var(--color-light); border:1px solid var(--color-border); padding:1rem 2rem; margin-bottom:2.5rem; }
-      .trust-bar-item { display:flex; align-items:center; gap:.5rem; font-size:.78rem; font-weight:800; color:var(--color-text); text-transform:uppercase; letter-spacing:.06em; white-space:nowrap; }
-      .trust-bar-item::before { content:''; display:inline-block; width:18px; height:18px; background:var(--color-yellow); border-radius:50%; flex-shrink:0; }
-
-      .process-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; list-style:none; padding:0; margin:0; }
-      .process-step { display:flex; flex-direction:column; gap:.5rem; padding:24px; background:var(--color-white); border:1px solid var(--color-border); }
-      .process-number { width:27px; height:27px; background:var(--color-yellow); color:var(--color-black); font-weight:900; font-size:.82rem; border-radius:50%; display:inline-grid; place-items:center; flex-shrink:0; }
-      .process-step h3 { margin:0; font-size:1rem; }
-      .process-step p { margin:0; font-size:.875rem; color:var(--color-muted); line-height:1.55; }
-
-      .roof-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
-      .roof-table { width:100%; border-collapse:collapse; font-size:.875rem; min-width:520px; }
-      .roof-table th, .roof-table td { padding:.7rem 1rem; text-align:left; border-bottom:1px solid var(--color-border); vertical-align:top; }
-      .roof-table thead th { background:var(--color-light); font-weight:800; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; }
-      .roof-table thead th:first-child { background:transparent; }
-      .roof-table tbody tr:hover { background:#f8f8f8; }
-      .roof-table td:first-child { font-weight:800; font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--color-muted); white-space:nowrap; }
-      .roof-table-note { font-size:.8rem; color:var(--color-muted); margin-top:.75rem; }
-
-      .quality-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
-      .quality-item { padding:24px; background:var(--color-white); border:1px solid var(--color-border); }
-      .quality-item h3 { margin:0 0 .5rem; font-size:1rem; }
-      .quality-item p { margin:0; font-size:.875rem; color:var(--color-muted); line-height:1.6; }
-    </style>
   </head>
   <body>
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
