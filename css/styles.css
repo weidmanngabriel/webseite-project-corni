@@ -433,6 +433,10 @@ h3 { line-height: 1.2; }
 
 .section { padding: 70px 0; }
 .section-muted { background: #f3f3f3; }
+.container > .section-muted {
+  margin-inline: calc(50% - 50vw);
+  padding-inline: calc(50vw - 50%);
+}
 
 .section-lead {
   margin: -18px 0 32px;
@@ -2947,7 +2951,6 @@ fieldset { padding: 0; border: 0; }
 .roof-table th, .roof-table td { padding:.7rem 1rem; text-align:left; border-bottom:1px solid var(--color-border); vertical-align:top; }
 .roof-table thead th { background:var(--color-light); font-weight:800; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; }
 .roof-table thead th:first-child { background:transparent; }
-.roof-table tbody tr:hover { background:#f8f8f8; }
 .roof-table td:first-child { font-weight:800; font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--color-muted); white-space:nowrap; }
 .roof-table-note { font-size:.8rem; color:var(--color-muted); margin-top:.75rem; }
 
@@ -2959,11 +2962,11 @@ fieldset { padding: 0; border: 0; }
 
 .section-intro { margin:-1rem 0 2rem; font-size:1rem; color:var(--color-muted); text-align:center; white-space:nowrap; }
 .config-steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
-.config-step-card { padding:28px 24px 24px; background:var(--color-white); border:2px solid var(--color-border); display:flex; flex-direction:column; gap:.375rem; transition:border-color .18s ease; }
-.config-step-card:hover { border-color:var(--color-yellow); }
-.config-step-num { font-size:2.5rem; font-weight:900; line-height:1; color:var(--color-yellow); letter-spacing:-.02em; margin-bottom:.25rem; }
+.config-step-card { padding:24px; background:var(--color-white); border:1px solid var(--color-border); display:flex; flex-direction:column; gap:.5rem; }
+.config-step-num { width:27px; height:27px; background:var(--color-yellow); color:var(--color-black); font-weight:900; font-size:.82rem; border-radius:50%; display:inline-grid; place-items:center; flex-shrink:0; }
 .config-step-card h3 { margin:0; font-size:1rem; }
 .config-step-card p { margin:0; font-size:.875rem; color:var(--color-muted); line-height:1.55; }
+#kundenprojekte .category-card img { height: 340px; }
 .project-facts { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.3rem; }
 .project-facts li { font-size:.8rem; color:var(--color-muted); padding-left:1rem; position:relative; }
 .project-facts li::before { content:'·'; position:absolute; left:0; color:var(--color-yellow-dark); font-weight:900; }
