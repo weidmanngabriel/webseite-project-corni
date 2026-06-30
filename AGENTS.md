@@ -17,6 +17,7 @@ Diese Datei hält projektspezifische Arbeitsregeln sowie den aktuellen Projektst
 - Das Projekt ist eine statische, deutschsprachige Studienprojekt-Website zur UX-Überarbeitung des SCS-Carport-Konfigurators.
 - Die Website soll über GitHub Pages live erreichbar sein und am Ende als ZIP mit Code und Dokumentation eingereicht werden können.
 - Die Startseite (`index.html`) dient als SCS-nahe Shop-Einstiegsseite mit Hero, Prozessschritten, Trust-Elementen, beliebten Konfigurationen, Qualitätsargumenten, Dachformvergleich, Kategorien, Bewertungen, Liefergebiet, FAQ, Kontakt und klarer Weiterleitung zum Konfigurator.
+- `home.html` ist eine neue alternative Startseite im Stil der allgemeinen SCS-Holzshop-Startseite. Sie ist breiter als reine Carport-Landingpage angelegt, hebt Carports und den Konfigurator aber klar hervor.
 - Die Carport-Landingpage (`info.html`) ist eine eigene Informationsseite für Nutzerinnen und Nutzer mit konkretem Carport-Interesse und erklärt Typen, Material, Planung, Baugenehmigung, Lieferung und Aufbau.
 - Die Konfigurator-Seite (`konfigurator.html`) ist der Hauptfokus und enthält eine bedienbare Auswahl-Logik für Carport-Art, Dachform, Maße, Dacheindeckung und Seitenverkleidung.
 - Warenkorb und Checkout sind Teil des MVP als lokaler, statischer Prototyp: eine aktuelle Carport-Konfiguration speichern, visuell als Layer-Vorschau anzeigen, Gutschein testen, Lieferdaten erfassen, Zahlungsart wählen und Bestellbestätigung anzeigen.

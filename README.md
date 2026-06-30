@@ -44,6 +44,7 @@ http://localhost:8000/
 ```text
 /
 ├── index.html              # Startseite mit Shop-Einstieg
+├── home.html               # Neue alternative Startseite im SCS-Holzshop-Stil
 ├── info.html               # Carport-Landingpage mit Ratgeber-, Planungs-, Liefer- und Aufbauinformationen
 ├── konfigurator.html       # Hauptseite mit Carport-Konfigurator
 ├── warenkorb.html          # Warenkorb mit Konfigurationsvorschau, Entfernen, Gutschein und Checkout-Einstieg
@@ -76,6 +77,7 @@ http://localhost:8000/
 - PLZ-Dummycheck und beliebte Carport-Konfigurationen als klare Conversion-Einstiege.
 - Service-/Trust-Elemente und gemeinsamer Footer.
 - Warenkorb-Badge im Header zeigt gespeicherte Artikel browser-lokal an.
+- `home.html` ist eine neue alternative Startseite, die sich stärker am allgemeinen SCS-Holzshop orientiert: breiter Sortimentseinstieg, Projektinspiration, Ratgeber, Logistik, Beratung und ein deutlich hervorgehobener Carport-Konfigurator.
 
 ### Carport-Landingpage
 

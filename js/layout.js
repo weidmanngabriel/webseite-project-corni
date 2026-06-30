@@ -27,7 +27,6 @@ const navItems = [
   { href: 'index.html#terrasse', label: 'Terrasse', key: 'terrasse' },
   { href: 'info.html', label: 'Carports', key: 'info' },
   { href: 'konfigurator.html', label: 'Konfigurator', key: 'carport' },
-  { href: 'index.html#sale', label: 'Sale %', key: 'sale' },
 ];
 
 const iconButton = (label, title, icon, href = '') => href ? `
