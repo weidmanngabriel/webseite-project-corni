@@ -1744,13 +1744,46 @@ fieldset { padding: 0; border: 0; }
 
 .modal {
   border: 0;
-  width: min(620px, calc(100% - 28px));
+  width: min(680px, calc(100% - 28px));
   padding: 0;
   box-shadow: var(--shadow-card);
 }
 .modal::backdrop { background: rgb(0 0 0 / 45%); }
-.modal-content { padding: 30px; }
-.modal-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+.modal-content { position: relative; padding: 30px; }
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: #eeeeee;
+  color: var(--color-black);
+  cursor: pointer;
+  transition: background-color 0.16s ease;
+}
+.modal-close:hover { background: #dedede; }
+.modal-close svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.modal-actions { display: flex; gap: 10px; flex-wrap: nowrap; margin-top: 22px; }
+.modal-actions .button {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 10px 8px;
+  font-size: 0.66rem;
+  white-space: normal;
+  line-height: 1.25;
+}
 
 .checkout-page {
   padding-bottom: 78px;

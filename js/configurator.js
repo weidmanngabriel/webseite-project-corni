@@ -419,6 +419,7 @@ const setupSummaryModal = () => {
   const modalSummary = document.getElementById('modal-summary');
   const openButton = document.getElementById('summary-button');
   const closeButton = document.getElementById('close-modal');
+  const closeIconButton = document.getElementById('close-modal-icon');
   const printButton = document.getElementById('print-summary');
 
   openButton.addEventListener('click', () => {
@@ -449,6 +450,7 @@ const setupSummaryModal = () => {
   });
 
   closeButton.addEventListener('click', () => modal.close());
+  closeIconButton.addEventListener('click', () => modal.close());
   printButton.addEventListener('click', () => window.print());
 };
 
