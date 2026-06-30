@@ -2943,3 +2943,326 @@ fieldset { padding: 0; border: 0; }
 .quality-item { padding:24px; background:var(--color-white); border:1px solid var(--color-border); }
 .quality-item h3 { margin:0 0 .5rem; font-size:1rem; }
 .quality-item p { margin:0; font-size:.875rem; color:var(--color-muted); line-height:1.6; }
+
+/* SCS-inspired home prototype */
+.scs-home {
+  background: var(--color-white);
+}
+
+.scs-home-hero {
+  position: relative;
+  min-height: clamp(520px, 70vh, 720px);
+  display: grid;
+  align-items: end;
+  margin-inline: calc(50% - 50vw);
+  overflow: hidden;
+  color: var(--color-white);
+}
+
+.scs-home-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(0 0 0 / 72%) 0%, rgb(0 0 0 / 42%) 46%, rgb(0 0 0 / 6%) 100%);
+}
+
+.scs-home-hero-media {
+  position: absolute;
+  inset: 0;
+}
+
+.scs-home-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scs-home-hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(var(--max-width), calc(100% - 32px));
+  margin-inline: auto;
+  padding: 78px 0;
+}
+
+.scs-home-hero-content h1 {
+  max-width: 12ch;
+  margin-bottom: 18px;
+  color: var(--color-white);
+  font-size: clamp(3rem, 7vw, 6.4rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.scs-home-hero-content .eyebrow {
+  color: var(--color-yellow);
+}
+
+.scs-home-hero-content .lead {
+  max-width: 54ch;
+  color: #eeeeee;
+  font-size: clamp(1rem, 1.4vw, 1.22rem);
+}
+
+.scs-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.scs-home-actions .button {
+  min-width: min(260px, 100%);
+}
+
+.scs-home .button {
+  min-height: 44px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.scs-home-configurator {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 5vw, 68px);
+  align-items: center;
+}
+
+.scs-home-configurator h2 {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.scs-home-configurator p:not(.eyebrow) {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.scs-home-configurator img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  box-shadow: 0 20px 48px rgb(0 0 0 / 12%);
+}
+
+.scs-home-band,
+.scs-home .logistics-band {
+  margin-inline: calc(50% - 50vw);
+}
+
+.scs-home-band > .container,
+.scs-home .logistics-band > .container {
+  width: min(var(--max-width), calc(100% - 32px));
+}
+
+.scs-home .logistics-band {
+  background: #d7d7d7;
+}
+
+.scs-home .facts-grid strong {
+  color: #444;
+  font-size: clamp(2.8rem, 5vw, 4.25rem);
+  line-height: 1;
+}
+
+.scs-home .facts-grid span {
+  margin-top: 8px;
+  color: var(--color-black);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.scs-home .facts-grid p {
+  margin-top: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.scs-home-four-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.scs-home-contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.85fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.scs-home-news-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.scs-home-news-card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  color: #444;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.scs-home-news-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.scs-home-news-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 205px;
+  object-fit: cover;
+}
+
+.scs-home-news-card strong {
+  min-height: 56px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.scs-home-news-card strong::after {
+  content: "»";
+  color: var(--color-yellow-dark);
+  font-size: 1.35em;
+  line-height: 1;
+}
+
+.scs-home-news-sale {
+  grid-row: span 2;
+}
+
+.scs-home-news-sale img {
+  min-height: 466px;
+}
+
+@media (max-width: 980px) {
+  .scs-home-configurator {
+    grid-template-columns: 1fr;
+  }
+
+  .home-service-grid,
+  .home-service-media {
+    grid-template-columns: 1fr;
+  }
+
+  .scs-home-four-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scs-home-contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .scs-home-news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scs-home-news-sale {
+    grid-row: auto;
+  }
+
+  .scs-home-news-sale img {
+    min-height: 205px;
+  }
+
+  .scs-home-hero-content {
+    padding: 58px 0;
+  }
+
+  .scs-home-hero-content h1 {
+    max-width: 11ch;
+    font-size: clamp(2.8rem, 11vw, 5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .scs-home-hero {
+    min-height: 460px;
+  }
+
+  .scs-home-hero::after {
+    background: linear-gradient(180deg, rgb(0 0 0 / 48%) 0%, rgb(0 0 0 / 76%) 100%);
+  }
+
+  .scs-home-hero-content {
+    padding: 46px 0;
+  }
+
+  .scs-home-hero-content h1 {
+    max-width: 10ch;
+    font-size: clamp(2.2rem, 11.5vw, 3.15rem);
+  }
+
+  .scs-home-hero-content .lead {
+    max-width: 36ch;
+    font-size: 0.98rem;
+  }
+
+  .scs-home-actions {
+    display: grid;
+  }
+
+  .scs-home-configurator {
+    gap: 24px;
+  }
+
+  .scs-home-configurator h2 {
+    text-align: center;
+  }
+
+  .scs-home-configurator img {
+    box-shadow: none;
+  }
+
+  .scs-home .facts-grid {
+    gap: 26px;
+  }
+
+  .scs-home .facts-grid strong {
+    font-size: clamp(2.4rem, 13vw, 3.2rem);
+  }
+
+  .home-service-media,
+  .home-service-check {
+    padding: 22px;
+  }
+
+  .home-service-media {
+    gap: 20px;
+  }
+
+  .home-service-media img {
+    aspect-ratio: 16 / 8.5;
+  }
+
+  .home-service-grid {
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .scs-home-four-grid,
+  .scs-home-news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scs-home-news-card img,
+  .scs-home-news-sale img {
+    min-height: 0;
+    aspect-ratio: 16 / 8.5;
+  }
+}
