@@ -25,7 +25,7 @@ const navItems = [
   { href: 'index.html#holzbau', label: 'Holzbau', key: 'holzbau' },
   { href: 'index.html#fassade', label: 'Fassade', key: 'fassade' },
   { href: 'index.html#terrasse', label: 'Terrasse', key: 'terrasse' },
-  { href: 'info.html', label: 'Carports', key: 'info' },
+  { href: 'index.html', label: 'Carports', key: 'info' },
   { href: 'konfigurator.html', label: 'Konfigurator', key: 'carport' },
 ];
 
@@ -60,7 +60,7 @@ class SiteHeader extends HTMLElement {
           <nav class="main-nav" aria-label="Hauptnavigation">
             ${navItems.map((item) => `<a href="${item.href}"${current === item.key ? ' aria-current="page"' : ''}>${item.label}</a>`).join('')}
           </nav>
-          <a class="logo" href="index.html" aria-label="SCS Holzwerke Startseite">
+          <a class="logo" href="home.html" aria-label="SCS Holzwerke Startseite">
             <img src="assets/logos/scs-logo-black.svg" alt="SCS Holzwerke">
           </a>
           <div class="header-actions" aria-label="Schnellzugriff">
@@ -81,7 +81,7 @@ class SiteFooter extends HTMLElement {
       <footer class="site-footer">
         <div class="container footer-grid">
           <div class="footer-brand">
-            <a class="logo footer-logo" href="index.html"><img src="assets/logos/scs-logo-black.svg" alt="SCS Holzwerke"></a>
+            <a class="logo footer-logo" href="home.html"><img src="assets/logos/scs-logo-black.svg" alt="SCS Holzwerke"></a>
             <div class="footer-socials" aria-label="Social Media">
               <a href="#" aria-label="Instagram"><img src="assets/icons/instagram.svg" alt=""></a>
               <a href="#" aria-label="Facebook"><img src="assets/icons/facebook.svg" alt=""></a>
