@@ -364,21 +364,33 @@ h3 { line-height: 1.2; }
 .home-entry {
   position: relative;
   margin-top: 6px;
-  padding: 58px 0 64px;
+  margin-inline: calc(50% - 50vw);
+  padding: 58px calc(50vw - 50%) 64px;
   overflow: hidden;
   background: linear-gradient(180deg, #ffffff 0%, #ececec 100%);
 }
 
 .home-entry .hero-grid {
-  grid-template-columns: minmax(360px, 0.9fr) minmax(440px, 1.1fr);
+  grid-template-columns: minmax(400px, 1fr) minmax(400px, 1fr);
   gap: clamp(32px, 5vw, 72px);
+  align-items: stretch;
+}
+
+.home-entry .hero-grid > div:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-entry .hero-actions {
+  margin-top: auto;
+  padding-top: 1.5rem;
 }
 
 .home-entry h1 {
-  max-width: 16ch;
+  max-width: none;
   margin-bottom: 18px;
-  font-size: clamp(2.7rem, 4.5vw, 4.2rem);
-  line-height: 1.04;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1.1;
   letter-spacing: -0.025em;
 }
 
@@ -394,6 +406,7 @@ h3 { line-height: 1.2; }
   border: 1px solid rgb(0 0 0 / 6%);
   border-radius: 8px;
   box-shadow: 0 22px 70px rgb(0 0 0 / 10%);
+  margin-top: 2rem;
 }
 
 .home-entry .hero-card img {
@@ -2917,7 +2930,7 @@ fieldset { padding: 0; border: 0; }
 }
 
 /* Trust bar */
-.trust-bar { display:flex; gap:.5rem 1rem; flex-wrap:nowrap; justify-content:center; background:var(--color-light); border:1px solid var(--color-border); padding:.875rem 1.25rem; margin-bottom:2.5rem; }
+.trust-bar { display:flex; gap:.5rem 1rem; flex-wrap:nowrap; justify-content:space-between; background:var(--color-light); border:1px solid var(--color-border); padding:.875rem 1.25rem; margin-bottom:2.5rem; }
 .trust-bar-item { display:flex; align-items:center; gap:.375rem; font-size:.7rem; font-weight:800; color:var(--color-text); text-transform:uppercase; letter-spacing:.04em; white-space:nowrap; }
 .trust-bar-item::before { content:''; display:inline-block; width:14px; height:14px; background:var(--color-yellow); border-radius:50%; flex-shrink:0; }
 
