@@ -22,10 +22,7 @@ const setupFaq = () => {
 
       document.querySelectorAll('.faq-item').forEach((faqItem) => {
         faqItem.classList.remove('is-open');
-        const question = faqItem.querySelector('.faq-question');
-        question?.setAttribute('aria-expanded', 'false');
-        const icon = question?.querySelector('span');
-        if (icon) icon.textContent = '⌄';
+        faqItem.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
       });
 
       if (wasOpen) return;

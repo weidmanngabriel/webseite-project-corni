@@ -196,8 +196,6 @@ const calculateUnitPrice = () => {
     + claddingSurcharge;
 };
 
-const getTotalPrice = () => calculateUnitPrice();
-
 const getSelectionText = () => {
   const sideText = [
     `Links: ${state.sides.left ? 'Ja' : 'Nein'}`,
@@ -365,7 +363,7 @@ const render = () => {
   updatePreviewLayers();
   updateActiveButtons();
   updateInputs();
-  document.getElementById('price-output').textContent = formatPrice(getTotalPrice());
+  document.getElementById('price-output').textContent = formatPrice(calculateUnitPrice());
   document.getElementById('selection-output').textContent = getSelectionText();
 };
 
@@ -438,7 +436,7 @@ const setupSummaryModal = () => {
     modalSummary.innerHTML = `
       <ul>
         <li><strong>Auswahl:</strong> ${getSelectionText()}</li>
-        <li><strong>Preis:</strong> ${formatPrice(getTotalPrice())} inkl. MwSt. zzgl. Versand</li>
+        <li><strong>Preis:</strong> ${formatPrice(calculateUnitPrice())} inkl. MwSt. zzgl. Versand</li>
       </ul>
       <p>Die Konfiguration wurde dem Warenkorb hinzugefügt.</p>
     `;

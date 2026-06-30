@@ -14,7 +14,6 @@
 
       .info-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
       .info-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-      .info-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 
       .info-card { padding: 24px; background: var(--color-white); border: 1px solid var(--color-border); }
       .info-card-label { display: inline-block; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; color: var(--color-muted); margin-bottom: .5rem; }
@@ -63,14 +62,12 @@
       .button-dark:hover { background: #444; }
 
       @media (max-width: 900px) {
-        .info-grid-4 { grid-template-columns: repeat(2, 1fr); }
         .stat-grid { grid-template-columns: repeat(2, 1fr); }
         .build-steps { grid-template-columns: repeat(2, 1fr); }
       }
       @media (max-width: 660px) {
         .info-grid-2 { grid-template-columns: 1fr; }
         .info-grid-3 { grid-template-columns: 1fr; }
-        .info-grid-4 { grid-template-columns: 1fr; }
         .stat-grid { grid-template-columns: repeat(2, 1fr); }
         .build-steps { grid-template-columns: 1fr; }
       }
