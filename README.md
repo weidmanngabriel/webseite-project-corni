@@ -1,6 +1,6 @@
 # SCS Carport-Konfigurator Studienprojekt
 
-Dieses Repository enthält eine statische, deutschsprachige Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators. Der Fokus liegt auf einer Shop-nahen Startseite, einer eigenen Carport-Landingpage, einer verständlichen Konfigurator-Seite mit Auswahl-Logik, Preisübersicht, Warenkorb und simuliertem Checkout-Prozess.
+Dieses Repository enthält eine statische, deutschsprachige Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators. Der Fokus liegt auf einer verständlichen Konfigurator-Seite mit Auswahl-Logik, Preisübersicht, Warenkorb und simuliertem Checkout-Prozess.
 
 > Hinweis: Dies ist ein Studienprojekt und kein offizieller SCS-Holzshop.
 
@@ -18,8 +18,6 @@ Die Abgabe soll laut Aufgabenstellung enthalten:
 
 1. **Live Platform (URL)**: GitHub-Pages-Link zur Website.
 2. **Code + Documentation (ZIP archive)**: dieses Repository als ZIP inklusive kommentiertem Code und README.
-3. **Video Walkthrough**: kurzer Screen-Record mit Fokus auf UX- und Conversion-Rate-Entscheidungen.
-4. **Presentation (PDF)**: Präsentation mit Konzept-Walkthrough, technischen Entscheidungen und Live-Demo.
 
 ## Lokale Nutzung
 
@@ -27,25 +25,12 @@ Ohne Build-Schritt:
 
 1. Repository herunterladen oder ZIP entpacken.
 2. `index.html` direkt im Browser öffnen.
-3. Alternativ einen lokalen Server starten, z. B.:
-
-```bash
-python3 -m http.server 8000
-```
-
-Danach im Browser öffnen:
-
-```text
-http://localhost:8000/
-```
 
 ## Projektstruktur
 
 ```text
 /
 ├── index.html              # Startseite mit Shop-Einstieg
-├── home.html               # Neue alternative Startseite im SCS-Holzshop-Stil
-├── info.html               # Carport-Landingpage mit Ratgeber-, Planungs-, Liefer- und Aufbauinformationen
 ├── konfigurator.html       # Hauptseite mit Carport-Konfigurator
 ├── warenkorb.html          # Warenkorb mit Konfigurationsvorschau, Entfernen, Gutschein und Checkout-Einstieg
 ├── checkout.html           # Simulierter Checkout mit Adresse, Versand, Zahlung und Prüfung
@@ -73,18 +58,10 @@ http://localhost:8000/
 - SCS-nahe Benefit-Leiste und Header-Struktur.
 - Header und Footer sind als wiederverwendbare Web Components ausgelagert.
 - Hero-Bereich im gleichen Stil wie die Konfigurator-Seite mit direktem Einstieg in den Konfigurator.
-- Conversion-stärkerer Einstieg mit Prozessschritten, Trust-Leiste, Presets, Qualitätsargumenten, Dachformvergleich, Sortiment, Bewertungen, Liefergebiet, FAQ und Kontakt.
+- SCS-nahe Kategorie-, Preset-, Bewertungs-, Liefergebiet-, FAQ- und Kontakt-Sektionen.
 - PLZ-Dummycheck und beliebte Carport-Konfigurationen als klare Conversion-Einstiege.
 - Service-/Trust-Elemente und gemeinsamer Footer.
 - Warenkorb-Badge im Header zeigt gespeicherte Artikel browser-lokal an.
-- `home.html` ist eine neue alternative Startseite, die sich stärker am allgemeinen SCS-Holzshop orientiert: breiter Sortimentseinstieg, Projektinspiration, Ratgeber, Logistik, Beratung und ein deutlich hervorgehobener Carport-Konfigurator.
-
-### Carport-Landingpage
-
-- `info.html` richtet sich an Nutzerinnen und Nutzer, die gezielt Informationen zu Carports suchen.
-- Die Seite erklärt Carport-Typen, Dachformen, Materialqualität, Planung, Baugenehmigung, Lieferung, Versand und Aufbau.
-- Sonderwünsche werden bewusst zum bestehenden Kontaktbereich geführt, damit kein nicht vorhandener Seitenpfad entsteht.
-- Die Landingpage ist über die Hauptnavigation unter „Carports“ erreichbar und führt von Informationsbedarf gezielt in den Konfigurator.
 
 ### Konfigurator-Seite
 
@@ -135,7 +112,6 @@ Die Startseite nutzt bewusst den normalen Header, damit sie gestalterisch näher
 - Aktive Optionen werden visuell hervorgehoben.
 - Die aktuelle Auswahl und der Preis werden live aktualisiert.
 - Beliebte Konfigurationen bieten schnelle Einstiegspunkte für unentschlossene Nutzerinnen und Nutzer.
-- Die Carport-Landingpage fängt informationsorientierte Nutzerinnen und Nutzer vor dem Konfigurator ab und beantwortet typische Fragen zu Typen, Material, Genehmigung, Lieferung und Aufbau.
 - FAQ, Liefergebiet und Kontaktbereich reduzieren typische Kaufbarrieren.
 - Die Startseite übernimmt zentrale Konfigurator-Patterns, damit Einstieg und Produktseite wie ein zusammenhängender Flow wirken.
 - Der Checkout bildet gängige Shop-Schritte ab, bleibt aber transparent als lokaler Studienprototyp ohne echte Bestellung gekennzeichnet.
@@ -147,7 +123,7 @@ Die Startseite nutzt bewusst den normalen Header, damit sie gestalterisch näher
 - Preise sind fiktiv, aber nachvollziehbar berechnet.
 - Die Darstellung ist bewusst reduziert, damit die Website im Rahmen der Abgabe stabil und wartbar bleibt.
 
-## Bekannte Limitierungen
+## Limitierungen
 
 - Kein produktiver Checkout mit Backend-Anbindung.
 - Keine echte Zahlung; Zahlungsarten sind nur auswählbare Prototyp-Optionen.
@@ -156,15 +132,6 @@ Die Startseite nutzt bewusst den normalen Header, damit sie gestalterisch näher
 - Keine echte Lagerbestands- oder Lieferzeitprüfung.
 - Keine echte serverseitige Preisberechnung.
 - Die Liefergebiet-Karte zeigt statisch die vorhandene lokale Lieferzonen-Grafik; die PLZ-Prüfung bleibt eine Dummy-Funktion.
-
-## Future Work
-
-- Lizenz-/Nutzungsrechte der lokal eingebundenen SCS-nahen Bild- und Logoassets vor der finalen Veröffentlichung prüfen.
-- Mobile Stepper-Ansicht mit weiteren echten Nutzertests prüfen und verfeinern.
-- Preislogik mit echten Produktdaten ersetzen.
-- Checkout an echtes Backend, E-Mail-Angebotsprozess oder Shop-System anbinden.
-- Barrierefreiheit und Tastaturbedienung weiter prüfen.
-- Optional: Vergleich mehrerer Konfigurationen oder PDF-Export der Zusammenfassung.
 
 ## AI Use Declaration
 

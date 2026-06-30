@@ -885,10 +885,6 @@ h3 { line-height: 1.2; }
   object-fit: cover;
 }
 
-.contact-grid-home {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 .contact-card-large {
   min-height: 300px;
   display: grid;
@@ -2622,8 +2618,7 @@ fieldset { padding: 0; border: 0; }
   }
   .home-reviews,
   .team-layout,
-  .shop-intro-grid,
-  .contact-grid-home {
+  .shop-intro-grid {
     grid-template-columns: 1fr;
   }
   .shop-rating {
@@ -3023,10 +3018,9 @@ fieldset { padding: 0; border: 0; }
 }
 
 .scs-home .button {
-  min-height: 52px;
-  font-size: 0.9rem;
-  letter-spacing: 0;
-  line-height: 1.1;
+  min-height: 44px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
   text-transform: none;
 }
 
@@ -3105,46 +3099,6 @@ fieldset { padding: 0; border: 0; }
   align-items: center;
 }
 
-.scs-home-contact-content {
-  display: grid;
-  gap: 34px;
-}
-
-.scs-home-contact .contact-intro {
-  text-align: center;
-}
-
-.scs-home-contact .contact-grid-home {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.scs-home-contact .contact-card {
-  min-height: 166px;
-  display: grid;
-  justify-items: center;
-  align-content: center;
-  gap: 8px;
-  text-align: center;
-}
-
-.scs-home-contact .contact-card h3 {
-  margin: 8px 0 0;
-  font-size: 0.84rem;
-  text-transform: uppercase;
-}
-
-.scs-home-contact .contact-card p {
-  margin: 0;
-  color: var(--color-black);
-  line-height: 1.3;
-}
-
-.scs-home-contact-photo {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
 .scs-home-news-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr);
@@ -3203,36 +3157,6 @@ fieldset { padding: 0; border: 0; }
 }
 
 @media (max-width: 980px) {
-  .home-page .header-grid {
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "logo actions"
-      "nav nav";
-    gap: 12px 16px;
-  }
-
-  .home-page .main-nav {
-    grid-area: nav;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    scrollbar-width: none;
-  }
-
-  .home-page .main-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .home-page .logo {
-    grid-area: logo;
-    justify-self: start;
-  }
-
-  .home-page .header-actions {
-    grid-area: actions;
-    justify-content: end;
-  }
-
   .scs-home-configurator {
     grid-template-columns: 1fr;
   }
@@ -3273,33 +3197,6 @@ fieldset { padding: 0; border: 0; }
 }
 
 @media (max-width: 640px) {
-  .home-page .benefit-bar {
-    display: none;
-  }
-
-  .home-page .site-header {
-    padding: 12px 0;
-  }
-
-  .home-page .main-nav {
-    gap: 14px;
-    font-size: 0.72rem;
-  }
-
-  .home-page .logo img {
-    width: 68px;
-  }
-
-  .home-page .header-icon {
-    width: 32px;
-    height: 32px;
-  }
-
-  .scs-home .section {
-    padding-top: 44px;
-    padding-bottom: 44px;
-  }
-
   .scs-home-hero {
     min-height: 460px;
   }
@@ -3326,11 +3223,6 @@ fieldset { padding: 0; border: 0; }
     display: grid;
   }
 
-  .scs-home .button {
-    width: 100%;
-    min-height: 50px;
-  }
-
   .scs-home-configurator {
     gap: 24px;
   }
@@ -3341,24 +3233,6 @@ fieldset { padding: 0; border: 0; }
 
   .scs-home-configurator img {
     box-shadow: none;
-  }
-
-  .scs-home .reviews {
-    gap: 24px;
-  }
-
-  .scs-home .rating-card {
-    min-height: 180px;
-  }
-
-  .scs-home .review-carousel {
-    grid-template-columns: 24px minmax(0, 1fr) 24px;
-    gap: 4px;
-  }
-
-  .scs-home .review {
-    min-height: 250px;
-    padding: 0 8px;
   }
 
   .scs-home .facts-grid {
@@ -3388,7 +3262,6 @@ fieldset { padding: 0; border: 0; }
   }
 
   .scs-home-four-grid,
-  .scs-home-contact .contact-grid-home,
   .scs-home-news-grid {
     grid-template-columns: 1fr;
   }
@@ -3397,14 +3270,6 @@ fieldset { padding: 0; border: 0; }
   .scs-home-news-sale img {
     min-height: 0;
     aspect-ratio: 16 / 8.5;
-  }
-
-  .scs-home-contact-layout {
-    gap: 28px;
-  }
-
-  .scs-home-contact-photo {
-    aspect-ratio: 16 / 10;
   }
 
   .scs-home .home-team {
