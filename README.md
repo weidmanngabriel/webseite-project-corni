@@ -1,6 +1,6 @@
 # SCS Carport-Konfigurator Studienprojekt
 
-Dieses Repository enthält eine statische, deutschsprachige Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators. Der Fokus liegt auf einer verständlichen Konfigurator-Seite mit Auswahl-Logik, Preisübersicht, Warenkorb und simuliertem Checkout-Prozess.
+Dieses Repository enthält eine statische, deutschsprachige Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators. Der Fokus liegt auf einer Shop-nahen Startseite, einer eigenen Carport-Landingpage, einer verständlichen Konfigurator-Seite mit Auswahl-Logik, Preisübersicht, Warenkorb und simuliertem Checkout-Prozess.
 
 > Hinweis: Dies ist ein Studienprojekt und kein offizieller SCS-Holzshop.
 
@@ -44,6 +44,7 @@ http://localhost:8000/
 ```text
 /
 ├── index.html              # Startseite mit Shop-Einstieg
+├── info.html               # Carport-Landingpage mit Ratgeber-, Planungs-, Liefer- und Aufbauinformationen
 ├── konfigurator.html       # Hauptseite mit Carport-Konfigurator
 ├── warenkorb.html          # Warenkorb mit Konfigurationsvorschau, Entfernen, Gutschein und Checkout-Einstieg
 ├── checkout.html           # Simulierter Checkout mit Adresse, Versand, Zahlung und Prüfung
@@ -71,10 +72,17 @@ http://localhost:8000/
 - SCS-nahe Benefit-Leiste und Header-Struktur.
 - Header und Footer sind als wiederverwendbare Web Components ausgelagert.
 - Hero-Bereich im gleichen Stil wie die Konfigurator-Seite mit direktem Einstieg in den Konfigurator.
-- SCS-nahe Kategorie-, Preset-, Bewertungs-, Liefergebiet-, FAQ- und Kontakt-Sektionen.
+- Conversion-stärkerer Einstieg mit Prozessschritten, Trust-Leiste, Presets, Qualitätsargumenten, Dachformvergleich, Sortiment, Bewertungen, Liefergebiet, FAQ und Kontakt.
 - PLZ-Dummycheck und beliebte Carport-Konfigurationen als klare Conversion-Einstiege.
 - Service-/Trust-Elemente und gemeinsamer Footer.
 - Warenkorb-Badge im Header zeigt gespeicherte Artikel browser-lokal an.
+
+### Carport-Landingpage
+
+- `info.html` richtet sich an Nutzerinnen und Nutzer, die gezielt Informationen zu Carports suchen.
+- Die Seite erklärt Carport-Typen, Dachformen, Materialqualität, Planung, Baugenehmigung, Lieferung, Versand und Aufbau.
+- Sonderwünsche werden bewusst zum bestehenden Kontaktbereich geführt, damit kein nicht vorhandener Seitenpfad entsteht.
+- Die Landingpage ist über die Hauptnavigation unter „Carports“ erreichbar und führt von Informationsbedarf gezielt in den Konfigurator.
 
 ### Konfigurator-Seite
 
@@ -125,6 +133,7 @@ Die Startseite nutzt bewusst den normalen Header, damit sie gestalterisch näher
 - Aktive Optionen werden visuell hervorgehoben.
 - Die aktuelle Auswahl und der Preis werden live aktualisiert.
 - Beliebte Konfigurationen bieten schnelle Einstiegspunkte für unentschlossene Nutzerinnen und Nutzer.
+- Die Carport-Landingpage fängt informationsorientierte Nutzerinnen und Nutzer vor dem Konfigurator ab und beantwortet typische Fragen zu Typen, Material, Genehmigung, Lieferung und Aufbau.
 - FAQ, Liefergebiet und Kontaktbereich reduzieren typische Kaufbarrieren.
 - Die Startseite übernimmt zentrale Konfigurator-Patterns, damit Einstieg und Produktseite wie ein zusammenhängender Flow wirken.
 - Der Checkout bildet gängige Shop-Schritte ab, bleibt aber transparent als lokaler Studienprototyp ohne echte Bestellung gekennzeichnet.

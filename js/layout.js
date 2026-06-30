@@ -25,7 +25,8 @@ const navItems = [
   { href: 'index.html#holzbau', label: 'Holzbau', key: 'holzbau' },
   { href: 'index.html#fassade', label: 'Fassade', key: 'fassade' },
   { href: 'index.html#terrasse', label: 'Terrasse', key: 'terrasse' },
-  { href: 'konfigurator.html', label: 'Carport', key: 'carport' },
+  { href: 'info.html', label: 'Carports', key: 'info' },
+  { href: 'konfigurator.html', label: 'Konfigurator', key: 'carport' },
   { href: 'index.html#sale', label: 'Sale %', key: 'sale' },
 ];
 
@@ -89,9 +90,9 @@ class SiteFooter extends HTMLElement {
               <a href="#" aria-label="YouTube"><img src="assets/icons/youtube.svg" alt=""></a>
             </div>
           </div>
-          <div class="footer-col"><h3>Hilfe & Kontakt</h3><ul><li><a href="konfigurator.html#kontakt">Kontakt</a></li><li><a href="konfigurator.html#liefergebiet">Versand</a></li><li>Rückgabe & Widerruf</li><li>AGB</li><li>Datenschutz</li><li>Impressum</li><li>Zahlungsarten</li></ul></div>
+          <div class="footer-col"><h3>Hilfe & Kontakt</h3><ul><li><a href="konfigurator.html#kontakt">Kontakt</a></li><li><a href="info.html#lieferung">Versand</a></li><li>Rückgabe & Widerruf</li><li>AGB</li><li>Datenschutz</li><li>Impressum</li><li>Zahlungsarten</li></ul></div>
           <div class="footer-col"><h3>Über SCS</h3><ul><li>Unternehmen</li><li>Nachhaltigkeit</li><li>Standorte</li><li>Unsere Fachmärkte</li></ul></div>
-          <div class="footer-col"><h3>Service</h3><ul><li>Ratgeber</li><li>Kundenreferenzen</li><li><a href="konfigurator.html#faq">FAQ</a></li></ul></div>
+          <div class="footer-col"><h3>Service</h3><ul><li><a href="info.html">Carport-Ratgeber</a></li><li>Kundenreferenzen</li><li><a href="konfigurator.html#faq">FAQ</a></li></ul></div>
           <div class="footer-section footer-payments"><h3>Zahlungsarten</h3><div class="payment-grid" aria-label="Zahlungsarten"><img src="assets/images/payment/mastercard.webp" alt="Mastercard"><img src="assets/images/payment/visa.webp" alt="Visa"><img src="assets/images/payment/paypal.webp" alt="PayPal"><img src="assets/images/payment/klarna.webp" alt="Klarna"><img src="assets/images/payment/apple-pay.webp" alt="Apple Pay"><img src="assets/images/payment/sepa.webp" alt="SEPA"></div></div>
           <div class="footer-section footer-rating"><h3>Kundenbewertungen</h3><img src="assets/trust/trusted-shops-logo.svg" alt="Trusted Shops"></div>
           <div class="footer-section footer-certificates"><h3>Unsere Auszeichnungen & Zertifikate</h3><div class="certificate-grid"><img src="assets/trust/trusted-shop-mobile.webp" alt="Trusted Shops Zertifikat"><img src="assets/trust/pefc.svg" alt="PEFC zertifiziert"><img src="assets/trust/ral.svg" alt="RAL Gütezeichen"></div></div>
