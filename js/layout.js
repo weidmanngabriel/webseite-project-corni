@@ -22,9 +22,9 @@ const benefitItems = [
 ];
 
 const navItems = [
-  { href: 'index.html#holzbau', label: 'Holzbau', key: 'holzbau' },
-  { href: 'index.html#fassade', label: 'Fassade', key: 'fassade' },
-  { href: 'index.html#terrasse', label: 'Terrasse', key: 'terrasse' },
+  { href: 'https://www.scs-holzshop.de/holzbau', label: 'Holzbau', key: 'holzbau', external: true },
+  { href: 'https://www.scs-holzshop.de/fassade', label: 'Fassade', key: 'fassade', external: true },
+  { href: 'https://www.scs-holzshop.de/terrasse', label: 'Terrasse', key: 'terrasse', external: true },
   { href: 'index.html', label: 'Carports', key: 'info' },
   { href: 'konfigurator.html', label: 'Konfigurator', key: 'carport' },
 ];
@@ -58,7 +58,7 @@ class SiteHeader extends HTMLElement {
       <header class="${headerClass}">
         <div class="container header-grid">
           <nav class="main-nav" aria-label="Hauptnavigation">
-            ${navItems.map((item) => `<a href="${item.href}"${current === item.key ? ' aria-current="page"' : ''}>${item.label}</a>`).join('')}
+            ${navItems.map((item) => `<a href="${item.href}"${item.external ? ' target="_blank" rel="noopener"' : ''}${current === item.key ? ' aria-current="page"' : ''}>${item.label}</a>`).join('')}
           </nav>
           <a class="logo" href="home.html" aria-label="SCS Holzwerke Startseite">
             <img src="assets/logos/scs-logo-black.svg" alt="SCS Holzwerke">
@@ -83,10 +83,10 @@ class SiteFooter extends HTMLElement {
           <div class="footer-brand">
             <a class="logo footer-logo" href="home.html"><img src="assets/logos/scs-logo-black.svg" alt="SCS Holzwerke"></a>
             <div class="footer-socials" aria-label="Social Media">
-              <a href="#" aria-label="Instagram"><img src="assets/icons/instagram.svg" alt=""></a>
-              <a href="#" aria-label="Facebook"><img src="assets/icons/facebook.svg" alt=""></a>
-              <a href="#" aria-label="LinkedIn"><img src="assets/icons/linkedin.svg" alt=""></a>
-              <a href="#" aria-label="YouTube"><img src="assets/icons/youtube.svg" alt=""></a>
+              <span class="social-link-unavailable" title="Kein verifizierter Profil-Link verfügbar"><img src="assets/icons/instagram.svg" alt="Instagram"></span>
+              <a href="https://www.facebook.com/scs.holzwerke/" target="_blank" rel="noopener" aria-label="SCS Holzwerke auf Facebook"><img src="assets/icons/facebook.svg" alt=""></a>
+              <a href="https://www.linkedin.com/company/scheiffele-schmiederer-kg/" target="_blank" rel="noopener" aria-label="Scheiffele-Schmiederer auf LinkedIn"><img src="assets/icons/linkedin.svg" alt=""></a>
+              <a href="https://www.youtube.com/user/SCSHolzwerke" target="_blank" rel="noopener" aria-label="SCS Holzwerke auf YouTube"><img src="assets/icons/youtube.svg" alt=""></a>
             </div>
           </div>
           <div class="footer-col"><h3>Hilfe & Kontakt</h3><ul><li><a href="konfigurator.html#kontakt">Kontakt</a></li><li><a href="info.html#lieferung">Versand</a></li><li>Rückgabe & Widerruf</li><li>AGB</li><li>Datenschutz</li><li>Impressum</li><li>Zahlungsarten</li></ul></div>

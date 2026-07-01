@@ -1655,11 +1655,16 @@ fieldset { padding: 0; border: 0; }
   align-items: center;
 }
 
-.footer-socials a {
+.footer-socials a,
+.footer-socials .social-link-unavailable {
   width: 26px;
   height: 26px;
   display: inline-grid;
   place-items: center;
+}
+
+.footer-socials .social-link-unavailable {
+  opacity: 0.45;
 }
 
 .footer-socials img {

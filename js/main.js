@@ -5,11 +5,20 @@ const setupTabs = () => {
     button.addEventListener('click', () => {
       const targetId = button.dataset.tab;
 
-      tabButtons.forEach((tabButton) => tabButton.classList.remove('is-active'));
-      document.querySelectorAll('.tab-panel').forEach((panel) => panel.classList.remove('is-active'));
+      tabButtons.forEach((tabButton) => {
+        tabButton.classList.remove('is-active');
+        tabButton.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach((panel) => {
+        panel.classList.remove('is-active');
+        panel.hidden = true;
+      });
 
       button.classList.add('is-active');
-      document.getElementById(targetId)?.classList.add('is-active');
+      button.setAttribute('aria-selected', 'true');
+      const targetPanel = document.getElementById(targetId);
+      targetPanel?.classList.add('is-active');
+      if (targetPanel) targetPanel.hidden = false;
     });
   });
 };

@@ -1,15 +1,14 @@
 # SCS Carport-Konfigurator Studienprojekt
 
-Dieses Repository enthält eine statische, deutschsprachige Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators. Der Fokus liegt auf einer verständlichen Konfigurator-Seite mit Auswahl-Logik, Preisübersicht, Warenkorb und simuliertem Checkout-Prozess.
+Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators. Der Fokus liegt auf einer verständlichen Konfigurator-Seite mit Auswahl-Logik, Preisübersicht, Warenkorb und simuliertem Checkout-Prozess.
 
-> Hinweis: Dies ist ein Studienprojekt und kein offizieller SCS-Holzshop.
 
 ## Live-URL
 
 Die Website ist für GitHub Pages vorbereitet. Nach dem Deployment kann die Live-URL hier ergänzt werden:
 
 ```text
-https://weidmanngabriel.github.io/webseite-project-corni/konfigurator.html
+https://weidmanngabriel.github.io/webseite-project-corni/home.html
 ```
 
 ## Deliverables
@@ -24,13 +23,15 @@ Die Abgabe soll laut Aufgabenstellung enthalten:
 Ohne Build-Schritt:
 
 1. Repository herunterladen oder ZIP entpacken.
-2. `index.html` direkt im Browser öffnen.
+2. `home.html` direkt im Browser öffnen.
 
 ## Projektstruktur
 
 ```text
 /
-├── index.html              # Startseite mit Shop-Einstieg
+├── home.html               # Primäre Startseite im Stil des allgemeinen SCS-Holzshops
+├── index.html              # Beibehaltene Carport-Einstiegsseite, erreichbar über „Carports“
+├── info.html               # Ausführliche Informationen zu Planung, Lieferung und Aufbau
 ├── konfigurator.html       # Hauptseite mit Carport-Konfigurator
 ├── warenkorb.html          # Warenkorb mit Konfigurationsvorschau, Entfernen, Gutschein und Checkout-Einstieg
 ├── checkout.html           # Simulierter Checkout mit Adresse, Versand, Zahlung und Prüfung
@@ -55,6 +56,8 @@ Ohne Build-Schritt:
 
 ### Startseite
 
+- `home.html` ist der zentrale Einstieg und das Ziel von Logo, Breadcrumbs und Rücklinks.
+- `index.html` bleibt als zusätzliche Carport-Einstiegsseite im Projekt und ist über „Carports“ erreichbar.
 - SCS-nahe Benefit-Leiste und Header-Struktur.
 - Header und Footer sind als wiederverwendbare Web Components ausgelagert.
 - Hero-Bereich im gleichen Stil wie die Konfigurator-Seite mit direktem Einstieg in den Konfigurator.
@@ -119,7 +122,7 @@ Die Startseite nutzt bewusst den normalen Header, damit sie gestalterisch näher
 ## Konzept und Abweichungen
 
 - Der Aufbau orientiert sich am bereitgestellten Figma-/PNG-Prototypen und an typischen SCS-Shop-Elementen.
-- Produkt-, Service-, Zahlungs- und Lieferzonenbilder werden lokal aus `assets/` eingebunden, damit die ZIP-Abgabe ohne externe Bildquellen funktioniert.
+- Alle Produkt-, Service-, Zahlungs- und Lieferzonenbilder werden lokal aus `assets/` eingebunden, damit die ZIP-Abgabe ohne externe Bildquellen funktioniert. Externe Links führen lediglich zu weiterführenden SCS- und Social-Media-Seiten.
 - Preise sind fiktiv, aber nachvollziehbar berechnet.
 - Die Darstellung ist bewusst reduziert, damit die Website im Rahmen der Abgabe stabil und wartbar bleibt.
 

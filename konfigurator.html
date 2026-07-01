@@ -13,7 +13,7 @@
     <site-header current="carport"></site-header>
 
     <main id="main" class="container">
-      <p class="breadcrumb"><a href="index.html">Home</a> &gt; <strong>Carport</strong></p>
+      <p class="breadcrumb"><a href="home.html">Home</a> &gt; <strong>Carport</strong></p>
       <h1 class="page-title">Carport Konfigurator</h1>
 
       <section class="config-shell" aria-labelledby="config-heading">
@@ -204,13 +204,13 @@
         <div class="selection-bar"><strong>Aktuelle Auswahl:</strong> <span id="selection-output">Einzelcarport &gt; Flachdach &gt; Ohne Dacheindeckung</span></div>
       </section>
 
-      <section class="tabs" aria-label="Produktinformationen">
-        <button class="tab-button is-active" type="button" data-tab="description">Produktbeschreibung</button>
-        <button class="tab-button" type="button" data-tab="technical">Technische Daten</button>
-        <button class="tab-button" type="button" data-tab="data-sheets">Datenblätter</button>
-        <button class="tab-button" type="button" data-tab="video">Video</button>
+      <section class="tabs" role="tablist" aria-label="Produktinformationen">
+        <button class="tab-button is-active" id="tab-description" type="button" role="tab" aria-selected="true" aria-controls="description" data-tab="description">Produktbeschreibung</button>
+        <button class="tab-button" id="tab-technical" type="button" role="tab" aria-selected="false" aria-controls="technical" data-tab="technical">Technische Daten</button>
+        <button class="tab-button" id="tab-data-sheets" type="button" role="tab" aria-selected="false" aria-controls="data-sheets" data-tab="data-sheets">Datenblätter</button>
+        <button class="tab-button" id="tab-video" type="button" role="tab" aria-selected="false" aria-controls="video" data-tab="video">Video</button>
       </section>
-      <section class="tab-panel is-active" id="description">
+      <section class="tab-panel is-active" id="description" role="tabpanel" aria-labelledby="tab-description">
         <h2>Produktbeschreibung</h2>
         <div class="description-copy">
           <h3>Einzelcarport nach Wunsch</h3>
@@ -229,7 +229,7 @@
           <a href="https://www.scs-holzshop.de/kunden-erfahrungsbericht-zum-scs-carportbausatz" target="_blank" rel="noopener">Erfahrungsbericht lesen</a>
         </p>
       </section>
-      <section class="tab-panel" id="technical">
+      <section class="tab-panel" id="technical" role="tabpanel" aria-labelledby="tab-technical" hidden>
         <h2>Technische Daten</h2>
         <div class="technical-table" role="table" aria-label="Technische Daten Einzelcarport">
           <div role="row"><strong role="rowheader">Holzart</strong><span role="cell">Fichte, Brettschichtholz in Sichtqualität</span></div>
@@ -241,7 +241,7 @@
           <div role="row"><strong role="rowheader">Lieferzeit</strong><span role="cell">5 bis 8 Werktage in Liefergebiet 1, 10 bis 15 Werktage in Liefergebiet 2</span></div>
         </div>
       </section>
-      <section class="tab-panel" id="data-sheets">
+      <section class="tab-panel" id="data-sheets" role="tabpanel" aria-labelledby="tab-data-sheets" hidden>
         <h2>Datenblätter & Lieferumfang</h2>
         <p>Die wichtigsten Dokumente und Bestandteile Ihres Carport-Bausatzes im Überblick.</p>
         <a class="document-link" href="assets/documents/SCS%20PEFC%20Zertifikat.pdf" target="_blank" rel="noopener">
@@ -260,7 +260,7 @@
           <li>Dachrinnenset bei Auswahl eines Dacheindeckungssets</li>
         </ul>
       </section>
-      <section class="tab-panel" id="video">
+      <section class="tab-panel" id="video" role="tabpanel" aria-labelledby="tab-video" hidden>
         <h2>Video</h2>
         <p>Der Screenshot führt zu YouTube und öffnet den externen Videobereich in einem neuen Tab.</p>
         <a class="video-teaser" href="https://www.youtube.com/user/SCSHolzwerke?sub_confirmation=1" target="_blank" rel="noopener" aria-label="Video auf YouTube öffnen">

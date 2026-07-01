@@ -329,7 +329,9 @@ const updatePreviewLayers = () => {
 
 const updateActiveButtons = () => {
   document.querySelectorAll('[data-option]').forEach((button) => {
-    button.classList.toggle('is-active', state[button.dataset.option] === button.dataset.value);
+    const isActive = state[button.dataset.option] === button.dataset.value;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
   });
 };
 

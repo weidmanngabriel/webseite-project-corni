@@ -97,6 +97,13 @@ const escapeAttribute = (value) => String(value)
   .replace(/</g, '&lt;')
   .replace(/>/g, '&gt;');
 
+const escapeHtml = (value) => String(value ?? '')
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#039;');
+
 const getPreviewHtml = (item, modifier = '') => {
   const layers = item.previewLayers || [
     { name: 'structure', sources: [item.image] },
@@ -321,9 +328,9 @@ const renderOrderPage = () => {
           <h2>Bestelldaten</h2>
           <dl class="summary-list">
             <div><dt>Datum</dt><dd>${date}</dd></div>
-            <div><dt>Name</dt><dd>${order.customer.firstName} ${order.customer.lastName}</dd></div>
-            <div><dt>E-Mail</dt><dd>${order.customer.email}</dd></div>
-            <div><dt>Zahlungsart</dt><dd>${order.customer.payment}</dd></div>
+            <div><dt>Name</dt><dd>${escapeHtml(order.customer.firstName)} ${escapeHtml(order.customer.lastName)}</dd></div>
+            <div><dt>E-Mail</dt><dd>${escapeHtml(order.customer.email)}</dd></div>
+            <div><dt>Zahlungsart</dt><dd>${escapeHtml(order.customer.payment)}</dd></div>
             <div class="summary-total"><dt>Gesamt</dt><dd>${money(order.totals.total)}</dd></div>
           </dl>
         </article>
@@ -343,7 +350,7 @@ const renderOrderPage = () => {
       </div>
       <div class="confirmation-actions">
         <button class="button button-gray" type="button" onclick="window.print()">Bestätigung drucken</button>
-        <a class="button button-yellow" href="index.html">Zur Startseite</a>
+        <a class="button button-yellow" href="home.html">Zur Startseite</a>
       </div>
     </section>
   `;
