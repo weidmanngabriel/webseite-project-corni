@@ -463,9 +463,6 @@ h3 { line-height: 1.2; }
 
 .section-cta .button {
   min-width: min(330px, 100%);
-  min-height: 56px;
-  font-size: 1rem;
-  text-transform: uppercase;
 }
 
 .logistics-band {
@@ -1059,7 +1056,8 @@ fieldset { padding: 0; border: 0; }
 }
 
 .description-copy {
-  max-width: 82ch;
+  width: 100%;
+  max-width: none;
   display: grid;
   gap: 10px;
   color: #3f3f3f;
@@ -1088,7 +1086,8 @@ fieldset { padding: 0; border: 0; }
 }
 
 .experience-note {
-  max-width: 82ch;
+  width: 100%;
+  max-width: none;
   margin: 28px 0 0;
   padding-top: 18px;
   border-top: 1px solid #d8d8d8;

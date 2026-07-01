@@ -17,7 +17,7 @@ Aus dieser Planung entstand ein zweistufiger Einstieg: `home.html` bildet den br
 
 ## Live-URL
 
-Die Website ist für GitHub Pages vorbereitet. Nach dem Deployment kann die Live-URL hier ergänzt werden:
+Die Website ist über GitHub Pages unter folgender URL vorgesehen:
 
 ```text
 https://weidmanngabriel.github.io/webseite-project-corni/home.html
@@ -30,7 +30,7 @@ Die Abgabe soll laut Aufgabenstellung enthalten:
 1. **Live Platform (URL)**: veröffentlichte Projektwebsite.
 2. **Code + Documentation (ZIP archive)**: Repository als ZIP inklusive Code, lokaler Assets und README.
 3. **Video Walkthrough**: 60 Sekunden (±10 Sekunden) mit Fokus auf UX- und Conversion-Entscheidungen.
-4. **Präsentation**: siebenminütige Präsentation mit Konzept, Technologie und Live-Demo; Abgabe der Folien als PDF.
+4. **Präsentation**: 14-minütige Gruppenpräsentation mit Konzept, Technologie und Live-Demo; Abgabe der Folien als PDF.
 
 ## Lokale Nutzung
 
@@ -60,7 +60,6 @@ Die Abgabe soll laut Aufgabenstellung enthalten:
 │   ├── images/             # Lokale Produkt-, Hero-, Payment- und Lieferzonenbilder
 │   ├── logos/              # SCS-Logos
 │   └── trust/              # Trust- und Zertifizierungslogos
-├── AGENTS.md               # Projektregeln und aktueller Projektstand
 └── README.md               # Dokumentation für Abgabe und Setup
 ```
 
@@ -140,13 +139,13 @@ Die zentralen Conversion-Ziele sind der Start des Konfigurators, die vollständi
 
 ## Konzept und Abweichungen
 
-- Der Aufbau orientiert sich am bereitgestellten Figma-/PNG-Prototypen und an typischen SCS-Shop-Elementen.
+- Der Aufbau orientiert sich am zuvor entwickelten Figma-/PNG-Prototypen und an typischen SCS-Shop-Elementen.
 - Die wesentliche Informationsarchitektur und der geplante Funktionsumfang konnten umgesetzt werden. Einzelne UI-Details wie stärker hervorgehobene Auswahl-, Hover- und Zustandsdarstellungen wurden während der Implementierung weiterentwickelt, um Interaktionen eindeutiger zu machen.
 - `info.html` kam im Projektverlauf als vertiefende Informationsseite hinzu. `index.html` wurde später als fokussierte Carport-Landingpage ergänzt, damit Personen mit konkretem Carport-Interesse einen klareren Funnel erhalten.
 - Alle Produkt-, Service-, Zahlungs- und Lieferzonenbilder werden lokal aus `assets/` eingebunden, damit die ZIP-Abgabe ohne externe Bildquellen funktioniert. Externe Links führen lediglich zu weiterführenden SCS- und Social-Media-Seiten.
-- Statt einer produktiven Produkt- und Preis-API nutzt der Prototyp fiktive, im Code nachvollziehbare Preisregeln.
-- Statt eines 3D-Modells kombiniert die Vorschau ausgeschnittene, deckungsgleiche PNG-Ebenen für Konstruktion, Dach und Seiten. Dadurch werden die relevanten Varianten ohne komplexe 3D-Infrastruktur unmittelbar sichtbar.
-- Lieferprüfung, Warenkorb, Checkout und Bestellbestätigung werden lokal simuliert, weil Backend, CMS, echte Zahlung und serverseitige Datenübertragung nicht Teil des MVP sind.
+- Der Prototyp nutzt fiktive, im Code nachvollziehbare Preisregeln.
+- Die Vorschau kombiniert ausgeschnittene, deckungsgleiche PNG-Ebenen für Konstruktion, Dach und Seiten.
+- Lieferprüfung, Warenkorb, Checkout und Bestellbestätigung werden lokal simuliert.
 
 ## Limitierungen
 
@@ -164,20 +163,28 @@ Die zentralen Conversion-Ziele sind der Start des Konfigurators, die vollständi
 - Backend, echte Zahlung, Bestellübertragung und optionales Kundenkonto ergänzen.
 - Unterschiedliche Verkleidungsmaterialien pro Carport-Seite ermöglichen.
 - Konfigurationen dauerhaft speichern, teilen, exportieren und erneut laden.
-- Die Layer-Vorschau langfristig durch eine frei drehbare 3D-Ansicht ergänzen.
 - Inhalte und Produktdaten über ein CMS pflegbar machen.
 - Automatisierte End-to-End-Tests und eine vollständige Accessibility-Prüfung ergänzen.
 - Optional Analytics mit Einwilligungsmanagement und Events für Konfiguratorstart, Preset-Auswahl, Warenkorb und Checkout integrieren.
 
 ## Projektteam und Beiträge
 
-- **Cornelius Weidmann:** Schwerpunkt auf `konfigurator.html`, Umsetzung der Konfigurator-Logik sowie Aufbau der visuellen Vorschau aus ausgeschnittenen PNG-Bildern und deckungsgleichen Ebenen; Überführung des gemeinsamen Figma-Prototyps in HTML, CSS und JavaScript.
-- **Peter Hollmann:** Schwerpunkt auf der Carport-Landingpage und dem zielgerichteten Funnel für Personen mit konkretem Carport-Interesse.
-- **Gemeinsame Arbeit:** Konzeption und Ausarbeitung des Figma-Prototyps sowie Weiterentwicklung von Startseite und Checkout-Prozess. Zentrale UX-, UI- und Umfangsentscheidungen wurden gemeinsam abgestimmt.
+Die Aufgaben wurden nach Verantwortungsbereichen aufgeteilt. „Lead“ bezeichnet die federführende Verantwortung, „Input“ eine unterstützende Mitarbeit und „Joint“ eine gemeinsam getragene Umsetzung.
+
+| Bereich | Cornelius Weidmann | Peter Hollmann |
+| --- | --- | --- |
+| Landingpage und Funnel | Input | Lead |
+| Architektur und Technologie-Stack | Input | Lead |
+| Visuelle UI-Umsetzung | Lead | Input |
+| Testing und Dokumentation | Lead | Input |
+| Konfigurator und Checkout | Joint | Joint |
+| Figma-Konzept und UI-Begründung | Joint | Joint |
+
+Peter Hollmann verantwortete damit federführend die übergreifende Seitenarchitektur, die Wahl des Technologieansatzes sowie die fokussierte Carport-Landingpage mit ihrem Conversion-Funnel. Cornelius Weidmann verantwortete federführend die visuelle Überführung des Konzepts in die Website, die Qualitätssicherung und die Projektdokumentation. Konfigurator und Checkout wurden gemeinsam umgesetzt; dazu gehören Auswahl- und Preislogik, PNG-Layer-Vorschau, Warenkorb und Bestellablauf. Auch der Figma-Prototyp, die zentralen UI-Entscheidungen und deren UX-Begründung entstanden gemeinsam.
 
 ## AI Use Declaration
 
-Für die Entwicklung dieses Studienprojekts wurde **OpenAI Codex** als generativer Entwicklungsassistent eingesetzt. Der Einsatz war umfangreich und umfasste insbesondere Vorschläge für HTML-, CSS- und JavaScript-Strukturen, die Formulierung und Überarbeitung einzelner Texte, die Fehlersuche, Hinweise zur Barrierefreiheit, die Dokumentation sowie die Diskussion möglicher UX- und Architekturentscheidungen. KI-generierte Vorschläge wurden dabei nicht ungeprüft als fertige Lösung übernommen, sondern als Entwürfe, technische Hilfestellung und Grundlage für weitere Überarbeitungen verwendet.
+Für die Entwicklung dieses Studienprojekts wurden **OpenAI Codex** und **Anthropic Claude** als generative Entwicklungsassistenten eingesetzt. Der Einsatz war umfangreich und umfasste insbesondere Vorschläge für HTML-, CSS- und JavaScript-Strukturen, die Formulierung und Überarbeitung einzelner Texte, die Fehlersuche, Hinweise zur Barrierefreiheit, die Dokumentation sowie die Diskussion möglicher UX- und Architekturentscheidungen. KI-generierte Vorschläge wurden dabei nicht ungeprüft als fertige Lösung übernommen, sondern als Entwürfe, technische Hilfestellung und Grundlage für weitere Überarbeitungen verwendet.
 
 Die für das Projekt maßgeblichen Arbeiten und Entscheidungen wurden von uns selbst durchgeführt. Dazu zählen vor allem die Auswahl und Eingrenzung des Projektthemas, die Analyse des bestehenden SCS-Carport-Konfigurators, die Definition der Anforderungen und des MVP, die Bewertung der Nutzerführung, die Auswahl und Priorisierung der Funktionen, die gestalterische Ausrichtung, die Zusammenstellung der Inhalte und Medien sowie die Entscheidung, welche KI-Vorschläge tatsächlich zum Projekt passen. Auch die Bedienabläufe, Konfigurationsmöglichkeiten, Preset-Varianten und der statische Warenkorb- und Checkout-Prozess wurden von uns inhaltlich beurteilt, angepasst und in den Gesamtkontext des Studienprojekts eingeordnet.
 
@@ -185,6 +192,6 @@ Zu den konkreten KI-Beiträgen gehörten Codeentwürfe für wiederkehrende Seite
 
 Die KI hat keine eigenständigen Projektentscheidungen getroffen und war nicht für die finale Qualitätskontrolle verantwortlich. Generierter oder vorgeschlagener Code wurde von uns im Projektkontext geprüft, ausgeführt und bei Bedarf verändert. Dazu gehörten unter anderem Kontrollen der Navigation, lokaler Dateipfade, responsiver Darstellung, Preis- und Auswahlzustände, JavaScript-Syntax sowie des Zusammenspiels zwischen Konfigurator, Warenkorb und Checkout. Technische und inhaltliche Fehler in KI-Ausgaben mussten teilweise manuell erkannt und korrigiert werden. Verantwortung für Auswahl, Integration und Funktionsfähigkeit aller übernommenen Ergebnisse lag beim Projektteam.
 
-Verwendete Produktbilder, Logos und Markenbezüge stammen aus den öffentlich verfügbaren SCS-Materialien und wurden für den lokalen Studienprototyp bearbeitet und eingeordnet. Die KI wurde nicht verwendet, um die Herkunft dieser Inhalte oder Rechte daran zu ersetzen oder verbindlich zu beurteilen. Ebenso stellen Preisberechnung, Lieferprüfung, Kundenbewertungen, Bestellung und Zahlung ausschließlich Bestandteile eines nicht produktiven Prototyps dar.
+Verwendete Produktbilder, Logos und Markenbezüge stammen aus den öffentlich verfügbaren SCS-Materialien und wurden für den lokalen Studienprototyp bearbeitet und eingeordnet. Ebenso stellen Preisberechnung, Lieferprüfung, Kundenbewertungen, Bestellung und Zahlung ausschließlich Bestandteile eines nicht produktiven Prototyps dar.
 
 Zusammengefasst war KI ein deutlich genutztes Entwicklungs- und Reflexionswerkzeug, das die Umsetzung beschleunigt und bei technischen sowie textlichen Aufgaben unterstützt hat. Konzeption, Auswahl, Bewertung, Anpassung und Verantwortung für das abgegebene Ergebnis lagen jedoch bei uns als Projektverfassenden.
