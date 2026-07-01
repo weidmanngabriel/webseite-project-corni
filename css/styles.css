@@ -2332,6 +2332,7 @@ fieldset { padding: 0; border: 0; }
   .checkout-side {
     position: static;
   }
+  .faq-image { min-height: 260px; }
 }
 
 @media (max-width: 640px) {
@@ -2475,6 +2476,10 @@ fieldset { padding: 0; border: 0; }
   .checkout-panel {
     padding: 18px;
   }
+  .trust-bar { overflow-x: auto; }
+  #kundenprojekte .category-card img { height: 180px; }
+  .faq-image { display: none; }
+  .delivery-map { max-height: 260px; }
 }
 
 /* Trust bar */
