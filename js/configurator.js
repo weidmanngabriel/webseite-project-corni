@@ -72,6 +72,7 @@ const claddingSurcharges = {
 const sideWallPrice = 420;
 const renderRoot = 'assets/images/configurator/render';
 
+// Jede gültige Eingabe wird auf diese Bereiche und 0,25-m-Schritte begrenzt.
 const dimensionRules = {
   single: {
     width: { min: 2.5, max: 4.75, step: 0.25 },
@@ -180,6 +181,7 @@ const normalizeDimensions = () => {
 };
 
 const calculateUnitPrice = () => {
+  // Vereinfachtes Prototyp-Modell: Basispreis plus Größe, Höhe und gewählte Ausstattung.
   const area = state.width * state.depth;
   const activeSides = Object.values(state.sides).filter(Boolean).length;
   const sizeSurcharge = Math.max(0, area - 15) * 95;
@@ -290,6 +292,7 @@ const getCladdingSources = (side) => {
 };
 
 const getPreviewLayers = () => {
+  // Alle Ebenen besitzen dieselbe Perspektive und werden im CSS deckungsgleich gestapelt.
   const basePath = getRenderBasePath();
   const roofSlug = coverRenderSlugs[state.cover];
 
@@ -416,6 +419,14 @@ const setupPresets = () => {
   });
 };
 
+const applyPresetFromUrl = () => {
+  // Landingpage-Presets bleiben über einen lesbaren URL-Parameter direkt verlinkbar.
+  const presetKey = new URLSearchParams(window.location.search).get('preset');
+  if (!presetKey || !presets[presetKey]) return;
+
+  setState(presets[presetKey]);
+};
+
 const setupSummaryModal = () => {
   const modal = document.getElementById('summary-modal');
   const modalSummary = document.getElementById('modal-summary');
@@ -461,4 +472,5 @@ setupNumberInputs();
 setupSideSwitches();
 setupPresets();
 setupSummaryModal();
+applyPresetFromUrl();
 render();

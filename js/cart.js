@@ -45,6 +45,7 @@ const createId = () => `scs-${Date.now()}-${Math.random().toString(16).slice(2)}
 const addItem = (item) => {
   const signature = item.signature || JSON.stringify(item.configuration || {});
 
+  // Der MVP verwaltet bewusst genau einen konfigurierten Carport im Warenkorb.
   saveCart([{
     id: createId(),
     signature,
@@ -59,6 +60,7 @@ const removeItem = (id) => {
 const clearCart = () => saveCart([]);
 
 const getDeliveryRegion = (postalCode = '') => {
+  // Lokale Demo-Regel als Ersatz für eine produktive Liefergebiets-API.
   const normalized = postalCode.trim();
   if (!/^\d{5}$/.test(normalized)) return deliveryRegions.forwarding;
 

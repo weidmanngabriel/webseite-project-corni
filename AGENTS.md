@@ -23,6 +23,8 @@ Diese Datei hält projektspezifische Arbeitsregeln sowie den aktuellen Projektst
 - Warenkorb und Checkout sind Teil des MVP als lokaler, statischer Prototyp: eine aktuelle Carport-Konfiguration speichern, visuell als Layer-Vorschau anzeigen, Gutschein testen, Lieferdaten erfassen, Zahlungsart wählen und Bestellbestätigung anzeigen.
 - Echte Zahlung, Login, CMS, Backend und serverseitige Datenübertragung sind weiterhin nicht Teil des MVP.
 - Die README dokumentiert Projektbeschreibung, Setup, Technologieentscheidung, UX-Konzept, Limitierungen, Future Work und AI Use Declaration.
+- Das Projekt ist eine Gruppenarbeit: Cornelius Weidmann verantwortet schwerpunktmäßig Konfigurator, PNG-Layer-Vorschau und technische Umsetzung des Figma-Prototyps; Peter Hollmann verantwortet schwerpunktmäßig die Carport-Landingpage und deren Funnel. Startseite, Checkout und zentrale Konzeptentscheidungen sind Gemeinschaftsarbeit.
+- Die primäre Zielgruppe sind private Bauherren, Eigenheimbesitzer und handwerklich interessierte Heimwerker mit Bedarf an verständlicher Auswahlführung, Preis- und Planungstransparenz sowie Fachberatung.
 
 
 ### Architektonische Entscheidungen
@@ -36,6 +38,7 @@ Diese Datei hält projektspezifische Arbeitsregeln sowie den aktuellen Projektst
 - Wiederverwendbarer Header und Footer liegen in `js/layout.js`; Startseite und Konfiguratorseite nutzen den normalen Header, damit beide Seiten visuell zusammengehören.
 - Die Startseite und der Konfigurator verwenden gemeinsame Komponenten-Patterns für Reviews, Liefergebiet und Kontakt.
 - Die Hauptnavigation führt mit „Carports“ auf `index.html`, mit „Konfigurator“ direkt auf `konfigurator.html` und mit „Holzbau“, „Fassade“ und „Terrasse“ auf die entsprechenden Kategorien des öffentlichen SCS-Holzshops.
+- Die drei Preset-Karten auf `index.html` übergeben ihre Variante per `preset`-URL-Parameter an `konfigurator.html`, wo die zugehörige Auswahl direkt angewendet wird.
 - Checkout-Seiten sind `warenkorb.html`, `checkout.html` und `bestellung.html`; sie bleiben statisch und GitHub-Pages-kompatibel.
 - Alle im Projekt dargestellten Bilder werden lokal aus `assets/` eingebunden; externe SCS- und Social-Media-Seiten werden nur verlinkt.
 - Preisberechnungen dürfen fiktiv sein, müssen aber im Code nachvollziehbar bleiben.
