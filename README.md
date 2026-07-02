@@ -6,13 +6,13 @@ Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators. Der 
 
 Die primäre Zielgruppe sind private Bauherren, Eigenheimbesitzer und handwerklich interessierte Heimwerker, die einen Carport als Bausatz planen und sich vor einer Bestellung verlässlich orientieren möchten. Sie bringen Interesse am Selberbauen mit, sind aber nicht zwingend mit allen konstruktiven Details, Materialien oder Lieferbedingungen vertraut. Deshalb benötigen sie eine verständliche Auswahlführung, eine sofort sichtbare Vorschau, Kostentransparenz und leicht erreichbare Fachberatung.
 
-Die Überarbeitung adressiert vor allem drei Probleme des ursprünglichen Nutzungserlebnisses: Der Einstieg in die Konfiguration sollte durch einen klaren primären CTA schneller erkennbar werden, die umfangreichen Optionen sollten in einer modernen und konsistenten Oberfläche leichter vergleichbar sein und der aktuelle Stand der Konfiguration sollte durch Live-Vorschau, Auswahlzusammenfassung und Preis jederzeit nachvollziehbar bleiben. Die ausführliche Carport-Landingpage ergänzt diesen direkten Einstieg für Nutzerinnen und Nutzer, die vor der Konfiguration noch Planungsinformationen benötigen.
+Die Überarbeitung adressiert vor allem drei Probleme des ursprünglichen Nutzungserlebnisses: Der Einstieg in die Konfiguration sollte durch einen klaren primären CTA schneller erkennbar werden, die umfangreichen Optionen sollten in einer modernen und konsistenten Oberfläche leichter vergleichbar sein und der aktuelle Stand der Konfiguration sollte durch Live-Vorschau, Auswahlzusammenfassung und Preis jederzeit nachvollziehbar bleiben.
 
 ## Vorgehen und Konzeptgrundlage
 
 Eine saubere Planung war ein zentraler Teil des Projekts. Vor der Umsetzung wurden Informationshierarchie, Seitenstruktur, Nutzerführung, visuelle Zustände und der Weg von der ersten Orientierung bis zum Checkout im Figma-Prototyp festgelegt. Dadurch konnten HTML, CSS und JavaScript anschließend auf einer konsistenten Grundlage umgesetzt werden. Der Figma-Prototyp und die zugrunde liegenden UX-Entscheidungen wurden vom Projektteam selbst erarbeitet.
 
-Aus dieser Planung entstand ein zweistufiger Einstieg: `home.html` bildet den breiten SCS-Shop-Kontext ab, während `index.html` Carport-Interessierte gezielt über Nutzenargumente, Presets, Lieferinformationen, Referenzen und Beratung in den Konfigurator führt. `info.html` ergänzt später eine vertiefende Informationsseite zu Carport-Typen, Material, Genehmigung, Lieferung und Aufbau.
+Aus dieser Planung entstand ein zweistufiger Einstieg: `home.html` bildet den breiten SCS-Shop-Kontext ab, während `index.html` Carport-Interessierte gezielt über Nutzenargumente, Presets, Lieferinformationen, Referenzen und Beratung in den Konfigurator führt.
 
 
 ## Live-URL
@@ -54,7 +54,6 @@ Die Abgabe soll laut Aufgabenstellung enthalten:
 /
 ├── home.html               # Überarbeitete Startseite im Stil des allgemeinen SCS-Holzshops
 ├── index.html              # Carport-Landingpage, erreichbar über „Carports“
-├── info.html               # Ausführliche Informationen zu Planung, Lieferung und Aufbau
 ├── konfigurator.html       # Hauptseite mit Carport-Konfigurator
 ├── warenkorb.html          # Warenkorb mit Konfigurationsvorschau
 ├── checkout.html           # Simulierter Checkout mit Adresse, Versand, Zahlung und Prüfung
@@ -156,7 +155,7 @@ Die zentralen Conversion-Ziele sind der Start des Konfigurators, die vollständi
 
 - Der Aufbau des Configurators orientiert sich am zuvor entwickelten Figma-/PNG-Prototypen und an typischen SCS-Shop-Elementen.
 - Die wesentliche Informationsarchitektur und der geplante Funktionsumfang konnten umgesetzt werden. Einzelne UI-Details wie stärker hervorgehobene Auswahl-, Hover- und Zustandsdarstellungen wurden während der Implementierung weiterentwickelt, um Interaktionen eindeutiger zu machen.
-- `info.html` kam im Projektverlauf als vertiefende Informationsseite hinzu. `index.html` wurde später als fokussierte Carport-Landingpage ergänzt, damit Personen mit konkretem Carport-Interesse einen klareren Funnel erhalten.
+- `index.html` dient als fokussierte Carport-Landingpage, damit Personen mit konkretem Carport-Interesse einen klaren Funnel erhalten.
 - Alle Produkt-, Service-, Zahlungs- und Lieferzonenbilder werden lokal aus `assets/` eingebunden, damit die ZIP-Abgabe ohne externe Bildquellen funktioniert. Externe Links führen lediglich zu weiterführenden SCS- und Social-Media-Seiten.
 - Der Prototyp nutzt fiktive, im Code nachvollziehbare Preisregeln.
 - Die Vorschau kombiniert ausgeschnittene, deckungsgleiche PNG-Ebenen für Konstruktion, Dach und Seiten.

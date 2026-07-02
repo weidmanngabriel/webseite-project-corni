@@ -18,7 +18,6 @@ Diese Datei hält projektspezifische Arbeitsregeln sowie den aktuellen Projektst
 - Die Website soll über GitHub Pages live erreichbar sein und am Ende als ZIP mit Code und Dokumentation eingereicht werden können.
 - `home.html` ist die primäre Startseite im Stil der allgemeinen SCS-Holzshop-Startseite. Sie ist breiter als eine reine Carport-Landingpage angelegt, hebt Carports und den Konfigurator aber klar hervor.
 - `index.html` bleibt als zusätzliche Carport-Einstiegsseite im Projekt erhalten und ist über den Navigationspunkt „Carports“ erreichbar; Logo, Breadcrumbs und allgemeine Startseitenlinks führen auf `home.html`.
-- Die Carport-Landingpage (`info.html`) ist eine eigene Informationsseite für Nutzerinnen und Nutzer mit konkretem Carport-Interesse und erklärt Typen, Material, Planung, Baugenehmigung, Lieferung und Aufbau.
 - Die Konfigurator-Seite (`konfigurator.html`) ist der Hauptfokus und enthält eine bedienbare Auswahl-Logik für Carport-Art, Dachform, Maße, Dacheindeckung und Seitenverkleidung.
 - Warenkorb und Checkout sind Teil des MVP als lokaler, statischer Prototyp: eine aktuelle Carport-Konfiguration speichern, visuell als Layer-Vorschau anzeigen, Gutschein testen, Lieferdaten erfassen, Zahlungsart wählen und Bestellbestätigung anzeigen.
 - Echte Zahlung, Login, CMS, Backend und serverseitige Datenübertragung sind weiterhin nicht Teil des MVP.
