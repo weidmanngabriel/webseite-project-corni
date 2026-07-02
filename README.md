@@ -119,8 +119,6 @@ Neue Seiten binden Header und Footer über `js/layout.js` ein:
 <script src="js/layout.js"></script>
 ```
 
-Für die Startseite kann `current="home"` verwendet werden; für die Konfigurator-Seite `current="carport"`.
-Die Startseite nutzt bewusst den normalen Header, damit sie gestalterisch näher an der Konfigurator-Seite bleibt.
 
 ## UX- und Conversion-Rate-Entscheidungen
 
@@ -139,7 +137,7 @@ Die zentralen Conversion-Ziele sind der Start des Konfigurators, die vollständi
 
 ## Konzept und Abweichungen
 
-- Der Aufbau orientiert sich am zuvor entwickelten Figma-/PNG-Prototypen und an typischen SCS-Shop-Elementen.
+- Der Aufbau des Configurators orientiert sich am zuvor entwickelten Figma-/PNG-Prototypen und an typischen SCS-Shop-Elementen.
 - Die wesentliche Informationsarchitektur und der geplante Funktionsumfang konnten umgesetzt werden. Einzelne UI-Details wie stärker hervorgehobene Auswahl-, Hover- und Zustandsdarstellungen wurden während der Implementierung weiterentwickelt, um Interaktionen eindeutiger zu machen.
 - `info.html` kam im Projektverlauf als vertiefende Informationsseite hinzu. `index.html` wurde später als fokussierte Carport-Landingpage ergänzt, damit Personen mit konkretem Carport-Interesse einen klareren Funnel erhalten.
 - Alle Produkt-, Service-, Zahlungs- und Lieferzonenbilder werden lokal aus `assets/` eingebunden, damit die ZIP-Abgabe ohne externe Bildquellen funktioniert. Externe Links führen lediglich zu weiterführenden SCS- und Social-Media-Seiten.
@@ -180,7 +178,9 @@ Die Aufgaben wurden nach Verantwortungsbereichen aufgeteilt. „Lead“ bezeichn
 | Konfigurator und Checkout | Joint | Joint |
 | Figma-Konzept und UI-Begründung | Joint | Joint |
 
-Peter Hollmann verantwortete damit federführend die übergreifende Seitenarchitektur, die Wahl des Technologieansatzes sowie die fokussierte Carport-Landingpage mit ihrem Conversion-Funnel. Cornelius Weidmann verantwortete federführend die visuelle Überführung des Konzepts in die Website, die Qualitätssicherung und die Projektdokumentation. Konfigurator und Checkout wurden gemeinsam umgesetzt; dazu gehören Auswahl- und Preislogik, PNG-Layer-Vorschau, Warenkorb und Bestellablauf. Auch der Figma-Prototyp, die zentralen UI-Entscheidungen und deren UX-Begründung entstanden gemeinsam.
+Peter Hollmann übernahm federführend die übergreifende Seitenarchitektur, die Auswahl des Technologieansatzes sowie die Umsetzung der fokussierten Carport-Landingpage und ihres Conversion-Funnels. Cornelius Weidmann verantwortete hauptsächlich die visuelle Überführung des Konzepts in die Website, die Qualitätssicherung und die Projektdokumentation.
+
+Die Konfigurator-Seite und der Checkout-Prozess wurden gemeinsam umgesetzt. Cornelius konzentrierte sich dabei auf die funktionale Entwicklung des Konfigurators, insbesondere auf Auswahl- und Preislogik sowie die PNG-Layer-Vorschau. Peters Schwerpunkt lag auf der Umsetzung der ergänzenden Seitenbereiche sowie des Warenkorb- und Bestellablaufs. Der Figma-Prototyp, die zentralen UI-Entscheidungen und deren UX-Begründung entstanden ebenfalls in gemeinsamer Arbeit.
 
 ## AI Use Declaration
 
