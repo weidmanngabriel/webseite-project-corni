@@ -177,6 +177,8 @@ The configurator page and checkout process were implemented jointly. Cornelius f
 
 During the project, **OpenAI Codex** and **Anthropic Claude Code** were used selectively to support development and documentation. Typical use cases included troubleshooting, reviewing code, improving accessibility, and refining individual passages of text.
 
+AI was also used to generate parts of the code, including initial drafts for HTML structures, CSS rules, and JavaScript functions. These drafts helped with recurring interface elements, responsive behavior, and selected configurator and shopping cart interactions. The generated code was not integrated unchanged; it was reviewed, adjusted to the existing architecture and design, and tested within the complete user flow.
+
 The project concept, UX strategy, Figma prototype, visual design, feature scope, and technical decisions were developed by the project team. AI suggestions were treated as optional input: they were evaluated, adapted, tested, and only included when they matched the intended solution. The team remained responsible for the implementation and final quality assurance.
 
 Product images, logos, and brand references are based on publicly available SCS materials and were adapted for this academic prototype. Prices, customer reviews, delivery checks, orders, and payments are simulated and do not represent a production system.
