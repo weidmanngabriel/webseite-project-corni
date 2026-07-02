@@ -42,3 +42,4 @@ Diese Datei hält projektspezifische Arbeitsregeln sowie den aktuellen Projektst
 - Checkout-Seiten sind `warenkorb.html`, `checkout.html` und `bestellung.html`; sie bleiben statisch und GitHub-Pages-kompatibel.
 - Alle im Projekt dargestellten Bilder werden lokal aus `assets/` eingebunden; externe SCS- und Social-Media-Seiten werden nur verlinkt.
 - Preisberechnungen dürfen fiktiv sein, müssen aber im Code nachvollziehbar bleiben.
+- GitHub Pages wird über `.github/workflows/deploy-protected-pages.yml` aus GitHub Actions veröffentlicht. `scripts/build-protected-site.sh` verschlüsselt dabei alle HTML-Seiten mit StatiCrypt; das Passwort liegt ausschließlich im Repository Secret `STATICRYPT_PASSWORD`.

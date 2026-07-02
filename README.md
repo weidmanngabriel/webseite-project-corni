@@ -17,11 +17,22 @@ Aus dieser Planung entstand ein zweistufiger Einstieg: `home.html` bildet den br
 
 ## Live-URL
 
-Die Website ist über GitHub Pages unter folgender URL vorgesehen:
+Die Website wird passwortgeschützt über GitHub Pages unter folgender URL veröffentlicht:
 
 ```text
 https://weidmanngabriel.github.io/webseite-project-corni/home.html
 ```
+
+Der Quellcode bleibt im Repository wartbar und unverschlüsselt. Beim Deployment verschlüsselt ein GitHub-Actions-Workflow sämtliche HTML-Seiten mit StatiCrypt und veröffentlicht ausschließlich das geschützte Artefakt. Das Passwort liegt als GitHub Actions Secret `STATICRYPT_PASSWORD` vor und wird weder im Code noch in der Commit-Historie gespeichert. CSS-, JavaScript- und Bilddateien bleiben statische Assets; die Seiteninhalte werden erst nach erfolgreicher Passworteingabe im Browser entschlüsselt.
+
+### Passwortgeschütztes Deployment
+
+1. Unter `Settings → Secrets and variables → Actions` ein Repository Secret mit dem Namen `STATICRYPT_PASSWORD` anlegen.
+2. Unter `Settings → Pages → Build and deployment` als Quelle **GitHub Actions** auswählen.
+3. Änderungen auf `main` pushen oder den Workflow **Deploy protected GitHub Pages site** manuell starten.
+4. Nach dem Deployment die Live-URL in einem privaten Browserfenster testen.
+
+Der lokale Quellstand lässt sich weiterhin ohne Passwort öffnen. Für einen lokalen Test des verschlüsselten Builds kann bei gesetzter Umgebungsvariable `STATICRYPT_PASSWORD` das Skript `scripts/build-protected-site.sh` ausgeführt werden. Die generierten Ordner werden nicht versioniert.
 
 ## Abgabeumfang
 
@@ -55,6 +66,12 @@ Die Abgabe soll laut Aufgabenstellung enthalten:
 │   ├── layout.js           # Wiederverwendbarer Header und Footer
 │   ├── main.js             # Tabs, FAQ, PLZ-Check, Scroll-Buttons
 │   └── configurator.js     # Auswahl-State, Preisberechnung, Presets, Warenkorb-Übergabe
+├── scripts/
+│   └── build-protected-site.sh # Erzeugt das verschlüsselte Deployment-Artefakt
+├── .github/workflows/
+│   └── deploy-protected-pages.yml # Automatisches GitHub-Pages-Deployment
+├── package.json             # Fixierte Build-Abhängigkeiten für StatiCrypt
+├── package-lock.json        # Reproduzierbare Versionen des Deployment-Builds
 ├── assets/
 │   ├── icons/              # Lokale Service-, Kontakt- und Social-Icons
 │   ├── images/             # Lokale Produkt-, Hero-, Payment- und Lieferzonenbilder

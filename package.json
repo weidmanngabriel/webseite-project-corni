@@ -1,0 +1,12 @@
+{
+  "name": "scs-carport-studienprojekt",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:protected": "bash scripts/build-protected-site.sh"
+  },
+  "devDependencies": {
+    "staticrypt": "3.5.0",
+    "yargs": "17.7.2"
+  }
+}
