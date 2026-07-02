@@ -18,6 +18,7 @@ cp -R assets css js "$SOURCE_DIR"/
 find "$SOURCE_DIR" -name '.DS_Store' -delete
 
 # Ein fester, nicht geheimer Salt ermöglicht dieselbe Anmeldung auf allen Seiten.
+# Die Freigabe wird nur im jeweiligen Browser gespeichert und läuft nach 24 Stunden ab.
 npx --no-install staticrypt "$SOURCE_DIR"/* \
   --recursive \
   --directory "$OUTPUT_DIR" \
@@ -30,9 +31,15 @@ npx --no-install staticrypt "$SOURCE_DIR"/* \
   --template-placeholder "Passwort" \
   --template-button "Website öffnen" \
   --template-error "Das Passwort ist nicht korrekt." \
-  --template-remember "Für einen Tag angemeldet bleiben" \
+  --template-remember "Dieses Gerät für 24 Stunden freigeben" \
   --template-color-primary "#ffdd00" \
   --template-color-secondary "#f1f1f1"
+
+# Die 24-Stunden-Freigabe ist nach erfolgreicher Passworteingabe verbindlich aktiv.
+# "disabled" verhindert eine versehentliche Deaktivierung; JavaScript liest den
+# gesetzten checked-Zustand weiterhin aus und speichert die Freigabe browserlokal.
+find "$OUTPUT_DIR" -name '*.html' -exec perl -0pi -e \
+  's/id="staticrypt-remember" type="checkbox" name="remember"/id="staticrypt-remember" type="checkbox" name="remember" checked disabled/' {} +
 
 touch "$OUTPUT_DIR/.nojekyll"
 echo "Geschütztes Deployment wurde in $OUTPUT_DIR/ erzeugt."

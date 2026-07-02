@@ -24,6 +24,19 @@ https://weidmanngabriel.github.io/webseite-project-corni/home.html
 
 The source code remains maintainable and unencrypted in the repository. During deployment, a GitHub Actions workflow encrypts all HTML pages with StatiCrypt and publishes only the protected artifact. The password is stored as the GitHub Actions secret `STATICRYPT_PASSWORD` and is not included in either the code or the commit history. CSS, JavaScript, and image files remain static assets; page content is decrypted in the browser only after the correct password has been entered.
 
+### Password-Protected Deployment
+
+The password must be entered separately on every device and in every browser. After successful authentication, access is stored only in that browser's local storage and expires automatically after 24 hours. The 24-hour option is enabled by default and cannot be disabled on the login page. A different browser, another device, private browsing, cleared browser data, or an expired session requires the password again.
+
+1. Open the GitHub repository and go to `Settings → Secrets and variables → Actions`.
+2. Create or update the repository secret `STATICRYPT_PASSWORD` with the password that should protect the website.
+3. Go to `Settings → Pages` and select **GitHub Actions** under **Build and deployment**.
+4. Commit and push the current changes to the `main` branch.
+5. Open the **Actions** tab and confirm that the **Deploy protected GitHub Pages site** workflow completes successfully. Alternatively, start it manually through **Run workflow**.
+6. Open the live URL in a private browser window and verify that the password prompt appears.
+
+For a local test, install the pinned dependencies with `npm ci`, set the `STATICRYPT_PASSWORD` environment variable, and run `npm run build:protected`. The encrypted website is generated in `protected/`; this directory is excluded from version control.
+
 ## Project Structure
 
 ```text
