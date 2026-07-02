@@ -1,131 +1,107 @@
-# SCS Carport-Konfigurator Studienprojekt
+# SCS Carport Configurator Study Project
 
-Studienprojekt-Website zur UX-Überarbeitung des SCS Carport-Konfigurators. Der Fokus liegt auf einer verständlichen Konfigurator-Seite mit Auswahl-Logik, Preisübersicht, Warenkorb und simuliertem Checkout-Prozess.
+Study project website for the UX redesign of the SCS carport configurator. The focus is on an easy-to-understand configurator page with selection logic, a price overview, a shopping cart, and a simulated checkout process.
 
-## Zielgruppe und Problemstellung
+## Target Audience and Problem Statement
 
-Die primäre Zielgruppe sind private Bauherren, Eigenheimbesitzer und handwerklich interessierte Heimwerker, die einen Carport als Bausatz planen und sich vor einer Bestellung verlässlich orientieren möchten. Sie bringen Interesse am Selberbauen mit, sind aber nicht zwingend mit allen konstruktiven Details, Materialien oder Lieferbedingungen vertraut. Deshalb benötigen sie eine verständliche Auswahlführung, eine sofort sichtbare Vorschau, Kostentransparenz und leicht erreichbare Fachberatung.
+The primary target audience consists of private builders, homeowners, and DIY enthusiasts who are planning a carport kit and want reliable guidance before placing an order. They are interested in building it themselves but are not necessarily familiar with every construction detail, material, or delivery condition. They therefore need clear selection guidance, an immediately visible preview, cost transparency, and easily accessible expert advice.
 
-Die Überarbeitung adressiert vor allem drei Probleme des ursprünglichen Nutzungserlebnisses: Der Einstieg in die Konfiguration sollte durch einen klaren primären CTA schneller erkennbar werden, die umfangreichen Optionen sollten in einer modernen und konsistenten Oberfläche leichter vergleichbar sein und der aktuelle Stand der Konfiguration sollte durch Live-Vorschau, Auswahlzusammenfassung und Preis jederzeit nachvollziehbar bleiben.
+The redesign addresses three main problems in the original user experience: the entry point into the configuration should be easier to recognize through a clear primary selection window in the configurator, the extensive options should be easier to compare within a modern and consistent interface, and the current configuration status should remain transparent at all times through a live preview, selection summary, and price.
 
-## Vorgehen und Konzeptgrundlage
+## Approach and Conceptual Foundation
 
-Eine saubere Planung war ein zentraler Teil des Projekts. Vor der Umsetzung wurden Informationshierarchie, Seitenstruktur, Nutzerführung, visuelle Zustände und der Weg von der ersten Orientierung bis zum Checkout im Figma-Prototyp festgelegt. Dadurch konnten HTML, CSS und JavaScript anschließend auf einer konsistenten Grundlage umgesetzt werden. Der Figma-Prototyp und die zugrunde liegenden UX-Entscheidungen wurden vom Projektteam selbst erarbeitet.
+Thorough planning was a central part of the project. Before implementation, the information hierarchy, page structure, user guidance, visual states, and the path from initial orientation to checkout were defined. This provided a consistent foundation for the subsequent implementation in HTML, CSS, and JavaScript. The Figma prototype and the underlying UX decisions were developed by the project team itself.
 
-Aus dieser Planung entstand ein zweistufiger Einstieg: `home.html` bildet den breiten SCS-Shop-Kontext ab, während `index.html` Carport-Interessierte gezielt über Nutzenargumente, Presets, Lieferinformationen, Referenzen und Beratung in den Konfigurator führt.
+This planning resulted in a two-stage entry point: `home.html` represents the broader SCS shop context, while `index.html` guides people interested in carports to the configurator through benefits, presets, delivery information, references, and consultation options.
 
+## Live URL
 
-## Live-URL
-
-Die Website wird passwortgeschützt über GitHub Pages unter folgender URL veröffentlicht:
+The website is published with password protection via GitHub Pages at the following URL:
 
 ```text
 https://weidmanngabriel.github.io/webseite-project-corni/home.html
 ```
 
-Der Quellcode bleibt im Repository wartbar und unverschlüsselt. Beim Deployment verschlüsselt ein GitHub-Actions-Workflow sämtliche HTML-Seiten mit StatiCrypt und veröffentlicht ausschließlich das geschützte Artefakt. Das Passwort liegt als GitHub Actions Secret `STATICRYPT_PASSWORD` vor und wird weder im Code noch in der Commit-Historie gespeichert. CSS-, JavaScript- und Bilddateien bleiben statische Assets; die Seiteninhalte werden erst nach erfolgreicher Passworteingabe im Browser entschlüsselt.
+The source code remains maintainable and unencrypted in the repository. During deployment, a GitHub Actions workflow encrypts all HTML pages with StatiCrypt and publishes only the protected artifact. The password is stored as the GitHub Actions secret `STATICRYPT_PASSWORD` and is not included in either the code or the commit history. CSS, JavaScript, and image files remain static assets; page content is decrypted in the browser only after the correct password has been entered.
 
-### Passwortgeschütztes Deployment
-
-1. Unter `Settings → Secrets and variables → Actions` ein Repository Secret mit dem Namen `STATICRYPT_PASSWORD` anlegen.
-2. Unter `Settings → Pages → Build and deployment` als Quelle **GitHub Actions** auswählen.
-3. Änderungen auf `main` pushen oder den Workflow **Deploy protected GitHub Pages site** manuell starten.
-4. Nach dem Deployment die Live-URL in einem privaten Browserfenster testen.
-
-Der lokale Quellstand lässt sich weiterhin ohne Passwort öffnen. Für einen lokalen Test des verschlüsselten Builds kann bei gesetzter Umgebungsvariable `STATICRYPT_PASSWORD` das Skript `scripts/build-protected-site.sh` ausgeführt werden. Die generierten Ordner werden nicht versioniert.
-
-## Abgabeumfang
-
-Die Abgabe soll laut Aufgabenstellung enthalten:
-
-1. **Live Platform (URL)**: veröffentlichte Projektwebsite.
-2. **Code + Documentation (ZIP archive)**: Repository als ZIP inklusive Code, lokaler Assets und README.
-3. **Video Walkthrough**: 60 Sekunden (±10 Sekunden) mit Fokus auf UX- und Conversion-Entscheidungen.
-4. **Präsentation**: 14-minütige Gruppenpräsentation mit Konzept, Technologie und Live-Demo; Abgabe der Folien als PDF.
-
-## Lokale Nutzung
-
-1. Repository herunterladen oder ZIP entpacken.
-2. `home.html` direkt im Browser öffnen.
-
-## Projektstruktur
+## Project Structure
 
 ```text
 /
-├── home.html               # Überarbeitete Startseite im Stil des allgemeinen SCS-Holzshops
-├── index.html              # Carport-Landingpage, erreichbar über „Carports“
-├── konfigurator.html       # Hauptseite mit Carport-Konfigurator
-├── warenkorb.html          # Warenkorb mit Konfigurationsvorschau
-├── checkout.html           # Simulierter Checkout mit Adresse, Versand, Zahlung und Prüfung
-├── bestellung.html         # Lokale Bestellbestätigung nach Checkout-Abschluss
+├── home.html               # Redesigned homepage styled after the general SCS timber shop
+├── index.html              # Carport landing page, accessible via “Carports”
+├── konfigurator.html       # Main page containing the carport configurator
+├── warenkorb.html          # Shopping cart with configuration preview
+├── checkout.html           # Simulated checkout with address, shipping, payment, and review
+├── bestellung.html         # Local order confirmation after checkout completion
 ├── css/
-│   └── styles.css          # Gemeinsames Styling
+│   └── styles.css          # Shared styling
 ├── js/
-│   ├── cart.js             # LocalStorage-Warenkorb, Checkout-Logik, Bestellbestätigung
-│   ├── layout.js           # Wiederverwendbarer Header und Footer
-│   ├── main.js             # Tabs, FAQ, PLZ-Check, Scroll-Buttons
-│   └── configurator.js     # Auswahl-State, Preisberechnung, Presets, Warenkorb-Übergabe
+│   ├── cart.js             # LocalStorage cart, checkout logic, and order confirmation
+│   ├── layout.js           # Reusable header and footer
+│   ├── main.js             # Tabs, FAQ, postal-code check, and scroll buttons
+│   └── configurator.js     # Selection state, price calculation, presets, and cart transfer
 ├── scripts/
-│   └── build-protected-site.sh # Erzeugt das verschlüsselte Deployment-Artefakt
+│   └── build-protected-site.sh # Generates the encrypted deployment artifact
 ├── .github/workflows/
-│   └── deploy-protected-pages.yml # Automatisches GitHub-Pages-Deployment
-├── package.json             # Fixierte Build-Abhängigkeiten für StatiCrypt
-├── package-lock.json        # Reproduzierbare Versionen des Deployment-Builds
+│   └── deploy-protected-pages.yml # Automated GitHub Pages deployment
+├── package.json             # Pinned build dependencies for StatiCrypt
+├── package-lock.json        # Reproducible deployment build versions
 ├── assets/
-│   ├── icons/              # Lokale Service-, Kontakt- und Social-Icons
-│   ├── images/             # Lokale Produkt-, Hero-, Payment- und Lieferzonenbilder
-│   ├── logos/              # SCS-Logos
-│   └── trust/              # Trust- und Zertifizierungslogos
-└── README.md               # Dokumentation für Abgabe und Setup
+│   ├── icons/              # Local service, contact, and social icons
+│   ├── images/             # Local product, hero, payment, and delivery-zone images
+│   ├── logos/              # SCS logos
+│   └── trust/              # Trust and certification logos
+└── README.md               # Submission and setup documentation
 ```
 
 ## Features
 
-### Startseite
+### Homepage
 
-- `home.html` ist der zentrale Einstieg und das Ziel von Logo, Breadcrumbs und Rücklinks.
-- `index.html` ist die Carport-Einstiegsseite im Projekt und ist über „Carports“ erreichbar.
-- SCS-nahe Benefit-Leiste und Header-Struktur.
-- Header und Footer sind als wiederverwendbare Web Components ausgelagert.
-- Hero-Bereich im gleichen Stil wie die Konfigurator-Seite mit direktem Einstieg in den Konfigurator.
-- SCS-nahe Kategorie-, Preset-, Bewertungs-, Liefergebiet-, FAQ- und Kontakt-Sektionen.
-- PLZ-Dummycheck und beliebte Carport-Konfigurationen als klare Conversion-Einstiege.
-- Service-/Trust-Elemente und gemeinsamer Footer.
-- Warenkorb-Badge im Header zeigt gespeicherte Artikel browser-lokal an.
+- `home.html` is the central entry point and the destination of the logo, breadcrumbs, and back links.
+- `index.html` is the project's carport entry page and is accessible via “Carports.”
+- SCS-inspired benefits bar and header structure.
+- Header and footer are implemented as reusable Web Components.
+- Hero section matching the configurator page, with direct access to the configurator.
+- SCS-inspired category, preset, review, delivery area, FAQ, and contact sections.
+- Dummy postal-code check and popular carport configurations as clear conversion entry points.
+- Service and trust elements, plus a shared footer.
+- The shopping cart badge in the header displays items stored locally in the browser.
 
-### Konfigurator-Seite
+### Configurator Page
 
-- Auswahl für Carport-Art, Dachform, Maße sowie bildbasierte Varianten für Dacheindeckung und Seitenverkleidung.
-- Maßlogik mit unterschiedlichen Breitenbereichen für Einzel- und Doppelcarports sowie Tiefe und Höhe in 0,25-m-Schritten.
-- Live-Preview über deckungsgleiche Render-Layer für Konstruktion, Dachbelag und Seitenverkleidung.
-- Geführter Stepper-Modus für Tablet und Mobil, damit umfangreiche Auswahlgruppen nicht gleichzeitig sichtbar sind.
-- Dynamische Preisberechnung auf Basis einer vereinfachten, fiktiven Logik.
-- Live-Zusammenfassung der aktuellen Auswahl.
-- Preset-Karten für beliebte Konfigurationen.
-- Warenkorb-Übergabe mit gespeicherter Konfiguration, Einzelpreis, Produktdetails und visueller Layer-Vorschau.
-- Produktbeschreibung, technische Daten, Datenblätter/Lieferumfang und Video-Platzhalter über Tabs.
-- Kundenstimmen, Liefergebiet-Dummycheck, FAQ-Akkordeon und Kontaktbereich.
+- Selection of carport type, roof shape, dimensions, and image-based variants for roofing and side cladding.
+- Dimension logic with different width ranges for single and double carports, as well as depth and height in 0.25 m increments.
+- Live preview using aligned rendering layers for the structure, roof covering, and side cladding.
+- Guided stepper mode for tablets and mobile devices so that extensive selection groups are not displayed simultaneously.
+- Dynamic price calculation based on simplified, fictional logic.
+- Live summary of the current selection.
+- Preset cards for popular configurations.
+- Transfer to the shopping cart with the saved configuration, unit price, product details, and visual layer preview.
+- Product description, technical specifications, data sheets/scope of delivery, and video placeholder presented in tabs.
+- Customer testimonials, dummy delivery-area check, FAQ accordion, and contact section.
 
-### Warenkorb und Checkout
+### Shopping Cart and Checkout
 
-- `warenkorb.html` zeigt die aktuelle Carport-Konfiguration, Produktdetails, echte Layer-Vorschau, Entfernen-Funktion, Gutschein-Dummycode `SCS10` und Checkout-Einstieg.
-- Der Warenkorb ist bewusst auf einen Carport-Bausatz ausgelegt; eine neue Konfiguration ersetzt die vorherige Warenkorb-Auswahl.
-- `checkout.html` enthält Kontaktdaten, Lieferadresse, dynamische PLZ-/Versandkostenlogik, Zahlungsart-Auswahl, optionale Nachricht und finale Bestätigung.
-- `bestellung.html` zeigt nach Abschluss eine lokale Bestellbestätigung mit Bestellnummer, Kundendaten, Artikeln und nächstem Beratungs-/Angebotsschritt.
-- Der gesamte Flow nutzt `localStorage`; dadurch bleibt er statisch, GitHub-Pages-kompatibel und ohne Backend lauffähig.
+- `warenkorb.html` displays the current carport configuration, product details, actual layer preview, removal function, dummy voucher code `SCS10`, and access to checkout.
+- The shopping cart is intentionally designed for one carport kit; a new configuration replaces the previous cart selection.
+- `checkout.html` contains contact details, delivery address, dynamic postal-code/shipping-cost logic, payment method selection, an optional message, and final confirmation.
+- After completion, `bestellung.html` displays a local order confirmation with order number, customer details, items, and the next consultation/quotation step.
+- The entire flow uses `localStorage`, keeping it static, compatible with GitHub Pages, and functional without a backend.
 
-## Technologieentscheidung
+## Technology Decision
 
-- **HTML** für die statische Seitenstruktur.
-- **CSS** für Layout, Responsive Design und SCS-nahe Gestaltung.
-- **Vanilla JavaScript** für Interaktionen und Konfigurator-Logik.
-- **Web Components** für den gemeinsamen Header und Footer, damit wiederkehrendes Layout zentral gepflegt wird.
-- **Kein Framework, kein Backend, kein Build-Prozess**, weil der Projektumfang keine komplexe Laufzeit-Infrastruktur erfordert und die Website so lokal aus dem ZIP sowie auf GitHub Pages ohne Installation funktioniert.
-- **Lokale Assets und `localStorage`** ermöglichen eine eigenständig lauffähige Demonstration von Vorschau, Warenkorb und Bestellbestätigung ohne externe Produkt- oder Bestell-API.
+- **HTML** for the static page structure.
+- **CSS** for layout, responsive design, and SCS-inspired styling.
+- **Vanilla JavaScript** for interactions and configurator logic.
+- **Web Components** for the shared header and footer so recurring layout elements can be maintained centrally.
+- **No framework, no backend, and no build process**, because the project scope does not require complex runtime infrastructure and the website therefore works both locally from the ZIP archive and on GitHub Pages without installation.
+- **Local assets and `localStorage`** enable a self-contained demonstration of the preview, shopping cart, and order confirmation without an external product or order API.
 
-## Wiederverwendbarer Header und Footer
+## Reusable Header and Footer
 
-Neue Seiten binden Header und Footer über `js/layout.js` ein:
+New pages include the header and footer through `js/layout.js`:
 
 ```html
 <site-header current="carport"></site-header>
@@ -135,79 +111,78 @@ Neue Seiten binden Header und Footer über `js/layout.js` ein:
 <script src="js/layout.js"></script>
 ```
 
+## UX and Conversion Rate Decisions
 
-## UX- und Conversion-Rate-Entscheidungen
+- The clear primary CTA leads directly to the configurator and makes the most important conversion path visible early.
+- Active options are highlighted visually; hover and focus states provide additional interaction feedback.
+- The live preview, selection summary, and price reduce uncertainty during configuration.
+- Popular configurations provide quick entry points for users without a precise technical preselection.
+- The preset cards on `index.html` open the configurator with the selected variant; type, roof shape, dimensions, covering, and side cladding are transferred directly through a URL parameter.
+- FAQ, delivery area, customer references, and the contact section reduce typical purchasing barriers for a complex, high-priced product.
+- The available selections are intentionally somewhat limited; for example, a different cladding material cannot be selected for each side. This keeps the MVP easy to use.
+- A dedicated CTA for custom requests covers requirements outside the standard selection.
+- The homepage adopts central configurator patterns so that the entry point and product page feel like one coherent flow.
+- Shopping cart and checkout reproduce familiar shop steps and make the complete conversion path tangible in the prototype.
 
-- Der klare Haupt-CTA führt ohne Umweg in den Konfigurator und macht den wichtigsten Conversion-Pfad früh sichtbar.
-- Aktive Optionen werden visuell hervorgehoben; Hover- und Fokuszustände geben zusätzliches Interaktionsfeedback.
-- Live-Vorschau, Auswahlzusammenfassung und Preis reduzieren Unsicherheit während der Konfiguration.
-- Beliebte Konfigurationen bieten schnelle Einstiegspunkte für Nutzerinnen und Nutzer ohne genaue technische Vorauswahl.
-- Die Preset-Karten auf `index.html` öffnen den Konfigurator mit der gewählten Variante; Typ, Dachform, Maße, Eindeckung und Seitenverkleidung werden über einen URL-Parameter direkt übernommen.
-- FAQ, Liefergebiet, Kundenreferenzen und Kontaktbereich reduzieren typische Kaufbarrieren bei einem erklärungsbedürftigen und hochpreisigen Produkt.
-- Die Auswahlmöglichkeiten sind bewusst leicht eingeschränkt; beispielsweise kann nicht für jede Seite ein anderes Verkleidungsmaterial gewählt werden. Das hält die Bedienung im MVP übersichtlich.
-- Für Anforderungen außerhalb der Standardauswahl gibt es einen eigenen CTA für Sonderwünsche.
-- Die Startseite übernimmt zentrale Konfigurator-Patterns, damit Einstieg und Produktseite wie ein zusammenhängender Flow wirken.
-- Warenkorb und Checkout bilden vertraute Shop-Schritte ab und machen den vollständigen Conversion-Pfad im Prototyp erlebbar.
+The central conversion goals are starting the configurator, completing a variant selection, transferring it to the shopping cart, completing the simulated checkout, and—where requirements remain open or individual—contacting the expert consultation team.
 
-Die zentralen Conversion-Ziele sind der Start des Konfigurators, die vollständige Auswahl einer Variante, die Übernahme in den Warenkorb, der Abschluss des simulierten Checkouts und – bei offenen oder individuellen Anforderungen – die Kontaktaufnahme mit der Fachberatung.
+## Concept and Deviations
 
-## Konzept und Abweichungen
+- The configurator structure is based on the previously developed Figma/PNG prototype and typical SCS shop elements.
+- The core information architecture and planned functionality were implemented. Individual UI details, such as more prominent selection, hover, and state indicators, were refined during implementation to make interactions clearer.
+- `index.html` serves as a focused carport landing page, providing people with a specific interest in carports with a clearer funnel.
+- All product, service, payment, and delivery-zone images are loaded locally from `assets/` so the ZIP submission works without external image sources. External links lead only to additional SCS and social media pages.
+- The prototype uses fictional price rules that are traceable in the code.
+- The preview combines cut-out, aligned PNG layers for the structure, roof, and sides.
+- Delivery checks, shopping cart, checkout, and order confirmation are simulated locally.
 
-- Der Aufbau des Configurators orientiert sich am zuvor entwickelten Figma-/PNG-Prototypen und an typischen SCS-Shop-Elementen.
-- Die wesentliche Informationsarchitektur und der geplante Funktionsumfang konnten umgesetzt werden. Einzelne UI-Details wie stärker hervorgehobene Auswahl-, Hover- und Zustandsdarstellungen wurden während der Implementierung weiterentwickelt, um Interaktionen eindeutiger zu machen.
-- `index.html` dient als fokussierte Carport-Landingpage, damit Personen mit konkretem Carport-Interesse einen klaren Funnel erhalten.
-- Alle Produkt-, Service-, Zahlungs- und Lieferzonenbilder werden lokal aus `assets/` eingebunden, damit die ZIP-Abgabe ohne externe Bildquellen funktioniert. Externe Links führen lediglich zu weiterführenden SCS- und Social-Media-Seiten.
-- Der Prototyp nutzt fiktive, im Code nachvollziehbare Preisregeln.
-- Die Vorschau kombiniert ausgeschnittene, deckungsgleiche PNG-Ebenen für Konstruktion, Dach und Seiten.
-- Lieferprüfung, Warenkorb, Checkout und Bestellbestätigung werden lokal simuliert.
+## Limitations
 
-## Limitierungen
-
-- Kein produktiver Checkout mit Backend-Anbindung.
-- Keine echte Zahlung; Zahlungsarten sind nur auswählbare Prototyp-Optionen.
-- Kundendaten werden nicht übertragen, sondern nur lokal im Browser für die Demo-Bestätigung gespeichert.
-- Kein Backend und keine CMS-Anbindung.
-- Keine echte Lagerbestands- oder Lieferzeitprüfung.
-- Keine echte serverseitige Preisberechnung.
-- Die Liefergebiet-Karte zeigt statisch die vorhandene lokale Lieferzonen-Grafik; die PLZ-Prüfung bleibt eine Dummy-Funktion.
+- No production checkout with backend integration.
+- No real payment; payment methods are selectable prototype options only.
+- Customer data is not transmitted and is stored only locally in the browser for the demo confirmation.
+- No backend or CMS integration.
+- No real stock or delivery-time checks.
+- No real server-side price calculation.
+- The delivery-area map displays the available local delivery-zone graphic statically; the postal-code check remains a dummy function.
 
 ## Future Work
 
-- Produktive Produkt-, Preis-, Verfügbarkeits- und Liefergebiets-APIs anbinden.
-- Backend, echte Zahlung, Bestellübertragung und optionales Kundenkonto ergänzen.
-- Unterschiedliche Verkleidungsmaterialien pro Carport-Seite ermöglichen.
-- Konfigurationen dauerhaft speichern, teilen, exportieren und erneut laden.
-- Inhalte und Produktdaten über ein CMS pflegbar machen.
-- Automatisierte End-to-End-Tests und eine vollständige Accessibility-Prüfung ergänzen.
-- Optional Analytics mit Einwilligungsmanagement und Events für Konfiguratorstart, Preset-Auswahl, Warenkorb und Checkout integrieren.
+- Connect production product, pricing, availability, and delivery-area APIs.
+- Add a backend, real payment, order transmission, and an optional customer account.
+- Allow different cladding materials for each side of the carport.
+- Permanently save, share, export, and reload configurations.
+- Make content and product data manageable through a CMS.
+- Add automated end-to-end tests and a complete accessibility audit.
+- Optionally integrate analytics with consent management and events for configurator starts, preset selection, shopping cart, and checkout.
 
-## Projektteam und Beiträge
+## Project Team and Contributions
 
-Die Aufgaben wurden nach Verantwortungsbereichen aufgeteilt. „Lead“ bezeichnet die federführende Verantwortung, „Input“ eine unterstützende Mitarbeit und „Joint“ eine gemeinsam getragene Umsetzung.
+Tasks were divided by area of responsibility. “Lead” indicates primary responsibility, “Input” indicates a supporting contribution, and “Joint” indicates shared implementation.
 
-| Bereich | Cornelius Weidmann | Peter Hollmann |
+| Area | Cornelius Weidmann | Peter Hollmann |
 | --- | --- | --- |
-| Landingpage und Funnel | Input | Lead |
-| Architektur und Technologie-Stack | Input | Lead |
-| Visuelle UI-Umsetzung | Lead | Input |
-| Testing und Dokumentation | Lead | Input |
-| Konfigurator und Checkout | Joint | Joint |
-| Figma-Konzept und UI-Begründung | Joint | Joint |
+| Landing page and funnel | Input | Lead |
+| Architecture and technology stack | Input | Lead |
+| Visual UI implementation | Lead | Input |
+| Testing and documentation | Lead | Input |
+| Configurator and checkout | Joint | Joint |
+| Figma concept and UI rationale | Joint | Joint |
 
-Peter Hollmann übernahm federführend die übergreifende Seitenarchitektur, die Auswahl des Technologieansatzes sowie die Umsetzung der fokussierten Carport-Landingpage und ihres Conversion-Funnels. Cornelius Weidmann verantwortete hauptsächlich die visuelle Überführung des Konzepts in die Website, die Qualitätssicherung und die Projektdokumentation.
+Peter Hollmann took the lead on the overall page architecture, selection of the technology approach, and implementation of the focused carport landing page and its conversion funnel. Cornelius Weidmann was primarily responsible for visually translating the concept into the website, quality assurance, and project documentation.
 
-Die Konfigurator-Seite und der Checkout-Prozess wurden gemeinsam umgesetzt. Cornelius konzentrierte sich dabei auf die funktionale Entwicklung des Konfigurators, insbesondere auf Auswahl- und Preislogik sowie die PNG-Layer-Vorschau. Peters Schwerpunkt lag auf der Umsetzung der ergänzenden Seitenbereiche sowie des Warenkorb- und Bestellablaufs. Der Figma-Prototyp, die zentralen UI-Entscheidungen und deren UX-Begründung entstanden ebenfalls in gemeinsamer Arbeit.
+The configurator page and checkout process were implemented jointly. Cornelius focused on the functional development of the configurator, particularly its selection and pricing logic and the PNG layer preview. Peter focused on implementing the supplementary page areas and the shopping cart and ordering flow. The Figma prototype, central UI decisions, and their UX rationale were also developed collaboratively.
 
 ## AI Use Declaration
 
-Für die Entwicklung dieses Studienprojekts wurden **OpenAI Codex** und **Anthropic Claude** als generative Entwicklungsassistenten eingesetzt. Der Einsatz war umfangreich und umfasste insbesondere Vorschläge für HTML-, CSS- und JavaScript-Strukturen, die Formulierung und Überarbeitung einzelner Texte, die Fehlersuche, Hinweise zur Barrierefreiheit, die Dokumentation sowie die Diskussion möglicher UX- und Architekturentscheidungen. KI-generierte Vorschläge wurden dabei nicht ungeprüft als fertige Lösung übernommen, sondern als Entwürfe, technische Hilfestellung und Grundlage für weitere Überarbeitungen verwendet.
+**OpenAI Codex** and **Anthropic Claude** were used as generative development assistants during the development of this study project. Their use was extensive and included suggestions for HTML, CSS, and JavaScript structures; drafting and revising individual texts; debugging; accessibility guidance; documentation; and discussions of possible UX and architecture decisions. AI-generated suggestions were not adopted unchecked as finished solutions, but were used as drafts, technical assistance, and a basis for further revision.
 
-Die für das Projekt maßgeblichen Arbeiten und Entscheidungen wurden von uns selbst durchgeführt. Dazu zählen vor allem die Auswahl und Eingrenzung des Projektthemas, die Analyse des bestehenden SCS-Carport-Konfigurators, die Definition der Anforderungen und des MVP, die Bewertung der Nutzerführung, die Auswahl und Priorisierung der Funktionen, die gestalterische Ausrichtung, die Zusammenstellung der Inhalte und Medien sowie die Entscheidung, welche KI-Vorschläge tatsächlich zum Projekt passen. Auch die Bedienabläufe, Konfigurationsmöglichkeiten, Preset-Varianten und der statische Warenkorb- und Checkout-Prozess wurden von uns inhaltlich beurteilt, angepasst und in den Gesamtkontext des Studienprojekts eingeordnet.
+The work and decisions central to the project were carried out by us. These include selecting and defining the project topic, analyzing the existing SCS carport configurator, defining the requirements and MVP, evaluating user guidance, selecting and prioritizing features, determining the visual direction, compiling content and media, and deciding which AI suggestions genuinely suited the project. We also reviewed, adapted, and placed the interaction flows, configuration options, preset variants, and static shopping cart and checkout process within the overall context of the study project.
 
-Zu den konkreten KI-Beiträgen gehörten Codeentwürfe für wiederkehrende Seitenstrukturen, Zustands- und Warenkorblogik, responsive CSS-Regeln, Accessibility-Ergänzungen sowie Formulierungsvorschläge für README und Seitentexte. Diese Ergebnisse wurden an den selbst erstellten Figma-Prototyp, die SCS-nahe Gestaltung und den definierten MVP angepasst. Beispielsweise wurden Navigation und Seitenrollen mehrfach korrigiert, Presets an den tatsächlichen Konfigurationszustand angebunden, externe Bildpfade durch lokale Assets ersetzt und widersprüchliche Checkout-Texte überarbeitet. Vorschläge, die unnötige Komplexität erzeugt oder nicht zum statischen Projektumfang gepasst hätten, wurden nicht übernommen.
+Specific AI contributions included code drafts for recurring page structures, state and shopping cart logic, responsive CSS rules, accessibility additions, and wording suggestions for the README and page content. These results were adapted to the team's Figma prototype, the SCS-inspired design, and the defined MVP. For example, navigation and page roles were corrected several times, presets were connected to the actual configuration state, external image paths were replaced with local assets, and contradictory checkout text was revised. Suggestions that would have introduced unnecessary complexity or did not fit the static project scope were not adopted.
 
-Die KI hat keine eigenständigen Projektentscheidungen getroffen und war nicht für die finale Qualitätskontrolle verantwortlich. Generierter oder vorgeschlagener Code wurde von uns im Projektkontext geprüft, ausgeführt und bei Bedarf verändert. Dazu gehörten unter anderem Kontrollen der Navigation, lokaler Dateipfade, responsiver Darstellung, Preis- und Auswahlzustände, JavaScript-Syntax sowie des Zusammenspiels zwischen Konfigurator, Warenkorb und Checkout. Technische und inhaltliche Fehler in KI-Ausgaben mussten teilweise manuell erkannt und korrigiert werden. Verantwortung für Auswahl, Integration und Funktionsfähigkeit aller übernommenen Ergebnisse lag beim Projektteam.
+AI did not make independent project decisions and was not responsible for final quality control. Generated or suggested code was reviewed within the project context, executed, and modified where necessary. This included checks of navigation, local file paths, responsive presentation, price and selection states, JavaScript syntax, and the interaction between the configurator, shopping cart, and checkout. Technical and content errors in AI output sometimes had to be identified and corrected manually. Responsibility for selecting, integrating, and ensuring the functionality of all adopted results remained with the project team.
 
-Verwendete Produktbilder, Logos und Markenbezüge stammen aus den öffentlich verfügbaren SCS-Materialien und wurden für den lokalen Studienprototyp bearbeitet und eingeordnet. Ebenso stellen Preisberechnung, Lieferprüfung, Kundenbewertungen, Bestellung und Zahlung ausschließlich Bestandteile eines nicht produktiven Prototyps dar.
+The product images, logos, and brand references used originate from publicly available SCS materials and were edited and contextualized for the local study prototype. Likewise, price calculation, delivery checks, customer reviews, ordering, and payment are exclusively components of a non-production prototype.
 
-Zusammengefasst war KI ein deutlich genutztes Entwicklungs- und Reflexionswerkzeug, das die Umsetzung beschleunigt und bei technischen sowie textlichen Aufgaben unterstützt hat. Konzeption, Auswahl, Bewertung, Anpassung und Verantwortung für das abgegebene Ergebnis lagen jedoch bei uns als Projektverfassenden.
+In summary, AI was used extensively as a development and reflection tool that accelerated implementation and supported both technical and writing tasks. However, the conception, selection, evaluation, adaptation, and responsibility for the submitted result remained with us as the project's authors.
